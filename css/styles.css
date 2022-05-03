@@ -1,0 +1,774 @@
+/* main index page */
+
+.container { 
+    padding: 3em 3em;
+    background-color: #f7f4fa;
+    /* font-weight: 300; */
+    line-height: 1;
+    margin: auto;
+   
+}
+
+.project-container { 
+    padding: 3em 3em;
+    /* background-color: white; */
+    /* font-weight: 300; */
+    line-height: 1;
+    margin: auto;
+ 
+   
+}
+
+h1 {
+    text-align: center;
+    font-style: italic;
+    font-family: cursive;
+    
+}
+
+.h3-china {
+    text-align: center;
+}
+
+.menu-grid {
+    display: flex;
+    flex-direction: row;
+    font-size: 1.3em;
+    justify-content: right;
+    height: 10vh;
+    margin-bottom: 1em;
+    text-transform: uppercase;
+    width: 80vw;
+
+}
+
+.menu {
+    display: block;
+    margin: 1.2em;
+    padding: 0.2em;
+}
+
+.menu, a{
+    text-decoration: none;
+    color: #0f0000;
+    border-radius: .4em;
+    padding: .5em;
+}
+
+.menu a:hover{
+background-color: #2e2020;
+color: white;
+}
+
+.main-content {
+    margin-top: 2.5em ;
+    margin-left: 5em;
+    display: flex;
+    flex-direction: row;
+    font-size: 1.3em;
+    line-height: 150%;
+    width: 80vw;
+    justify-content: center;  
+}
+
+.profile-picture img{
+    width:22em;
+
+}
+
+.profile-text{
+    margin-left: 1.5em;
+    margin-top: 2em;
+    margin-right: 1em;
+    text-align: justify;
+    font-size: 1em;
+}
+.profile-text a{
+    color: #970808ec;
+    font-weight: 400;
+    padding: 0px;
+}
+
+.social-media {
+    margin-left:40%;
+}
+.socials img{
+    width: 4em;
+    
+}
+
+.copyright{
+    display: flex;
+    justify-content: center;
+    font-size: 0.9em;
+    margin-top: 1.5em;
+    font-weight: 700;
+    color: #1b1919;
+}
+
+footer{
+    font-size: 1.5em;
+}
+
+/* stories page */
+
+.grid-container {
+    margin-top: 2.5em ;
+    margin-left: 2.5em;
+    margin-right: 2.5em;
+    display: flex;
+    flex-direction: row;
+    font-size: 1.3em;
+    line-height: 140%;
+    width: 1140px;
+    justify-content: center;  
+    border-bottom: 0.05em solid black;
+    padding-top: 0em;
+}
+
+.foia-container {
+    margin-top: 2.5em ;
+    margin-left: 2.5em;
+    margin-right: 2.5em;
+    display: flex;
+    flex-direction: row;
+    font-size: 1.3em;
+    line-height: 140%;
+    width: 1140px;
+    justify-content: center;  
+    /* border-bottom: 0.05em solid black; */
+    padding-top: 0em;
+}
+
+.one-image img {
+    width: 23em; 
+    height: 18em;
+    padding-right: 1em; 
+    padding-bottom: 1em;
+
+}
+
+.one-text { 
+    width: 48%;
+    float: left;
+    margin: .5em;
+    margin-top: 0em;
+    font-size: 13pt;
+    font-weight: 300;
+    text-align: justify;
+    padding-top: 0em;
+    
+   
+    /* text-align: justify;
+    margin: .5em;
+    font-size: 1em; */
+
+    
+}
+
+.yams-one-text { 
+    width: 48%;
+    float: left;
+    margin: .auto;
+    margin-top: 0em;
+    font-size: 13pt;
+    font-weight: 300;
+    text-align: justify;
+    padding-top: 0em;
+    
+   
+    /* text-align: justify;
+    margin: .5em;
+    font-size: 1em; */
+
+    
+}
+
+
+/* date */
+
+.date {
+    /*text-align: right;*/
+    font-size: 1em;
+    margin-top: .75em; /*edited*/
+    font-style: italic;
+}
+
+.one-text>a{
+    color: #1c1cc2;
+    font-weight: 600;
+}
+
+
+.two-container {
+    margin-top: 2.5em ;
+    margin-left: 5em;
+    margin-right: 2.5em;
+    display: flex;
+    flex-direction: row;
+    font-size: 1.3em;
+    line-height: 150%;
+    width: 1140px;
+    justify-content: center;  
+    border-bottom: 0.05em solid black;
+    padding-top: 1.5em;
+}
+
+.two-image img {
+    width: 22em; 
+    padding-right: 1em; 
+}
+
+.two-text { 
+    margin-top: 0em;
+    text-align: justify;
+    margin-left: 2.5em ;
+    margin-right: 2.5;
+    font-size: 1em;
+}
+
+.two-text>a{
+    color: #1c1cc2;
+    font-weight: 600;
+}
+
+
+.three-container {
+    margin-top: 2.5em ;
+    margin-left: 5em;
+    margin-right: 2.5em;
+    display: flex;
+    flex-direction: row;
+    font-size: 1.3em;
+    line-height: 150%;
+    width: 1140px;
+    justify-content: center;  
+    border-bottom: 0.05em solid black;
+    padding-top: 1.5em;
+}
+
+.three-image img {
+    width: 23em;
+    height:18em;  
+}
+
+.three-text { 
+    margin-top: 0em;
+    text-align: justify;
+    margin-left: 2.5em ;
+    margin-right: 2.5;
+    font-size: 1em;
+}
+
+.three-text>a{
+    color: #1c1cc2;
+    font-weight: 600;
+}
+
+
+.four-container {
+    margin-top: 2.5em ;
+    margin-left: 5em;
+    margin-right: 2.5em;
+    display: flex;
+    flex-direction: row;
+    font-size: 1.3em;
+    line-height: 150%;
+    width: 1140px;
+    justify-content: center;  
+    border-bottom: 0.05em solid black;
+    padding-top: 1.5em;
+}
+
+.four-image img {
+    width: 22em;  
+}
+
+.four-text { 
+    margin-top: 0em;
+    text-align: justify;
+    margin-left: 2.5em ;
+    margin-right: 2.5;
+    font-size: 1em;
+}
+
+.four-text>a{
+    color: #1c1cc2;
+    font-weight: 600;
+}
+
+
+.five-container {
+    margin-top: 2.5em ;
+    margin-left: 5em;
+    margin-right: 2.5em;
+    display: flex;
+    flex-direction: row;
+    font-size: 1.3em;
+    line-height: 150%;
+    width: 1140px;
+    justify-content: center;  
+    border-bottom: 0.05em solid black;
+    padding-top: 1.5em;
+}
+
+.five-image img {
+    width: 22em;  
+}
+
+.five-text { 
+    margin-top: 0em;
+    text-align: justify;
+    margin-left: 2.5em ;
+    margin-right: 2.5;
+    font-size: 1em;
+}
+
+.five-text>a{
+    color: #1c1cc2;
+    font-weight: 600;
+}
+
+/* foia */
+.foia-text { 
+    margin-top: 0em;
+    text-align: justify;
+    margin-left: .5em ;
+    margin-right: .5em;
+    font-size: 13pt;
+    width: 70%;
+    /* float: left; */
+    margin: .5em;
+    font-weight: 300;
+    padding-top: 0em;
+}
+
+/* project_3 */
+.project-text { 
+    margin-top: 0em;
+    text-align: justify;
+    margin-left: 0 ;
+    margin-right: 0;
+
+}
+.project-container {
+    margin-top: 2.5em ;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    font-size: 1.3em;
+    line-height: 150%;
+    width: 1140px;
+    justify-content: center;  
+    border-bottom: 0.05em solid black;
+    padding-top: 1.5em;
+}
+
+.yams-main {
+    margin-left: 2.5em;
+    margin-right: 2.5em;
+}
+
+.yams-container {
+    margin: 12em;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 0em;
+
+}
+
+.page-controls{
+    width: 100vw;
+}
+
+
+.works-header{
+    display: flex;
+    font-size: 2.3em;
+    justify-content: center;
+    margin-top: 2em;
+    margin-bottom: .8em;
+}
+
+.work-descrption{
+    display: flex;
+    justify-content: center;
+    font-size: 1.3em;
+    text-align: center;
+    margin-bottom: .5em;
+}
+
+.project-header{
+    position:relative;
+    left: 10%;
+    font-size: 1.2em;
+    margin-bottom: 1.2em;
+    margin-top: 1.2em;
+}
+
+.projects{
+    position:relative;
+ 
+    left: 10%;
+    font-size: 1.2em;
+    margin-bottom: 1.2em;
+}
+
+.projects h3{
+    position: relative;
+    margin-bottom: 1.8em;
+    margin-top: 1.8em;
+}
+
+
+.resume-container{
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    min-height: 100px;
+    justify-content: center;
+    font-size: 1.1em;
+
+}
+.right-side a{
+    color: rgba(160, 47, 47, 0.904);
+}
+
+.resume-container .left-side{
+    position: relative;
+    background:#f3f1f1;
+    padding: 10px;
+    color: rgb(0, 0, 0);
+}
+.title h2{
+    font-size: 1.5em;
+    text-transform: uppercase;
+    margin-bottom: .3em;
+    margin-top: .5em;
+}
+.resume-title{
+    position: relative;
+    left: 6em;
+    margin-top: 1.4em;
+    font-size: 1.8em;
+    margin-bottom: 0;
+}
+.cv-body{
+    line-height: 2em;
+
+}
+span{
+    margin-right: 1.8em;
+    font-weight: bold;
+}
+
+.section-c{
+    margin-right: 5em;
+}
+
+.section-d{
+    margin-left: 6em;
+}
+hr{
+    margin-bottom: .7em;
+    margin-top: .5em;
+}
+
+.cv-title{
+    margin-bottom: .8em;
+    margin-top: .5em;
+}
+
+#resume-subtitle{
+    position: relative;
+    left: 9em;
+    font-size: 1.2em;
+    margin-top: 0;
+    margin-bottom: .6em;
+
+}
+.resume-container .right-side{
+   position: relative;
+    background: white;
+    padding: 40px;
+}
+ .profileText{
+     position: relative;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+ }
+
+ .profileText .imgBox{
+     position: relative;
+     
+     
+     overflow: hidden;
+}
+
+.profileText .imgBox img{
+    position:relative;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    width: 400px;
+
+    border-radius: 10px;
+}
+
+
+
+/*   grid stories page*/
+
+.wrapper{
+    width: 120vw;
+    display:grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap:normal;    
+    padding: 1em;
+    padding: 1em;
+    box-sizing: border-box;
+}
+.story-pic{
+    width:fit-content;
+    background-color: rgb(221, 216, 216);
+}
+.china-pic{
+    margin:auto
+}
+
+.wrapper .story-pic >img{
+    width: 100%;
+    justify-content: center;
+}
+
+.page-container{
+    max-width: 100vw;
+    box-sizing: border-box;
+    justify-content: center;
+ 
+    
+}
+
+.grid-header{
+    display: block;
+    margin-top: 1em;
+}
+
+.story-preview{
+    box-sizing: border-box;
+    line-height: 1.6em;
+    position: relative;
+    padding: 1em;
+    background-color: rgb(223, 219, 219);
+    
+}
+
+.story-pic{
+    max-width:fit-content;
+}
+
+
+.story-preview-main>h2{
+padding-top: 3em;
+}
+
+.story-preview>p{
+    font-size: 1.1em;
+}
+
+.story-preview>a{
+    color: blue;
+}
+
+.grid-about a{
+    float: right;
+    padding-right: 1.5em;
+    font-size: 1.2em;
+    color: blue;
+}
+.clearfix{
+    clear: both;
+}
+
+/* Main  Story Page*/
+
+.yams-text-container{
+    justify-content: center;
+   
+width: 50vw;
+display: flex;
+   
+}
+
+.foia-text-container{
+    justify-content: center;
+    width: 50vw;
+    display: flex;
+}
+   
+
+.yams-text{
+    position: relative;
+    left: 25em;
+    display: block;
+    justify-content: center;
+    font-size: 1.1em;
+    line-height: 1.2em;
+}
+
+.foia-end {
+    margin-left: 15em;
+    margin-right: 15em;
+}
+
+.foia-text{
+    position: relative;
+    left: 14em;
+    display: block;
+    justify-content: center;
+    font-size: 1.1em;
+    line-height: 1.2em;
+}
+
+.goback-block{
+    float: right;
+    color: black;
+}
+.story-image img{
+    width:auto;
+    position: relative;
+    
+}
+.foiaicon-image img{
+    width:auto;
+    position: relative;
+
+.story-header{
+    position: relative;
+    right: 2.3em;
+}
+
+.foia-header{
+    position: relative;
+    right: 2.3em;
+}
+
+
+.yams-text .story-header .story2{
+line-height: .5em;
+
+}
+
+
+
+
+
+
+
+@media (max-width:600px){
+    .profile-text{
+        display: block;
+        position: absolute;
+        left: 30px;
+        top: 600px;
+        margin:5px;
+        padding-right: 5px;
+        
+    }
+    .profile-picture{
+        position: absolute;
+        left: 30px;
+    }
+    .social-media{
+        position: absolute;
+        top: 940px;
+        left: 50px;
+        display: block;
+        margin:5px;
+    }
+    .copyrigt{
+        position: absolute;
+        top: 1000px;
+        align-items: center;
+        left: 190px;
+        margin-bottom: 50px;
+        padding-bottom: 20px;
+    }
+    .container{
+       
+        justify-content: center;
+        width: 100%;
+        box-sizing: border-box;
+       padding-left: 0.1em;
+       margin: 0;
+       
+    }
+    .menu a{
+        margin:0;
+        justify-content: center;
+        display: inline-block;
+        
+    }
+    .menu{
+        padding: 0;
+        margin:0.2em;
+    }
+
+   
+
+    .button{
+        display: flex;
+        justify-content: justify;
+        position:absolute;
+        top: 20px;
+        left:0.7em;
+        width: 15px;
+    }
+    .works-header{
+        padding-left: 0.4em;
+    }
+    .work-descrption{
+        padding-left: 0.3em;
+        padding-right: 0.3em;
+    }
+
+    .projects{
+        align-items: center;
+        position: relative;
+        left: 0;
+        padding-left: 1.4em;
+        padding-right: 0.5em;
+        margin-bottom: 1.2em;
+        margin-right: 0.7em;
+    }
+
+    .project-header h3{
+        display: flex;
+        justify-content: left;
+        text-align: left;
+        position: relative;
+        left: 0;
+        margin-left: 0;
+      
+    }
+  
+
+    .resume-container{
+        display: block;
+    }
+
+    
+.resume-btn{
+    position: absolute;
+    right: 10%;
+    display: flex;
+    justify-content: right;
+    width: 80px;
+    top: 10px;
+    text-align: center;
+    box-sizing: border-box;
+    border-style: none;
+}
+
