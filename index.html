@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Stephen Mante Anti, Ph.D. candidate in Communication and Media Studies at the University of Oregon, studying news framing, mental illness stigma, and help-seeking in Ghana.">
-<meta property="og:title" content="Stephen Mante Anti">
+<meta name="description" content="Stephen M. Anti, Ph.D. candidate in Communication and Media Studies at the University of Oregon, studying news framing, mental illness stigma, and help-seeking in Ghana.">
+<meta property="og:title" content="Stephen M. Anti">
 <meta property="og:image" content="https://stephenanti.github.io/images/portrait.jpg">
-<title>Stephen Mante Anti</title>
+<title>Stephen M. Anti</title>
 <style>
 :root {
   --bg: #ffffff;
@@ -29,8 +29,8 @@ a:hover { text-decoration: underline; }
 h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; font-weight: normal; color: #111; }
 .page { max-width: 1060px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
 
-nav.top { background: #dedede; }
-nav.top .page { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 6px 20px; padding-block: 14px; }
+nav.top { padding-top: 14px; }
+nav.top .bar { background: #dedede; border-radius: 4px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 6px 20px; padding: 14px 22px 14px 0; }
 nav.top .home { font-family: Georgia, "Times New Roman", serif; font-size: 21px; font-weight: bold; color: #A3322A; padding-bottom: 2px; border-bottom: 2px solid transparent; }
 nav.top .home-slot { width: 290px; text-align: center; flex: none; }
 nav.top .home:hover { color: #7E241E; text-decoration: none; border-bottom-color: #A3322A; }
@@ -90,10 +90,10 @@ ol.refs li { padding-left: 2em; text-indent: -2em; margin-bottom: 12px; font-siz
 .featured h4 a { color: #111; }
 .featured p { margin: 0 0 12px; font-size: 18px; }
 
-footer { background: #b9b9b9; margin-top: 44px; }
-footer .page { padding-block: 16px; font-size: 16px; color: #111; display: grid; grid-template-columns: 1fr auto 1fr; align-items: baseline; gap: 8px 20px; }
-footer .to-top { justify-self: end; color: #7E241E; }
-footer .to-top:hover { color: #000; }
+footer { margin-top: 44px; padding-bottom: 14px; }
+footer .bar { background: #666666; border-radius: 4px; padding: 16px 22px; font-size: 16px; color: #ffffff; display: grid; grid-template-columns: 1fr auto 1fr; align-items: baseline; gap: 8px 20px; }
+footer .to-top { justify-self: end; color: #ffffff; }
+footer .to-top:hover { color: #ffffff; text-decoration: underline; }
 footer .copy { font-weight: bold; }
 .to-top { font-family: Georgia, "Times New Roman", serif; font-weight: bold; font-size: 18px; color: #A3322A; }
 .to-top:hover { color: #7E241E; }
@@ -105,6 +105,7 @@ main p, main ul.plain, main ol.refs, .intro p { max-width: 50em; }
 
 @media (max-width: 760px) {
   nav.top .home-slot { width: auto; text-align: left; }
+  nav.top .bar { padding-left: 18px; }
   header.intro .page { grid-template-columns: minmax(0, 1fr); gap: 20px; padding-top: 28px; }
   .photo { width: 180px; height: auto; min-height: 0; aspect-ratio: 4 / 5; }
   h1 { font-size: 34px; }
@@ -115,12 +116,12 @@ main p, main ul.plain, main ol.refs, .intro p { max-width: 50em; }
   body { font-size: 17px; }
   nav.top .links { font-size: 18px; gap: 4px 18px; }
   nav.top .home { font-size: 18px; }
-  nav.top .page { justify-content: flex-start; gap: 6px 18px; }
+  nav.top .bar { justify-content: flex-start; gap: 6px 18px; padding: 12px 16px; }
   nav.top .links { display: contents; }
   nav.top .home-slot { display: contents; }
   .grid, .grid.two { grid-template-columns: minmax(0, 1fr); }
-  footer .page { grid-template-columns: minmax(0, 1fr); text-align: center; }
-  footer .page > span:first-child { display: none; }
+  footer .bar { grid-template-columns: minmax(0, 1fr); text-align: center; }
+  footer .bar > span:first-child { display: none; }
   footer .to-top { justify-self: center; }
 }
 </style>
@@ -128,7 +129,7 @@ main p, main ul.plain, main ol.refs, .intro p { max-width: 50em; }
 </head>
 <body>
 <nav class="top">
-  <div class="page">
+  <div class="page"><div class="bar">
     <div class="home-slot"><a class="home js-top" href="./">Home</a></div>
     <div class="links">
       <a href="#research">Research</a>
@@ -138,14 +139,14 @@ main p, main ul.plain, main ol.refs, .intro p { max-width: 50em; }
       <a href="resume/CVAntiSA.pdf" target="_blank" rel="noopener">CV</a>
       <a href="#contact">Contact</a>
     </div>
-  </div>
+  </div></div>
 </nav>
 
 <header class="intro" id="top">
   <div class="page">
-    <img class="photo" id="photo" src="images/portrait.jpg" alt="Stephen Mante Anti">
+    <img class="photo" id="photo" src="images/portrait.jpg" alt="Stephen M. Anti">
     <div>
-      <h1>Stephen Mante Anti</h1>
+      <h1>Stephen M. Anti</h1>
       <p class="position">Ph.D. Candidate, Communication and Media Studies<br>School of Journalism and Communication, University of Oregon</p>
       <p>I study how news frames mental illness, and how those frames move audiences toward or away from seeking help. My research connects health and risk communication with media effects, with a focus on Ghana.</p>
       <p>Before graduate school, I spent more than a decade as a news editor and national television anchor in Accra, and as the U.S. Embassy's media specialist for PEPFAR. I am on the 2026–27 academic job market and expect to complete my Ph.D. in May 2027.</p>
@@ -317,7 +318,7 @@ main p, main ul.plain, main ol.refs, .intro p { max-width: 50em; }
 
 </main>
 
-<footer><div class="page"><span></span><span class="copy">© <span id="yr">2026</span> Stephen Mante Anti</span><a class="js-top to-top" href="./">Back to top ↑</a></div></footer>
+<footer><div class="page"><div class="bar"><span></span><span class="copy">© <span id="yr">2026</span> Stephen M. Anti</span><a class="js-top to-top" href="./">Back to top ↑</a></div></div></footer>
 
 <script>
 (function () {
