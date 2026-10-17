@@ -70,6 +70,10 @@ ol.refs { list-style: none; padding: 0; margin: 0 0 8px; }
 ol.refs li { padding-left: 2em; text-indent: -2em; margin-bottom: 12px; font-size: 18px; }
 
 .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 26px; margin: 12px 0 20px; }
+.more { max-width: none !important; margin: 6px 0 22px; padding: 18px 28px; background: #dedede; border-radius: 4px; text-align: center; font-size: 19px; line-height: 1.55; color: #111; }
+.more em { font-weight: bold; }
+.more a { font-family: Georgia, "Times New Roman", serif; font-weight: bold; font-size: 22px; color: #A3322A; padding: 0 3px; }
+.more a:hover { color: #7E241E; }
 .item { min-width: 0; background: #fff; border: 1px solid #e3e3e3; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,.08), 0 10px 22px rgba(0,0,0,.12); transition: transform .2s ease, box-shadow .2s ease; }
 .item:hover, .featured:hover { transform: translateY(-4px); box-shadow: 0 4px 8px rgba(0,0,0,.10), 0 18px 34px rgba(0,0,0,.16); }
 @media (prefers-reduced-motion: reduce) { .item, .featured { transition: none; } .item:hover, .featured:hover { transform: none; } }
@@ -278,6 +282,7 @@ main p, main ul.plain, main ol.refs, .intro p { max-width: 50em; }
 
   <h3>Broadcast</h3>
   <div class="grid" id="tv"></div>
+  <p class="more">Also: <em>Election Watch</em>, a four-part data-driven forecast series for Ghana's 2020 elections, produced with University of Ghana statisticians and political scientists (TV3, 2020). Episodes <a href="https://www.youtube.com/watch?v=_5BZUcHAT_g" target="_blank" rel="noopener">1</a>, <a href="https://www.youtube.com/watch?v=plwQDqIxWqE" target="_blank" rel="noopener">2</a>, <a href="https://www.youtube.com/watch?v=K7_nN-Kkvdw" target="_blank" rel="noopener">3</a>, and <a href="https://www.youtube.com/watch?v=FF6ZmCj_gek" target="_blank" rel="noopener">4</a>.</p>
 
   <h3>Data journalism</h3>
   <div class="grid" id="data"></div>
@@ -325,7 +330,6 @@ main p, main ul.plain, main ol.refs, .intro p { max-width: 50em; }
     ["images/work/hot-issues-asante.jpg", "Hot Issues with Dr. S. K. B. Asante", "On Ghana's Constitution Day. TV3, January 2020", "https://www.youtube.com/watch?v=BAElGM_9dek"],
     ["images/work/hot-issues-simons.jpg", "Hot Issues with Bright Simons of IMANI", "On the review of the Communications Service Tax. TV3, December 2019", "https://www.youtube.com/watch?v=Jp5-46KQuIE"],
     ["yt:wW7IQw_h0NY", "Research on MPs' performance ahead of the 2020 elections", "3News, June 2019", "https://www.youtube.com/watch?v=wW7IQw_h0NY"],
-    ["yt:FF6ZmCj_gek", "Election Watch, Episode 4", "The final episode of a data-driven forecast series produced during the COVID-19 pandemic with University of Ghana statisticians and political scientists. TV3, 2020", "https://www.youtube.com/watch?v=FF6ZmCj_gek"],
     ["yt:KNO_ueni7p0", "COVID-19 update: Obuasi case count jumps", "Pandemic health reporting. 3News", "https://www.youtube.com/watch?v=KNO_ueni7p0"],
     ["yt:kPly8qkjxx4", "Midday Live", "Full bulletin. TV3, April 2020", "https://www.youtube.com/watch?v=kPly8qkjxx4"],
     ["yt:uBb1sJ8VIr8", "News@10", "Full bulletin. TV3, August 2019", "https://www.youtube.com/watch?v=uBb1sJ8VIr8"],
