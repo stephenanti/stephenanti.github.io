@@ -10,7 +10,10 @@
 /* Layout: single reading column (~680px) with charts breaking slightly wider; same identity as the portfolio */
 :root {
   --paper: #ffffff; --surface: #ffffff; --ink: #222222; --muted: #666666; --line: #e2e2e2; --accent: #1d4f91;
-  --up: #00806A; --flat: #BFC8C3; --down: #B06A00; --up-soft: #DCEBE6; --down-soft: #F3E6CF;
+  --up: #2A62A6; --flat: #CFCFCF; --down: #B5462E;
+  --m-up: #3F86C2; --m-flat: #DADADA; --m-down: #E08A2E;
+  --g-up: #2D8A6E; --g-down: #C7533D;
+  --s-up: #5577C4; --s-down: #C99A1E;
   --display: Georgia, "Times New Roman", serif;
   --body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --mono: var(--body);
@@ -43,6 +46,7 @@ section { padding-block: 32px; }
 .legend li { display: flex; align-items: center; gap: 7px; }
 .sw { width: 12px; height: 12px; border-radius: 3px; flex: none; }
 .sw.up { background: var(--up); } .sw.flat { background: var(--flat); } .sw.down { background: var(--down); }
+.sw.m-up { background: var(--m-up); } .sw.m-flat { background: var(--m-flat); } .sw.m-down { background: var(--m-down); }
 
 /* Split bar */
 .splitbar { display: flex; gap: 3px; height: 56px; margin: 8px 0 18px; }
@@ -83,6 +87,7 @@ th { font-family: var(--mono); font-weight: 500; font-size: 11.5px;   color: var
 .district dt { color: var(--muted); } .district dd { margin: 0; font-variant-numeric: tabular-nums; font-weight: 600; text-align: right; }
 .bar { height: 6px; border-radius: 3px; background: var(--line); grid-column: 1 / -1; margin-top: -2px; overflow: hidden; }
 .bar span { display: block; height: 100%; border-radius: 3px; background: var(--muted); }
+#sb .bar span { background: #5B7FA6; } #tr .bar span { background: #B9893A; }
 blockquote { margin: 26px 0; padding: 0 0 0 20px; border-left: 2px solid var(--accent); font-family: var(--display); font-size: 22px; line-height: 1.4; }
 blockquote cite { display: block; margin-top: 8px; font-family: var(--mono); font-style: normal; font-size: 12px; color: var(--muted);  }
 .method { border-top: 1px solid var(--line); margin-top: 24px; padding-top: 28px; font-size: 15px; color: var(--muted); }
@@ -144,7 +149,7 @@ footer .col { padding-block: 28px 48px; font-family: var(--mono); font-size: 12p
     <div class="col wide">
       <div class="fig">
         <p class="fig-title">Share of districts that improved, held steady, or declined, by measure</p>
-        <ul class="legend"><li><span class="sw up"></span>Improved</li><li><span class="sw flat"></span>No change</li><li><span class="sw down"></span>Declined</li></ul>
+        <ul class="legend"><li><span class="sw m-up"></span>Improved</li><li><span class="sw m-flat"></span>No change</li><li><span class="sw m-down"></span>Declined</li></ul>
         <div id="measures"></div>
         <details>
           <summary>Show as table</summary>
@@ -268,9 +273,9 @@ footer .col { padding-block: 28px 48px; font-family: var(--mono); font-size: 12p
       var x = labW;
       segs.forEach(function (sg, j) {
         var w = sg[1] / n * bw, gap = j < segs.length - 1 ? 2 : 0;
-        var r = s("rect", { x: x, y: y, width: Math.max(0, w - gap), height: barH, rx: 3, fill: "var(--" + sg[0] + ")" }, svg);
+        var r = s("rect", { x: x, y: y, width: Math.max(0, w - gap), height: barH, rx: 3, fill: "var(--m-" + sg[0] + ")" }, svg);
         var p = d.other != null ? sg[1] : pct(sg[1], n);
-        if (w > 44) txt(svg, x + 8, y + barH / 2 + 4, p + "%", "val " + (sg[0] === "flat" ? "" : "inv"));
+        if (w > 44) txt(svg, x + 8, y + barH / 2 + 4, p + "%", "val");
         var hit = s("rect", { x: x, y: y - 6, width: Math.max(w, 1), height: barH + 12, "class": "hit", tabindex: 0 }, svg);
         bindTip(hit, "<b>" + d.m + "</b><br>" + sg[2] + (d.other != null ? "" : "<br>" + p + "% of " + n + " districts"));
         x += w;
@@ -310,7 +315,7 @@ footer .col { padding-block: 28px 48px; font-family: var(--mono); font-size: 12p
       if (narrow) txt(svg, d[1] > 0 ? zero - 4 : zero + 4, y0 + 14, d[0], "lab", d[1] > 0 ? "end" : "start");
       else txt(svg, 0, y + barH / 2 + 4.5, d[0], "lab");
       var w = Math.abs(d[1]) * sc, x = d[1] > 0 ? zero : zero - w;
-      s("rect", { x: x, y: y, width: w, height: barH, rx: 3, fill: d[1] > 0 ? "var(--up)" : "var(--down)" }, svg);
+      s("rect", { x: x, y: y, width: w, height: barH, rx: 3, fill: d[1] > 0 ? "var(--g-up)" : "var(--g-down)" }, svg);
       txt(svg, d[1] > 0 ? zero + w + 6 : zero - w - 6, y + barH / 2 + 4, (d[1] > 0 ? "+" : "") + d[1].toFixed(1), "val", d[1] > 0 ? "start" : "end");
       var hit = s("rect", { x: plotL, y: y0, width: plotW, height: rowH, "class": "hit", tabindex: 0 }, svg);
       bindTip(hit, "<b>" + d[0] + "</b><br>" + (d[1] > 0 ? "+" : "") + d[1].toFixed(1) + " percentage points");
@@ -340,7 +345,7 @@ footer .col { padding-block: 28px 48px; font-family: var(--mono); font-size: 12p
     [0, 25, 50].forEach(function (t) { s("line", { x1: x0 - 8, x2: x1 + 8, y1: y(t), y2: y(t), stroke: "var(--line)" }, svg); txt(svg, x0 - 14, y(t) + 4, t, "val muted", "end"); });
     txt(svg, x0, H - 10, "2018–19", "val muted", "middle"); txt(svg, x1, H - 10, "2020–21", "val muted", "middle");
     A.forEach(function (d) {
-      var c = "var(--" + d[3] + ")";
+      var c = "var(--s-" + d[3] + ")";
       s("line", { x1: x0, y1: y(d[1]), x2: x1, y2: y(d[2]), stroke: c, "stroke-width": 2 }, svg);
       [[x0, d[1]], [x1, d[2]]].forEach(function (p) { s("circle", { cx: p[0], cy: y(p[1]), r: 5, fill: c, stroke: "var(--surface)", "stroke-width": 2 }, svg); });
       txt(svg, x1 + 12, y(d[2]) + 4, d[0], "lab");
