@@ -32,7 +32,8 @@ h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; font-weight: normal
 
 nav.top { border-bottom: 1px solid var(--rule); }
 nav.top .page { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 6px 20px; padding-block: 18px; }
-nav.top .home { font-family: Georgia, serif; font-size: 23px; color: #111; }
+nav.top .home { font-family: Georgia, "Times New Roman", serif; font-size: 21px; font-weight: bold; color: #A3322A; padding-bottom: 2px; border-bottom: 2px solid transparent; }
+nav.top .home:hover { color: #7E241E; text-decoration: none; border-bottom-color: #A3322A; }
 nav.top .links { display: flex; flex-wrap: wrap; gap: 4px 28px; font-family: Georgia, "Times New Roman", serif; font-size: 21px; font-weight: bold; }
 nav.top .links a { color: #A3322A; padding-bottom: 2px; border-bottom: 2px solid transparent; }
 nav.top .links a:hover { color: #7E241E; text-decoration: none; border-bottom-color: #A3322A; }
@@ -103,6 +104,9 @@ main p, main ul.plain, main ol.refs, .intro p { max-width: 50em; }
 @media (max-width: 480px) {
   body { font-size: 17px; }
   nav.top .links { font-size: 18px; gap: 4px 18px; }
+  nav.top .home { font-size: 18px; }
+  nav.top .page { justify-content: flex-start; gap: 6px 18px; }
+  nav.top .links { display: contents; }
   .grid, .grid.two { grid-template-columns: minmax(0, 1fr); }
 }
 </style>
@@ -111,7 +115,7 @@ main p, main ul.plain, main ol.refs, .intro p { max-width: 50em; }
 <body>
 <nav class="top">
   <div class="page">
-    <a class="home" href="#">Stephen Mante Anti</a>
+    <a class="home" href="#top" aria-label="Home">Home</a>
     <div class="links">
       <a href="#research">Research</a>
       <a href="#publications">Publications</a>
@@ -123,7 +127,7 @@ main p, main ul.plain, main ol.refs, .intro p { max-width: 50em; }
   </div>
 </nav>
 
-<header class="intro">
+<header class="intro" id="top">
   <div class="page">
     <img class="photo" id="photo" src="images/portrait.jpg" alt="Stephen Mante Anti">
     <div>
