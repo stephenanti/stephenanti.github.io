@@ -11,7 +11,7 @@
 :root {
   --bg: #ffffff;
   --text: #222222;
-  --muted: #666666;
+  --muted: #222222;
   --rule: #e2e2e2;
   --link: #1d4f91;
   --up: #00806A; --flat: #BFC8C3; --down: #B06A00;
@@ -45,9 +45,9 @@ h1 { font-size: 46px; line-height: 1.15; margin: 0 0 6px; }
 .intro p { margin: 0 0 12px; }
 .contact-line { font-size: 17px; margin-top: 16px !important; }
 .contact-line span { color: #bbb; margin: 0 2px; }
-.social { display: flex; gap: 12px; margin: 10px 0 0; }
-.social img { width: 36px; height: 36px; display: block; opacity: .85; transition: opacity .15s; }
-.social a:hover img { opacity: 1; }
+.social { display: flex; align-items: center; gap: 18px; margin: 12px 0 0; }
+.social img { width: 30px; height: 30px; display: block; transition: transform .15s; }
+.social a:hover img { transform: translateY(-2px); }
 
 section { padding-block: 0; }
 h2 { font-size: 31px; margin: 34px 0 14px; padding-bottom: 6px; border-bottom: 1px solid var(--rule); }
@@ -69,29 +69,34 @@ ul.plain li:last-child { border-bottom: 0; }
 ol.refs { list-style: none; padding: 0; margin: 0 0 8px; }
 ol.refs li { padding-left: 2em; text-indent: -2em; margin-bottom: 12px; font-size: 18px; }
 
-.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 22px; margin: 8px 0 12px; }
-.item { min-width: 0; }
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 26px; margin: 12px 0 20px; }
+.item { min-width: 0; background: #fff; border: 1px solid #e3e3e3; border-radius: 6px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,.08), 0 10px 22px rgba(0,0,0,.12); transition: transform .2s ease, box-shadow .2s ease; }
+.item:hover, .featured:hover { transform: translateY(-4px); box-shadow: 0 4px 8px rgba(0,0,0,.10), 0 18px 34px rgba(0,0,0,.16); }
+@media (prefers-reduced-motion: reduce) { .item, .featured { transition: none; } .item:hover, .featured:hover { transform: none; } }
 .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.item .thumb { display: block; position: relative; aspect-ratio: 16 / 9; max-width: 100%; overflow: hidden; background: #ececec; margin-bottom: 8px; }
+.item .thumb { display: block; position: relative; aspect-ratio: 16 / 9; max-width: 100%; overflow: hidden; background: #ececec; margin-bottom: 0; }
 .item .thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .3s ease; }
 .item .thumb:hover img { transform: scale(1.04); }
 @media (prefers-reduced-motion: reduce) { .item .thumb img { transition: none; } }
 .item .thumb .alt { position: absolute; inset: 0; display: grid; place-items: center; padding: 10px; text-align: center; color: #777; font-size: 14px; }
-.item h4 { font-size: 18px; font-weight: 600; line-height: 1.35; margin: 0 0 4px; }
+.item h4 { font-size: 21px; font-weight: 600; line-height: 1.3; margin: 0; padding: 16px 18px 6px; }
 .item h4 a { color: #111; }
 .item h4 a:hover { color: var(--link); }
-.item p { font-size: 16px; color: var(--muted); margin: 0; }
-.featured { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 24px; align-items: center; margin: 8px 0 20px; }
+.item p { font-size: 16px; color: var(--muted); margin: 0; padding: 0 18px 18px; }
+.featured { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 28px; align-items: center; margin: 12px 0 28px; padding: 22px; background: #fff; border: 1px solid #e3e3e3; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,0,0,.08), 0 10px 22px rgba(0,0,0,.12); transition: transform .2s ease, box-shadow .2s ease; }
 .featured .thumb { display: block; aspect-ratio: 16 / 10; max-width: 100%; overflow: hidden; border: 1px solid var(--rule); background: #fff; }
 .featured .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.featured h4 { font-family: Georgia, serif; font-weight: normal; font-size: 25px; margin: 0 0 8px; line-height: 1.25; }
+.featured h4 { font-family: Georgia, serif; font-weight: normal; font-size: 27px; margin: 0 0 8px; line-height: 1.25; }
 .featured h4 a { color: #111; }
 .featured p { margin: 0 0 12px; font-size: 18px; }
 
-footer { background: #dedede; margin-top: 40px; }
-footer .page { padding-block: 16px; font-size: 16px; color: #333; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 20px; }
-footer .to-top { font-family: Georgia, "Times New Roman", serif; font-weight: bold; font-size: 18px; color: #A3322A; }
-footer .to-top:hover { color: #7E241E; }
+footer { background: #b9b9b9; margin-top: 44px; }
+footer .page { padding-block: 16px; font-size: 16px; color: #111; display: grid; grid-template-columns: 1fr auto 1fr; align-items: baseline; gap: 8px 20px; }
+footer .to-top { justify-self: end; color: #7E241E; }
+footer .to-top:hover { color: #000; }
+footer .copy { font-weight: bold; }
+.to-top { font-family: Georgia, "Times New Roman", serif; font-weight: bold; font-size: 18px; color: #A3322A; }
+.to-top:hover { color: #7E241E; }
 
 section > :last-child { margin-bottom: 0; }
 main section { scroll-margin-top: 12px; }
@@ -114,6 +119,9 @@ main p, main ul.plain, main ol.refs, .intro p { max-width: 50em; }
   nav.top .links { display: contents; }
   nav.top .home-slot { display: contents; }
   .grid, .grid.two { grid-template-columns: minmax(0, 1fr); }
+  footer .page { grid-template-columns: minmax(0, 1fr); text-align: center; }
+  footer .page > span:first-child { display: none; }
+  footer .to-top { justify-self: center; }
 }
 </style>
 
@@ -143,9 +151,9 @@ main p, main ul.plain, main ol.refs, .intro p { max-width: 50em; }
       <p>Before graduate school, I spent more than a decade as a news editor and national television anchor in Accra, and as the U.S. Embassy's media specialist for PEPFAR. I am on the 2026–27 academic job market and expect to complete my Ph.D. in May 2027.</p>
       <p class="contact-line"><a href="resume/CVAntiSA.pdf" target="_blank" rel="noopener">CV (PDF)</a> <span>|</span> <a href="mailto:smanti@uoregon.edu">smanti@uoregon.edu</a> <span>|</span> <a href="mailto:sma2263@columbia.edu">sma2263@columbia.edu</a> <span>|</span> <a href="https://orcid.org/0009-0009-2115-2912" target="_blank" rel="noopener">ORCID</a> <span>|</span> <a href="https://journalism.uoregon.edu/directory/graduate-employees/all/smanti" target="_blank" rel="noopener">SOJC profile</a></p>
       <p class="social">
-        <a href="https://twitter.com/stephenanti" target="_blank" rel="noopener" title="Twitter / X"><img src="images/twitter-icon.png" alt="Twitter"></a>
-        <a href="https://www.linkedin.com/in/stephenanti/" target="_blank" rel="noopener" title="LinkedIn"><img src="images/linkedin-icon.png" alt="LinkedIn"></a>
-        <a href="mailto:sma2263@columbia.edu" title="Email"><img src="images/email-icon.png" alt="Email"></a>
+        <a href="https://x.com/stephenanti" target="_blank" rel="noopener" title="X"><img src="images/icons/x.svg" alt="X"></a>
+        <a href="https://www.linkedin.com/in/stephenanti/" target="_blank" rel="noopener" title="LinkedIn"><img src="images/icons/linkedin.svg" alt="LinkedIn"></a>
+        <a href="mailto:sma2263@columbia.edu" title="Email"><img src="images/icons/email.svg" alt="Email"></a>
       </p>
     </div>
   </div>
@@ -167,16 +175,16 @@ main p, main ul.plain, main ol.refs, .intro p { max-width: 50em; }
         <g font-family="Georgia, serif" text-anchor="middle" fill="#222">
           <rect x="4" y="90" width="152" height="70" fill="#fff" stroke="#333"/>
           <text x="80" y="121" font-size="15">News frame</text>
-          <text x="80" y="141" font-size="11.5" fill="#666">fear, empathy, neutral</text>
+          <text x="80" y="141" font-size="11.5" fill="#222">fear, empathy, neutral</text>
           <rect x="196" y="18" width="190" height="62" fill="#fff" stroke="#333"/>
           <text x="291" y="45" font-size="14.5">Controllability appraisal</text>
-          <text x="291" y="65" font-size="11.5" fill="#666">cognitive route</text>
+          <text x="291" y="65" font-size="11.5" fill="#222">cognitive route</text>
           <rect x="196" y="170" width="190" height="62" fill="#fff" stroke="#333"/>
           <text x="291" y="197" font-size="14.5">Fear and empathic concern</text>
-          <text x="291" y="217" font-size="11.5" fill="#666">affective route</text>
+          <text x="291" y="217" font-size="11.5" fill="#222">affective route</text>
           <rect x="452" y="90" width="140" height="70" fill="#fff" stroke="#333"/>
           <text x="522" y="121" font-size="15">Stigma</text>
-          <text x="522" y="141" font-size="11.5" fill="#666">toward psychosis</text>
+          <text x="522" y="141" font-size="11.5" fill="#222">toward psychosis</text>
           <rect x="636" y="90" width="138" height="70" fill="#fff" stroke="#333"/>
           <text x="705" y="121" font-size="15">Help-</text>
           <text x="705" y="140" font-size="15">recommendation</text>
@@ -301,15 +309,15 @@ main p, main ul.plain, main ol.refs, .intro p { max-width: 50em; }
   <p>Email: <a href="mailto:smanti@uoregon.edu">smanti@uoregon.edu</a> or <a href="mailto:sma2263@columbia.edu">sma2263@columbia.edu</a><br>
   <a href="https://orcid.org/0009-0009-2115-2912" target="_blank" rel="noopener">ORCID</a> · <a href="https://journalism.uoregon.edu/directory/graduate-employees/all/smanti" target="_blank" rel="noopener">SOJC profile</a> · <a href="resume/CVAntiSA.pdf" target="_blank" rel="noopener">CV (PDF)</a></p>
   <p class="social">
-    <a href="https://twitter.com/stephenanti" target="_blank" rel="noopener" title="Twitter / X"><img src="images/twitter-icon.png" alt="Twitter"></a>
-    <a href="https://www.linkedin.com/in/stephenanti/" target="_blank" rel="noopener" title="LinkedIn"><img src="images/linkedin-icon.png" alt="LinkedIn"></a>
-    <a href="mailto:sma2263@columbia.edu" title="Email"><img src="images/email-icon.png" alt="Email"></a>
+    <a href="https://x.com/stephenanti" target="_blank" rel="noopener" title="X"><img src="images/icons/x.svg" alt="X"></a>
+    <a href="https://www.linkedin.com/in/stephenanti/" target="_blank" rel="noopener" title="LinkedIn"><img src="images/icons/linkedin.svg" alt="LinkedIn"></a>
+    <a href="mailto:sma2263@columbia.edu" title="Email"><img src="images/icons/email.svg" alt="Email"></a>
   </p>
 </section>
 
 </main>
 
-<footer><div class="page"><span>© <span id="yr">2026</span> Stephen Mante Anti</span><a class="js-top to-top" href="./">Back to top ↑</a></div></footer>
+<footer><div class="page"><span></span><span class="copy">© <span id="yr">2026</span> Stephen Mante Anti</span><a class="js-top to-top" href="./">Back to top ↑</a></div></footer>
 
 <script>
 (function () {
