@@ -33,6 +33,7 @@ h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; font-weight: normal
 nav.top { border-bottom: 1px solid var(--rule); }
 nav.top .page { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 6px 20px; padding-block: 18px; }
 nav.top .home { font-family: Georgia, "Times New Roman", serif; font-size: 21px; font-weight: bold; color: #A3322A; padding-bottom: 2px; border-bottom: 2px solid transparent; }
+nav.top .home-slot { width: 290px; text-align: center; flex: none; }
 nav.top .home:hover { color: #7E241E; text-decoration: none; border-bottom-color: #A3322A; }
 nav.top .links { display: flex; flex-wrap: wrap; gap: 4px 28px; font-family: Georgia, "Times New Roman", serif; font-size: 21px; font-weight: bold; }
 nav.top .links a { color: #A3322A; padding-bottom: 2px; border-bottom: 2px solid transparent; }
@@ -95,6 +96,7 @@ section > :last-child { margin-bottom: 0; }
 main p, main ul.plain, main ol.refs, .intro p { max-width: 50em; }
 
 @media (max-width: 760px) {
+  nav.top .home-slot { width: auto; text-align: left; }
   header.intro .page { grid-template-columns: minmax(0, 1fr); gap: 20px; padding-top: 28px; }
   .photo { width: 180px; height: auto; min-height: 0; aspect-ratio: 4 / 5; }
   h1 { font-size: 34px; }
@@ -107,6 +109,7 @@ main p, main ul.plain, main ol.refs, .intro p { max-width: 50em; }
   nav.top .home { font-size: 18px; }
   nav.top .page { justify-content: flex-start; gap: 6px 18px; }
   nav.top .links { display: contents; }
+  nav.top .home-slot { display: contents; }
   .grid, .grid.two { grid-template-columns: minmax(0, 1fr); }
 }
 </style>
@@ -115,7 +118,7 @@ main p, main ul.plain, main ol.refs, .intro p { max-width: 50em; }
 <body>
 <nav class="top">
   <div class="page">
-    <a class="home" href="#top" aria-label="Home">Home</a>
+    <div class="home-slot"><a class="home" href="#top" aria-label="Home">Home</a></div>
     <div class="links">
       <a href="#research">Research</a>
       <a href="#publications">Publications</a>
