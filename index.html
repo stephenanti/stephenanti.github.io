@@ -35,7 +35,7 @@ nav.top .page { display: flex; flex-wrap: wrap; justify-content: space-between; 
 nav.top .home { font-family: Georgia, serif; font-size: 23px; color: #111; }
 nav.top .links { display: flex; flex-wrap: wrap; gap: 4px 22px; font-size: 17px; }
 
-header.intro .page { display: grid; grid-template-columns: 270px minmax(0, 1fr); gap: 44px; padding-block: 48px 20px; align-items: start; }
+header.intro .page { display: grid; grid-template-columns: 270px minmax(0, 1fr); gap: 44px; padding-block: 40px 0; align-items: start; }
 .photo { width: 270px; max-width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; border-radius: 2px; background: #eee; }
 h1 { font-size: 46px; line-height: 1.15; margin: 0 0 6px; }
 .position { margin: 0 0 18px; color: var(--muted); font-size: 18px; }
@@ -46,8 +46,8 @@ h1 { font-size: 46px; line-height: 1.15; margin: 0 0 6px; }
 .social img { width: 36px; height: 36px; display: block; opacity: .85; transition: opacity .15s; }
 .social a:hover img { opacity: 1; }
 
-section { padding-block: 18px; }
-h2 { font-size: 31px; margin: 22px 0 14px; padding-bottom: 6px; border-bottom: 1px solid var(--rule); }
+section { padding-block: 0; }
+h2 { font-size: 31px; margin: 34px 0 14px; padding-bottom: 6px; border-bottom: 1px solid var(--rule); }
 h3 { font-size: 22px; margin: 24px 0 8px; }
 p { margin: 0 0 14px; }
 .note { color: var(--muted); font-size: 17px; }
@@ -57,7 +57,7 @@ figure .scroll { overflow-x: auto; }
 figure svg { display: block; width: 100%; min-width: 560px; height: auto; }
 figcaption { font-size: 16px; color: var(--muted); margin-top: 8px; }
 
-ul.plain { list-style: none; padding: 0; margin: 0 0 14px; }
+ul.plain { list-style: none; padding: 0; margin: 0 0 10px; }
 ul.plain li { padding: 8px 0; border-bottom: 1px solid #f0f0f0; }
 ul.plain li:last-child { border-bottom: 0; }
 .when { color: var(--muted); font-size: 17px; }
@@ -83,8 +83,10 @@ ol.refs li { padding-left: 2em; text-indent: -2em; margin-bottom: 12px; font-siz
 .featured h4 a { color: #111; }
 .featured p { margin: 0 0 12px; font-size: 18px; }
 
-footer { border-top: 1px solid var(--rule); margin-top: 28px; }
+footer { border-top: 1px solid var(--rule); margin-top: 30px; }
 footer .page { padding-block: 20px 40px; font-size: 16px; color: var(--muted); }
+
+section > :last-child { margin-bottom: 0; }
 
 /* keep running text at a comfortable line length on wide screens */
 main p, main ul.plain, main ol.refs, .intro p { max-width: 50em; }
