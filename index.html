@@ -35,13 +35,13 @@ nav.top .page { display: flex; flex-wrap: wrap; justify-content: space-between; 
 nav.top .home { font-family: Georgia, serif; font-size: 23px; color: #111; }
 nav.top .links { display: flex; flex-wrap: wrap; gap: 4px 22px; font-size: 17px; }
 
-header.intro .page { display: grid; grid-template-columns: 270px minmax(0, 1fr); gap: 44px; padding-block: 40px 0; align-items: start; }
-.photo { width: 270px; max-width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; border-radius: 2px; background: #eee; }
+header.intro .page { display: grid; grid-template-columns: 290px minmax(0, 1fr); gap: 44px; padding-block: 40px 0; align-items: stretch; }
+.photo { width: 290px; max-width: 100%; height: 100%; min-height: 340px; object-fit: cover; object-position: 50% 25%; display: block; border-radius: 2px; background: #eee; }
 h1 { font-size: 46px; line-height: 1.15; margin: 0 0 6px; }
 .position { margin: 0 0 18px; color: var(--muted); font-size: 18px; }
 .intro p { margin: 0 0 12px; }
 .contact-line { font-size: 17px; margin-top: 16px !important; }
-.contact-line span { color: #bbb; margin: 0 6px; }
+.contact-line span { color: #bbb; margin: 0 2px; }
 .social { display: flex; gap: 12px; margin: 10px 0 0; }
 .social img { width: 36px; height: 36px; display: block; opacity: .85; transition: opacity .15s; }
 .social a:hover img { opacity: 1; }
@@ -93,7 +93,7 @@ main p, main ul.plain, main ol.refs, .intro p { max-width: 50em; }
 
 @media (max-width: 760px) {
   header.intro .page { grid-template-columns: minmax(0, 1fr); gap: 20px; padding-top: 28px; }
-  .photo { width: 180px; }
+  .photo { width: 180px; height: auto; min-height: 0; aspect-ratio: 4 / 5; }
   h1 { font-size: 34px; }
   .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .featured { grid-template-columns: minmax(0, 1fr); }
@@ -128,7 +128,7 @@ main p, main ul.plain, main ol.refs, .intro p { max-width: 50em; }
       <p class="position">Ph.D. Candidate, Communication and Media Studies<br>School of Journalism and Communication, University of Oregon</p>
       <p>I study how news frames mental illness, and how those frames move audiences toward or away from seeking help. My research connects health and risk communication with media effects, with a focus on Ghana.</p>
       <p>Before graduate school, I spent more than a decade as a news editor and national television anchor in Accra, and as the U.S. Embassy's media specialist for PEPFAR. I am on the 2026–27 academic job market and expect to complete my Ph.D. in May 2027.</p>
-      <p class="contact-line"><a href="resume/CVAntiSA.pdf" target="_blank" rel="noopener">CV (PDF)</a><span>|</span><a href="mailto:smanti@uoregon.edu">smanti@uoregon.edu</a><span>|</span><a href="mailto:sma2263@columbia.edu">sma2263@columbia.edu</a><span>|</span><a href="https://orcid.org/0009-0009-2115-2912" target="_blank" rel="noopener">ORCID</a></p>
+      <p class="contact-line"><a href="resume/CVAntiSA.pdf" target="_blank" rel="noopener">CV (PDF)</a> <span>|</span> <a href="mailto:smanti@uoregon.edu">smanti@uoregon.edu</a> <span>|</span> <a href="mailto:sma2263@columbia.edu">sma2263@columbia.edu</a> <span>|</span> <a href="https://orcid.org/0009-0009-2115-2912" target="_blank" rel="noopener">ORCID</a></p>
       <p class="social">
         <a href="https://twitter.com/stephenanti" target="_blank" rel="noopener" title="Twitter / X"><img src="images/twitter-icon.png" alt="Twitter"></a>
         <a href="https://www.linkedin.com/in/stephenanti/" target="_blank" rel="noopener" title="LinkedIn"><img src="images/linkedin-icon.png" alt="LinkedIn"></a>
