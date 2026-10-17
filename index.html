@@ -68,6 +68,7 @@ ol.refs li { padding-left: 2em; text-indent: -2em; margin-bottom: 12px; font-siz
 
 .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 22px; margin: 8px 0 12px; }
 .item { min-width: 0; }
+.grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .item .thumb { display: block; position: relative; aspect-ratio: 16 / 9; max-width: 100%; overflow: hidden; background: #ececec; margin-bottom: 8px; }
 .item .thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .item .thumb .alt { position: absolute; inset: 0; display: grid; place-items: center; padding: 10px; text-align: center; color: #777; font-size: 14px; }
@@ -97,7 +98,7 @@ main p, main ul.plain, main ol.refs, .intro p { max-width: 50em; }
 }
 @media (max-width: 480px) {
   body { font-size: 17px; }
-  .grid { grid-template-columns: minmax(0, 1fr); }
+  .grid, .grid.two { grid-template-columns: minmax(0, 1fr); }
 }
 </style>
 
@@ -243,6 +244,17 @@ main p, main ul.plain, main ol.refs, .intro p { max-width: 50em; }
     </div>
   </div>
 
+  <h3>Agora Journalism Center, University of Oregon</h3>
+  <p class="note" style="margin-top:0">Interactive maps I built for the Center's statewide assessment of Oregon's local news and information ecosystem.</p>
+  <div class="grid two">
+    <div class="item"><a class="thumb" href="https://agorajournalism.center/wp-content/uploads/agora-scrolly/" target="_blank" rel="noopener"><span class="alt">Local News Ecosystem in Oregon</span><img src="images/work/agora-scrolly.jpg" alt=""></a>
+      <h4><a href="https://agorajournalism.center/wp-content/uploads/agora-scrolly/" target="_blank" rel="noopener">Local News Ecosystem in Oregon</a></h4>
+      <p>A scrolling map story that walks through the assessment's findings: 241 outlets producing original local news in 97 Oregon cities, how they are owned, and the counties left with one or two sources.</p></div>
+    <div class="item"><a class="thumb" href="https://agorajournalism.center/wp-content/uploads/oregon-local-news-map/" target="_blank" rel="noopener"><span class="alt">Oregon's Local News Media Ecosystem</span><img src="images/work/agora-map.jpg" alt=""></a>
+      <h4><a href="https://agorajournalism.center/wp-content/uploads/oregon-local-news-map/" target="_blank" rel="noopener">Oregon's Local News Media Ecosystem: Unequal Distribution</a></h4>
+      <p>A clickable map of every outlet in the database, sized by circulation or audience and set against county population density.</p></div>
+  </div>
+
   <h3>Broadcast</h3>
   <div class="grid" id="tv"></div>
 
@@ -253,6 +265,7 @@ main p, main ul.plain, main ol.refs, .intro p { max-width: 50em; }
 <section id="practice">
   <h2>Professional experience</h2>
   <ul class="plain">
+    <li><strong>Research Assistant</strong>, Agora Journalism Center, University of Oregon <span class="when">— Summer 2024 and Spring 2026</span><br>Built interactive maps of Oregon news outlets for the Local News and Information Ecosystem project and designed information graphics for the Florence Civic Information Assessment Report.</li>
     <li><strong>Presenter and Anchor</strong>, Media General Ghana (TV3 and 3FM 92.7) <span class="when">— 2016 to 2021</span><br>Anchored Midday News and News@10, hosted Hot Issues and Agenda, and led the team covering Ghana's 2020 presidential and parliamentary elections.</li>
     <li><strong>News Editor</strong>, Joy News TV <span class="when">— 2012 to 2015</span><br>Managed the news department and anchored the nightly current affairs program PM Express.</li>
     <li><strong>PEPFAR Media Specialist</strong>, U.S. Embassy Accra <span class="when">— 2010 to 2012</span><br>Coordinated public information for the President's Emergency Plan for AIDS Relief across five U.S. agencies.</li>
