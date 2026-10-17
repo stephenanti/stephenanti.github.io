@@ -87,9 +87,12 @@ ol.refs li { padding-left: 2em; text-indent: -2em; margin-bottom: 12px; font-siz
 .featured p { margin: 0 0 12px; font-size: 18px; }
 
 footer { border-top: 1px solid var(--rule); margin-top: 30px; }
-footer .page { padding-block: 20px 40px; font-size: 16px; color: var(--muted); }
+footer .page { padding-block: 20px 40px; font-size: 16px; color: var(--muted); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 20px; }
+footer .to-top { font-family: Georgia, "Times New Roman", serif; font-weight: bold; font-size: 18px; color: #A3322A; }
+footer .to-top:hover { color: #7E241E; }
 
 section > :last-child { margin-bottom: 0; }
+main section { scroll-margin-top: 12px; }
 
 main p, main ul.plain, main ol.refs, .intro p { max-width: 50em; }
 
@@ -116,7 +119,7 @@ main p, main ul.plain, main ol.refs, .intro p { max-width: 50em; }
 <body>
 <nav class="top">
   <div class="page">
-    <div class="home-slot"><a class="home" href="#top" aria-label="Home">Home</a></div>
+    <div class="home-slot"><a class="home js-top" href="./">Home</a></div>
     <div class="links">
       <a href="#research">Research</a>
       <a href="#publications">Publications</a>
@@ -304,7 +307,7 @@ main p, main ul.plain, main ol.refs, .intro p { max-width: 50em; }
 
 </main>
 
-<footer><div class="page">© <span id="yr">2026</span> Stephen Mante Anti</div></footer>
+<footer><div class="page"><span>© <span id="yr">2026</span> Stephen Mante Anti</span><a class="js-top to-top" href="./">Back to top ↑</a></div></footer>
 
 <script>
 (function () {
@@ -346,6 +349,25 @@ main p, main ul.plain, main ol.refs, .intro p { max-width: 50em; }
   var photo = document.getElementById("photo");
   photo.addEventListener("error", function () { photo.style.visibility = "hidden"; });
   if (photo.complete && photo.naturalWidth === 0) photo.style.visibility = "hidden";
+  // in-page links scroll without changing the address bar
+  var smooth = !(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  document.querySelectorAll(".js-top").forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: smooth ? "smooth" : "auto" });
+    });
+  });
+  document.querySelectorAll('nav.top .links a[href^="#"]').forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      var target = document.getElementById(a.getAttribute("href").slice(1));
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: smooth ? "smooth" : "auto" });
+    });
+  });
+  if (location.hash === "#top" && history.replaceState) {
+    history.replaceState(null, "", location.pathname + location.search);
+  }
   document.getElementById("yr").textContent = new Date().getFullYear();
 })();
 </script>
