@@ -5,9 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Data story: how 668 New Jersey school districts performed on six measures during the pandemic. Master's project by Stephen Mante Anti, Columbia University.">
 <title>New Jersey Schools Recovery</title>
-<meta name="claude:viewport-fit-sides" content="cover">
 <style>
-/* Layout: single reading column (~680px) with charts breaking slightly wider; same identity as the portfolio */
 :root {
   --paper: #ffffff; --surface: #ffffff; --ink: #222222; --muted: #666666; --line: #e2e2e2; --accent: #1d4f91;
   --up: #2A62A6; --flat: #CFCFCF; --down: #B5462E;
@@ -242,10 +240,10 @@ footer .col { padding-block: 28px 48px; font-family: var(--mono); font-size: 15p
   function s(tag, attrs, parent) { var n = document.createElementNS(NS, tag); for (var k in attrs) n.setAttribute(k, attrs[k]); if (parent) parent.appendChild(n); return n; }
   function txt(parent, x, y, str, cls, anchor) { var t = s("text", { x: x, y: y, "class": cls || "", "text-anchor": anchor || "start" }, parent); t.textContent = str; return t; }
 
-  // ---- Split bar tooltips ----
+  // split bar tooltips
   document.querySelectorAll(".seg").forEach(function (el) { el.tabIndex = 0; bindTip(el, el.dataset.tip); });
 
-  // ---- Measures: 100% stacked bars ----
+  // measures
   var M = [
     { m: "Days absent (6–10 days)", up: 97, flat: null, down: null, other: 3 },
     { m: "SAT scores", up: 206, flat: 5, down: 99 },
@@ -285,13 +283,13 @@ footer .col { padding-block: 28px 48px; font-family: var(--mono); font-size: 15p
   drawMeasures();
   var tb = document.querySelector("#mtable tbody");
   M.forEach(function (d) {
-    var n = d.other != null ? "—" : d.up + d.flat + d.down;
+    var n = d.other != null ? "n/a" : d.up + d.flat + d.down;
     tb.insertAdjacentHTML("beforeend", d.other != null
-      ? "<tr><td>" + d.m + "</td><td>97%</td><td colspan='2'>3% not split</td><td>—</td></tr>"
+      ? "<tr><td>" + d.m + "</td><td>97%</td><td colspan='2'>3% not split</td><td>n/a</td></tr>"
       : "<tr><td>" + d.m + "</td><td>" + d.up + " (" + pct(d.up, n) + "%)</td><td>" + d.flat + " (" + pct(d.flat, n) + "%)</td><td>" + d.down + " (" + pct(d.down, n) + "%)</td><td>" + n + "</td></tr>");
   });
 
-  // ---- Graduation extremes: diverging bars ----
+  // graduation extremes
   var G = [
     ["Wildwood City", 12.7], ["Lindenwold", 11.5],
     ["Burlington City", -10.6], ["Camden City", -10.6], ["New Brunswick", -10.9],
@@ -323,7 +321,7 @@ footer .col { padding-block: 28px 48px; font-family: var(--mono); font-size: 15p
   }
   drawGrad();
 
-  // ---- District comparison ----
+  // district comparison
   var D = {
     sb: [["White residents", "62.3%", 62.3], ["Hispanic or Latino", "26.6%", 26.6], ["Black", "2.7%", 2.7], ["Spending per student", "$20,000+", 20000 / 250]],
     tr: [["White students", "1%", 1], ["Hispanic or Latino", "58.8%", 58.8], ["Black", "39.2%", 39.2], ["Spending per student", "$16,553", 16553 / 250]]
@@ -334,7 +332,7 @@ footer .col { padding-block: 28px 48px; font-family: var(--mono); font-size: 15p
     }).join("");
   });
 
-  // ---- Absenteeism slope ----
+  // absenteeism slope
   var A = [["Greenwich Township", 48, 6, "up"], ["Sea Girt Borough", 32, 45, "down"]];
   var aBox = document.getElementById("absent");
   function drawAbsent() {
