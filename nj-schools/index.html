@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Data story: how 668 New Jersey school districts performed on six measures during the pandemic. Master's project by Stephen Mante Anti, Columbia University.">
+<title>New Jersey Schools Recovery</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+/* Layout: single reading column (~680px) with charts breaking slightly wider; same identity as the portfolio */
+:root {
+  --paper: #F1F4F2; --surface: #FAFCFB; --ink: #14201C; --muted: #55645E; --line: #D2DBD6; --accent: #0E6A58;
+  --up: #00806A; --flat: #BFC8C3; --down: #B06A00; --up-soft: #DCEBE6; --down-soft: #F3E6CF;
+  --display: "Source Serif 4", "Source Serif Pro", Georgia, "Times New Roman", serif;
+  --body: "Public Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono: "Public Sans", "Helvetica Neue", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0E1412; --surface: #141C19; --ink: #E5ECE9; --muted: #92A39C; --line: #26332E; --accent: #55BFA8;
+    --up: #2FA88E; --flat: #46524D; --down: #C2801C; --up-soft: #17302A; --down-soft: #33281A; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0E1412; --surface: #141C19; --ink: #E5ECE9; --muted: #92A39C; --line: #26332E; --accent: #55BFA8;
+  --up: #2FA88E; --flat: #46524D; --down: #C2801C; --up-soft: #17302A; --down-soft: #33281A; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.65; font-variant-numeric: tabular-nums; -webkit-font-smoothing: antialiased; }
+a { color: var(--accent); text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.col { max-width: 760px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+.wide { max-width: 920px; }
+.top { border-bottom: 1px solid var(--line); }
+.top .col { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 14px; font-family: var(--mono); font-size: 12.5px; letter-spacing: .05em; text-transform: uppercase; }
+.top a { color: var(--muted); text-decoration: none; }
+.top a:hover { color: var(--ink); }
+header .col { padding-block: 56px 24px; }
+.eyebrow { font-family: var(--mono); font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 0 16px; }
+h1 { font-family: var(--display); font-weight: 600; letter-spacing: -0.015em; font-size: clamp(36px, 5.6vw, 60px); line-height: 1.04; margin: 0 0 20px; text-wrap: balance; }
+.dek { font-size: 20px; line-height: 1.5; color: var(--muted); margin: 0; max-width: 34em; }
+.byline { font-family: var(--mono); font-size: 12.5px; color: var(--muted); margin-top: 22px; letter-spacing: .03em; }
+h2 { font-family: var(--display); font-weight: 400; font-size: clamp(26px, 3.4vw, 34px); line-height: 1.15; margin: 0 0 10px; text-wrap: balance; }
+p { margin: 0 0 18px; }
+section { padding-block: 32px; }
+.fig { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 22px; margin: 18px 0 8px; }
+.fig-title { font-weight: 600; font-size: 16px; margin: 0 0 2px; }
+.fig-sub { font-size: 14px; color: var(--muted); margin: 0 0 16px; }
+.source { font-family: var(--mono); font-size: 11.5px; color: var(--muted); margin: 14px 0 0; letter-spacing: .02em; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 0 0 14px; padding: 0; list-style: none; font-size: 13.5px; color: var(--muted); }
+.legend li { display: flex; align-items: center; gap: 7px; }
+.sw { width: 12px; height: 12px; border-radius: 3px; flex: none; }
+.sw.up { background: var(--up); } .sw.flat { background: var(--flat); } .sw.down { background: var(--down); }
+
+/* Split bar */
+.splitbar { display: flex; gap: 3px; height: 56px; margin: 8px 0 18px; }
+.seg { border-radius: 4px; display: flex; align-items: center; padding: 0 12px; min-width: 0; cursor: default; }
+.seg.up { background: var(--up); } .seg.flat { background: var(--flat); } .seg.down { background: var(--down); }
+.seg span { font-family: var(--mono); font-size: 14px; font-weight: 500; color: #fff; white-space: nowrap; }
+.seg.flat span { color: var(--ink); }
+.seg.down span { font-size: 12px; }
+.splitkey { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; align-items: start; }
+.splitkey div { display: grid; grid-template-columns: 12px minmax(0, 1fr); gap: 2px 10px; align-items: baseline; }
+.splitkey .sw { align-self: center; }
+.splitkey b { font-family: var(--display); font-weight: 400; font-size: 34px; line-height: 1.05; font-variant-numeric: tabular-nums; }
+.splitkey .t { grid-column: 2; font-size: 14px; color: var(--muted); line-height: 1.35; }
+/* Charts */
+.chart { width: 100%; height: auto; display: block; overflow: visible; }
+.chart text { font-family: var(--body); fill: var(--ink); }
+.chart .lab { font-size: 13px; }
+.chart .val { font-family: var(--mono); font-size: 11.5px; }
+.chart .muted { fill: var(--muted); }
+.chart .inv { fill: #fff; }
+.chart .hit { fill: transparent; cursor: default; }
+.scroll { overflow-x: auto; }
+.tip { position: fixed; z-index: 20; pointer-events: none; background: var(--ink); color: var(--paper); font-size: 13px; line-height: 1.45; padding: 8px 11px; border-radius: 5px; max-width: 260px; box-shadow: 0 6px 20px rgba(0,0,0,.18); }
+.tip b { font-weight: 600; }
+details { margin-top: 14px; font-size: 14px; }
+summary { cursor: pointer; font-family: var(--mono); font-size: 12px; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); }
+table { border-collapse: collapse; width: 100%; margin-top: 10px; font-size: 14px; font-variant-numeric: tabular-nums; }
+th, td { text-align: right; padding: 6px 8px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; }
+th { font-family: var(--mono); font-weight: 500; font-size: 11.5px; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+
+.pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.district { border-top: 2px solid var(--ink); padding-top: 12px; }
+.district h3 { font-size: 17px; margin: 0 0 2px; }
+.district .k { font-family: var(--mono); font-size: 11.5px; letter-spacing: .05em; text-transform: uppercase; margin: 0 0 12px; }
+.district .k.up { color: var(--up); } .district .k.down { color: var(--down); }
+.district dl { margin: 0; display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 6px 12px; font-size: 14px; }
+.district dt { color: var(--muted); } .district dd { margin: 0; font-variant-numeric: tabular-nums; font-weight: 600; text-align: right; }
+.bar { height: 6px; border-radius: 3px; background: var(--line); grid-column: 1 / -1; margin-top: -2px; overflow: hidden; }
+.bar span { display: block; height: 100%; border-radius: 3px; background: var(--muted); }
+blockquote { margin: 26px 0; padding: 0 0 0 20px; border-left: 2px solid var(--accent); font-family: var(--display); font-size: 22px; line-height: 1.4; }
+blockquote cite { display: block; margin-top: 8px; font-family: var(--mono); font-style: normal; font-size: 12px; color: var(--muted); letter-spacing: .03em; }
+.method { border-top: 1px solid var(--line); margin-top: 24px; padding-top: 28px; font-size: 15px; color: var(--muted); }
+.method h2 { color: var(--ink); font-size: 24px; }
+footer .col { padding-block: 28px 48px; font-family: var(--mono); font-size: 12px; color: var(--muted); }
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .splitbar { height: 44px; }
+  .seg { padding: 0 8px; }
+  .splitkey b { font-size: 26px; }
+  .splitkey .t { font-size: 12.5px; }
+  .splitkey div { grid-template-columns: minmax(0, 1fr); }
+  .splitkey .sw { display: none; }
+  .splitkey .t { grid-column: 1; }
+  .pair { grid-template-columns: minmax(0, 1fr); }
+  .fig { padding: 16px; }
+}
+</style>
+
+</head>
+<body>
+<div class="top"><div class="col wide"><a href="https://stephenanti.github.io/">← Stephen Mante Anti</a><span>Data journalism</span></div></div>
+
+<header>
+  <div class="col">
+    <p class="eyebrow">Master's project · M.S. Data Journalism · Columbia University · 2022</p>
+    <h1>New Jersey public schools show pandemic recovery</h1>
+    <p class="dek">Across 668 districts and six measures of school performance, most districts held steady or improved between 2018–19 and 2020–21. The gains were not shared evenly.</p>
+    <p class="byline">By Stephen Mante Anti · Data: New Jersey Department of Education School Performance Reports</p>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="col wide">
+      <div class="fig">
+        <p class="fig-title">How 668 districts changed across six performance measures</p>
+        <p class="fig-sub">Each district is classified by whether it improved or declined on a majority of the six measures.</p>
+        <div class="splitbar" role="img" aria-label="Of 668 districts, 412 (62%) improved on most measures, 196 (29%) held steady, and 60 (9%) declined on most measures.">
+          <div class="seg up" style="flex: 412" data-tip="&lt;b&gt;412 districts (62%)&lt;/b&gt;&lt;br&gt;improved on a majority of the six measures"><span>62%</span></div>
+          <div class="seg flat" style="flex: 196" data-tip="&lt;b&gt;196 districts (29%)&lt;/b&gt;&lt;br&gt;neither improved nor declined on a majority"><span>29%</span></div>
+          <div class="seg down" style="flex: 60" data-tip="&lt;b&gt;60 districts (9%)&lt;/b&gt;&lt;br&gt;declined on a majority of the six measures"><span>9%</span></div>
+        </div>
+        <div class="splitkey">
+          <div><span class="sw up"></span><b>412</b><span class="t">districts improved on most measures</span></div>
+          <div><span class="sw flat"></span><b>196</b><span class="t">held steady</span></div>
+          <div><span class="sw down"></span><b>60</b><span class="t">declined on most measures</span></div>
+        </div>
+        <p class="source">Change from the 2018–19 to the 2020–21 school year. Source: NJ Department of Education; analysis by Stephen Mante Anti.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="col">
+      <h2>Attendance and SAT scores rose. College enrollment fell.</h2>
+      <p>The six measures moved in different directions. Nearly every district reduced the number of students missing six to ten days of school, and two in three raised SAT scores and kept their teaching staff more experienced. Postsecondary enrollment was the exception: four in five districts sent fewer graduates on to college or training.</p>
+    </div>
+    <div class="col wide">
+      <div class="fig">
+        <p class="fig-title">Share of districts that improved, held steady, or declined, by measure</p>
+        <ul class="legend"><li><span class="sw up"></span>Improved</li><li><span class="sw flat"></span>No change</li><li><span class="sw down"></span>Declined</li></ul>
+        <div id="measures"></div>
+        <details>
+          <summary>Show as table</summary>
+          <div class="scroll"><table id="mtable"><thead><tr><th>Measure</th><th>Improved</th><th>No change</th><th>Declined</th><th>Districts</th></tr></thead><tbody></tbody></table></div>
+        </details>
+        <p class="source">District counts differ by measure because high-school measures apply only to districts with high schools. Absenteeism counts beyond the 97% that improved were not reported.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="col">
+      <h2>Graduation rates split down the middle</h2>
+      <p>For four-year graduation rates, 151 districts improved and 151 declined. The largest swings were more than ten percentage points in each direction.</p>
+    </div>
+    <div class="col wide">
+      <div class="fig">
+        <p class="fig-title">Largest changes in four-year graduation rate, 2018–19 to 2020–21</p>
+        <p class="fig-sub">Percentage points</p>
+        <div id="grad"></div>
+        <p class="source">The two largest gains and five largest declines named in the analysis.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="col">
+      <h2>A wealth divide underneath the averages</h2>
+      <p>The district with the broadest gains and the district with the steepest declines look very different. Saddle Brook improved on all six measures. Trenton declined on the most.</p>
+      <div class="pair">
+        <div class="district">
+          <h3>Saddle Brook</h3>
+          <p class="k up">Improved on all six measures</p>
+          <dl id="sb"></dl>
+        </div>
+        <div class="district">
+          <h3>Trenton</h3>
+          <p class="k down">Most declines of any district</p>
+          <dl id="tr"></dl>
+        </div>
+      </div>
+      <blockquote>Poor students didn't have as much space at home to do classes as wealthier students. They also didn't have the technology.<cite>Julia Sass Rubin, Rutgers University</cite></blockquote>
+    </div>
+  </section>
+
+  <section>
+    <div class="col">
+      <h2>Absenteeism fell almost everywhere</h2>
+      <p>97% of districts reduced the number of students absent for six to ten days. Greenwich Township went from an average of 48 such students to 6. Sea Girt Borough had the largest increase, from 32 to 45.</p>
+    </div>
+    <div class="col wide">
+      <div class="fig">
+        <p class="fig-title">Students absent six to ten days, two districts at the extremes</p>
+        <div id="absent"></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="col method">
+      <h2>How the analysis was done</h2>
+      <p>I used the New Jersey Department of Education's annual School Performance Reports and adjusted cohort graduation rates, selecting the six indicators that had values for both 2018–19 and 2020–21: graduation rate, SAT scores, teacher experience, dropout rate, postsecondary enrollment, and days absent. After removing districts with missing values, 668 remained. For each district I calculated the change on each measure and classified the district by whether it improved or declined on a majority of the six.</p>
+      <p>The reporting includes interviews with Megan Kuhfeld (NWEA), Julia Sass Rubin and Saul Rubinstein (Rutgers University), Steve Baker (New Jersey Education Association), and students and parents in Monroe Township.</p>
+    </div>
+  </section>
+</main>
+
+<footer><div class="col">© Stephen Mante Anti · <a href="https://stephenanti.github.io/">Portfolio</a></div></footer>
+<div class="tip" id="tip" hidden></div>
+
+<script>
+(function () {
+  var tip = document.getElementById("tip");
+  function showTip(e, html) { tip.innerHTML = html; tip.hidden = false; moveTip(e); }
+  function moveTip(e) {
+    var x = e.clientX + 14, y = e.clientY + 14, w = tip.offsetWidth, h = tip.offsetHeight;
+    if (x + w > innerWidth - 8) x = e.clientX - w - 14;
+    if (y + h > innerHeight - 8) y = e.clientY - h - 14;
+    tip.style.left = x + "px"; tip.style.top = y + "px";
+  }
+  function hideTip() { tip.hidden = true; }
+  function bindTip(el, html) {
+    el.addEventListener("mouseenter", function (e) { showTip(e, html); });
+    el.addEventListener("mousemove", moveTip);
+    el.addEventListener("mouseleave", hideTip);
+    el.addEventListener("focus", function () { var r = el.getBoundingClientRect(); showTip({ clientX: r.right, clientY: r.top }, html); });
+    el.addEventListener("blur", hideTip);
+  }
+  var NS = "http://www.w3.org/2000/svg";
+  function s(tag, attrs, parent) { var n = document.createElementNS(NS, tag); for (var k in attrs) n.setAttribute(k, attrs[k]); if (parent) parent.appendChild(n); return n; }
+  function txt(parent, x, y, str, cls, anchor) { var t = s("text", { x: x, y: y, "class": cls || "", "text-anchor": anchor || "start" }, parent); t.textContent = str; return t; }
+
+  // ---- Split bar tooltips ----
+  document.querySelectorAll(".seg").forEach(function (el) { el.tabIndex = 0; bindTip(el, el.dataset.tip); });
+
+  // ---- Measures: 100% stacked bars ----
+  var M = [
+    { m: "Days absent (6–10 days)", up: 97, flat: null, down: null, other: 3 },
+    { m: "SAT scores", up: 206, flat: 5, down: 99 },
+    { m: "Teacher experience", up: 434, flat: 20, down: 208 },
+    { m: "Four-year graduation rate", up: 151, flat: 5, down: 151 },
+    { m: "Dropout rate", up: 120, flat: 62, down: 125 },
+    { m: "Postsecondary enrollment", up: 50, flat: 2, down: 208 }
+  ];
+  function pct(v, n) { return Math.round(v / n * 1000) / 10; }
+  var mBox = document.getElementById("measures");
+  function drawMeasures() {
+    mBox.innerHTML = "";
+    var W = mBox.clientWidth || 800, narrow = W < 560;
+    var labW = narrow ? 0 : 200, rowH = narrow ? 52 : 40, barH = 22, top = 4;
+    var H = top + M.length * rowH;
+    var svg = s("svg", { "class": "chart", viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": "Stacked bars showing share of districts improved, unchanged, and declined for each of six measures" }, mBox);
+    var bw = W - labW;
+    M.forEach(function (d, i) {
+      var y = top + i * rowH + (narrow ? 20 : (rowH - barH) / 2);
+      if (narrow) txt(svg, 0, top + i * rowH + 13, d.m, "lab"); else txt(svg, 0, y + barH / 2 + 4.5, d.m, "lab");
+      var n = d.other != null ? 100 : d.up + d.flat + d.down;
+      var segs = d.other != null
+        ? [["up", d.up, d.up + "% of districts improved"], ["flat", d.other, "Remaining 3% (no change or decline; not split in the data)"]]
+        : [["up", d.up, d.up + " districts improved"], ["flat", d.flat, d.flat + " districts showed no change"], ["down", d.down, d.down + " districts declined"]];
+      var x = labW;
+      segs.forEach(function (sg, j) {
+        var w = sg[1] / n * bw, gap = j < segs.length - 1 ? 2 : 0;
+        var r = s("rect", { x: x, y: y, width: Math.max(0, w - gap), height: barH, rx: 3, fill: "var(--" + sg[0] + ")" }, svg);
+        var p = d.other != null ? sg[1] : pct(sg[1], n);
+        if (w > 44) txt(svg, x + 8, y + barH / 2 + 4, p + "%", "val " + (sg[0] === "flat" ? "" : "inv"));
+        var hit = s("rect", { x: x, y: y - 6, width: Math.max(w, 1), height: barH + 12, "class": "hit", tabindex: 0 }, svg);
+        bindTip(hit, "<b>" + d.m + "</b><br>" + sg[2] + (d.other != null ? "" : "<br>" + p + "% of " + n + " districts"));
+        x += w;
+      });
+    });
+  }
+  drawMeasures();
+  var tb = document.querySelector("#mtable tbody");
+  M.forEach(function (d) {
+    var n = d.other != null ? "—" : d.up + d.flat + d.down;
+    tb.insertAdjacentHTML("beforeend", d.other != null
+      ? "<tr><td>" + d.m + "</td><td>97%</td><td colspan='2'>3% not split</td><td>—</td></tr>"
+      : "<tr><td>" + d.m + "</td><td>" + d.up + " (" + pct(d.up, n) + "%)</td><td>" + d.flat + " (" + pct(d.flat, n) + "%)</td><td>" + d.down + " (" + pct(d.down, n) + "%)</td><td>" + n + "</td></tr>");
+  });
+
+  // ---- Graduation extremes: diverging bars ----
+  var G = [
+    ["Wildwood City", 12.7], ["Lindenwold", 11.5],
+    ["Burlington City", -10.6], ["Camden City", -10.6], ["New Brunswick", -10.9],
+    ["Academy for Urban Leadership Charter", -13.4], ["Pleasantville", -13.7]
+  ];
+  var gBox = document.getElementById("grad");
+  function drawGrad() {
+    gBox.innerHTML = "";
+    var W = gBox.clientWidth || 800, narrow = W < 560;
+    var labW = narrow ? 0 : 250, rowH = narrow ? 44 : 32, top = 22, max = 15;
+    var H = top + G.length * rowH + 4;
+    var svg = s("svg", { "class": "chart", viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": "Diverging bars of graduation-rate change for seven districts" }, gBox);
+    var plotL = labW, plotW = W - labW, zero = plotL + plotW / 2, sc = (plotW / 2 - 40) / max;
+    [-15, -10, -5, 0, 5, 10, 15].forEach(function (t) {
+      var x = zero + t * sc;
+      s("line", { x1: x, x2: x, y1: top - 6, y2: H, stroke: "var(--line)", "stroke-width": t === 0 ? 1.5 : 1 }, svg);
+      txt(svg, x, 12, (t > 0 ? "+" : "") + t, "val muted", "middle");
+    });
+    G.forEach(function (d, i) {
+      var y0 = top + i * rowH, barH = 16, y = y0 + (narrow ? 20 : (rowH - barH) / 2);
+      if (narrow) txt(svg, d[1] > 0 ? zero - 4 : zero + 4, y0 + 14, d[0], "lab", d[1] > 0 ? "end" : "start");
+      else txt(svg, 0, y + barH / 2 + 4.5, d[0], "lab");
+      var w = Math.abs(d[1]) * sc, x = d[1] > 0 ? zero : zero - w;
+      s("rect", { x: x, y: y, width: w, height: barH, rx: 3, fill: d[1] > 0 ? "var(--up)" : "var(--down)" }, svg);
+      txt(svg, d[1] > 0 ? zero + w + 6 : zero - w - 6, y + barH / 2 + 4, (d[1] > 0 ? "+" : "") + d[1].toFixed(1), "val", d[1] > 0 ? "start" : "end");
+      var hit = s("rect", { x: plotL, y: y0, width: plotW, height: rowH, "class": "hit", tabindex: 0 }, svg);
+      bindTip(hit, "<b>" + d[0] + "</b><br>" + (d[1] > 0 ? "+" : "") + d[1].toFixed(1) + " percentage points");
+    });
+  }
+  drawGrad();
+
+  // ---- District comparison ----
+  var D = {
+    sb: [["White residents", "62.3%", 62.3], ["Hispanic or Latino", "26.6%", 26.6], ["Black", "2.7%", 2.7], ["Spending per student", "$20,000+", 20000 / 250]],
+    tr: [["White students", "1%", 1], ["Hispanic or Latino", "58.8%", 58.8], ["Black", "39.2%", 39.2], ["Spending per student", "$16,553", 16553 / 250]]
+  };
+  ["sb", "tr"].forEach(function (k) {
+    document.getElementById(k).innerHTML = D[k].map(function (r) {
+      return "<dt>" + r[0] + "</dt><dd>" + r[1] + "</dd><div class='bar'><span style='width:" + Math.min(100, r[2]) + "%'></span></div>";
+    }).join("");
+  });
+
+  // ---- Absenteeism slope ----
+  var A = [["Greenwich Township", 48, 6, "up"], ["Sea Girt Borough", 32, 45, "down"]];
+  var aBox = document.getElementById("absent");
+  function drawAbsent() {
+    aBox.innerHTML = "";
+    var W = Math.min(aBox.clientWidth || 600, 640), H = 250, padL = 56, padR = W < 480 ? 130 : 170, top = 30, bot = 34;
+    var svg = s("svg", { "class": "chart", viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": "Greenwich Township fell from 48 to 6 students absent; Sea Girt Borough rose from 32 to 45." }, aBox);
+    var x0 = padL, x1 = W - padR, y = function (v) { return top + (1 - v / 50) * (H - top - bot); };
+    [0, 25, 50].forEach(function (t) { s("line", { x1: x0 - 8, x2: x1 + 8, y1: y(t), y2: y(t), stroke: "var(--line)" }, svg); txt(svg, x0 - 14, y(t) + 4, t, "val muted", "end"); });
+    txt(svg, x0, H - 10, "2018–19", "val muted", "middle"); txt(svg, x1, H - 10, "2020–21", "val muted", "middle");
+    A.forEach(function (d) {
+      var c = "var(--" + d[3] + ")";
+      s("line", { x1: x0, y1: y(d[1]), x2: x1, y2: y(d[2]), stroke: c, "stroke-width": 2 }, svg);
+      [[x0, d[1]], [x1, d[2]]].forEach(function (p) { s("circle", { cx: p[0], cy: y(p[1]), r: 5, fill: c, stroke: "var(--surface)", "stroke-width": 2 }, svg); });
+      txt(svg, x1 + 12, y(d[2]) + 4, d[0], "lab");
+      txt(svg, x1 + 12, y(d[2]) + 19, d[1] + " → " + d[2], "val muted");
+      var hit = s("line", { x1: x0, y1: y(d[1]), x2: x1, y2: y(d[2]), stroke: "transparent", "stroke-width": 18, tabindex: 0 }, svg);
+      bindTip(hit, "<b>" + d[0] + "</b><br>" + d[1] + " students absent 6–10 days → " + d[2]);
+    });
+  }
+  drawAbsent();
+
+  var rt; addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(function () { drawMeasures(); drawGrad(); drawAbsent(); }, 120); });
+})();
+</script>
+
+</body>
+</html>

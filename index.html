@@ -1,82 +1,740 @@
-<!DOCTYPE html>
-<html lang= "en">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Stephen Mante Anti, Ph.D. candidate in Communication and Media Studies at the University of Oregon, studying news framing, mental illness stigma, and help-seeking in Ghana.">
+<meta property="og:title" content="Stephen Mante Anti">
+<meta property="og:description" content="Health communication and media effects research on news framing, stigma, and help-seeking in Ghana.">
+<meta property="og:image" content="https://stephenanti.github.io/images/portrait.jpg">
+<title>Stephen Mante Anti</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+/* Layout: label rail + content column per section; hero thesis held inside print-style crop marks (a nod to "framing") */
+:root {
+  --paper: #F1F4F2;
+  --surface: #FAFCFB;
+  --ink: #14201C;
+  --muted: #55645E;
+  --line: #D2DBD6;
+  --accent: #0E6A58;
+  --accent-soft: #DCEBE6;
+  --ochre: #A86B12;
+  --ochre-soft: #F3E6CF;
+  --display: "Source Serif 4", "Source Serif Pro", Georgia, "Times New Roman", serif;
+  --body: "Public Sans", "Helvetica Neue", Arial, sans-serif;
+  --mono: "Public Sans", "Helvetica Neue", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0E1412; --surface: #141C19; --ink: #E5ECE9; --muted: #92A39C; --line: #26332E;
+    --accent: #55BFA8; --accent-soft: #17302A; --ochre: #E2A64C; --ochre-soft: #33281A; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0E1412; --surface: #141C19; --ink: #E5ECE9; --muted: #92A39C; --line: #26332E;
+  --accent: #55BFA8; --accent-soft: #17302A; --ochre: #E2A64C; --ochre-soft: #33281A; color-scheme: dark;
+}
 
-    <head>
-        <title>Stephen Anti's portfolio</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width ,intial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href = "css/styles.css">
-    </head>
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; } }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font-family: var(--body); font-size: 17px; line-height: 1.65; font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--paper); }
+a { color: var(--accent); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
 
-    <body>
-        <h1>Stephen Anti</h1>
-        <!-- <div class="header"> -->
+/* Nav */
+.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: color-mix(in srgb, var(--paper) 88%, transparent); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.nav .wrap { display: flex; align-items: center; gap: 24px; padding-block: 14px; }
+.brand { font-family: var(--display); font-size: 20px; color: var(--ink); text-decoration: none; white-space: nowrap; }
+.nav ul { list-style: none; display: flex; gap: 22px; margin: 0 0 0 auto; padding: 0; }
+.nav ul a { font-family: var(--mono); font-size: 12.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); text-decoration: none; padding-block: 4px; border-bottom: 1px solid transparent; }
+.nav ul a:hover, .nav ul a.active { color: var(--ink); border-bottom-color: var(--accent); }
+.theme-btn { border: 1px solid var(--line); background: var(--surface); color: var(--ink); width: 34px; height: 34px; border-radius: 50%; cursor: pointer; display: grid; place-items: center; flex: none; }
+.theme-btn svg { width: 16px; height: 16px; }
+.menu-btn { display: none; margin-left: auto; border: 1px solid var(--line); background: var(--surface); color: var(--ink); font-family: var(--mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; padding: 7px 12px; border-radius: 999px; cursor: pointer; }
+@media (max-width: 820px) {
+  .menu-btn { display: block; }
+  .nav ul { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 0; background: var(--paper); border-bottom: 1px solid var(--line); padding: 8px max(20px, env(safe-area-inset-right, 0px)) 16px max(20px, env(safe-area-inset-left, 0px)); }
+  .nav ul.open { display: flex; }
+  .nav ul a { display: block; padding-block: 12px; border-bottom: 1px solid var(--line); }
+}
 
-        </div>
+/* Hero */
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 56px; padding-block: 72px 64px; align-items: start; }
+.eyebrow { font-family: var(--mono); font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 0 18px; }
+h1 { font-family: var(--display); font-weight: 600; letter-spacing: -0.015em; font-size: clamp(46px, 7.4vw, 92px); line-height: .98; letter-spacing: -.01em; margin: 0 0 36px; text-wrap: balance; }
+.framed { position: relative; padding: 22px 26px; max-width: 34em; }
+.framed::before, .framed::after, .framed .c3, .framed .c4 { content: ""; position: absolute; width: 18px; height: 18px; border-color: var(--accent); border-style: solid; border-width: 0; }
+.framed::before { top: 0; left: 0; border-top-width: 2px; border-left-width: 2px; }
+.framed::after { bottom: 0; right: 0; border-bottom-width: 2px; border-right-width: 2px; }
+.framed .c3 { top: 0; right: 0; border-top-width: 2px; border-right-width: 2px; }
+.framed .c4 { bottom: 0; left: 0; border-bottom-width: 2px; border-left-width: 2px; }
+.thesis { font-size: clamp(20px, 2.2vw, 24px); line-height: 1.45; margin: 0; text-wrap: pretty; }
+.sub { color: var(--muted); margin: 28px 0 0; max-width: 36em; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; font-family: var(--body); font-weight: 600; font-size: 15px; padding: 11px 20px; border-radius: 999px; text-decoration: none; border: 1px solid var(--ink); cursor: pointer; }
+.btn.primary { background: var(--ink); color: var(--paper); }
+.btn.ghost { background: transparent; color: var(--ink); }
+.btn:hover { text-decoration: none; transform: translateY(-1px); transition: transform .15s ease; }
 
-<!-- First Div  class = "container" holds menu and class="menu" is the rules for the menus, this is the first box -->
+.portrait { display: grid; gap: 18px; }
+.photo { aspect-ratio: 4 / 5; max-width: 100%; width: 100%; border-radius: 4px; overflow: hidden; background: var(--accent-soft); position: relative; }
+.photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.monogram { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--display); font-size: 96px; color: var(--accent); }
+.ledger { border-top: 1px solid var(--ink); }
+.ledger-cap { font-family: var(--mono); font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: 10px 0 2px; }
+.ledger dl { margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); }
+.ledger dl div { padding: 6px 0 12px; border-bottom: 1px solid var(--line); }
+.ledger dt { font-family: var(--display); font-size: 34px; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.ledger dd { margin: 0; font-family: var(--mono); font-size: 11.5px; color: var(--muted); letter-spacing: .04em; }
 
-        <div class="menu-grid">
-            <div class="menu">
-               <a href="index.html">About</a> 
-            </div>
-            <div class="menu">
-               <a href="resume/CVAntiSA.pdf">Resume</a> 
-            </div>
-            <div class="menu">
-               <a href="work/index.html"> Work</a>
-            </div>   
-            <div class="menu">
-                <a href="stories/index.html"> Stories</a>
-            </div>
-        </div>
+/* Sections */
+section.block { border-top: 1px solid var(--line); }
+section.block > .wrap { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 48px; padding-block: 72px; }
+.label { font-family: var(--mono); font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); position: sticky; top: 92px; align-self: start; }
+.label span { display: block; color: var(--accent); margin-bottom: 4px; }
+h2 { font-family: var(--display); font-weight: 400; font-size: clamp(30px, 3.6vw, 42px); line-height: 1.12; margin: 0 0 20px; text-wrap: balance; max-width: 20em; }
+h3 { font-family: var(--body); font-weight: 600; font-size: 19px; line-height: 1.35; margin: 0 0 8px; }
+.lede { max-width: 38em; margin: 0 0 32px; }
+.content { min-width: 0; }
 
-<!-- Div "main-content" holds box containing two things: 1.profile photo and 2.profile text. this is the second box (padding, margins rules needed) -->
+/* Dissertation figure */
+.figure { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 24px; margin: 8px 0 36px; }
+.figure-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; margin-bottom: 14px; }
+.figure-head p { margin: 0; font-family: var(--mono); font-size: 12px; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); }
+.diagram-scroll { overflow-x: auto; }
+.diagram-scroll svg { display: block; width: 100%; min-width: 600px; height: auto; }
+.studies { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
+.study { border-top: 2px solid var(--ink); padding-top: 14px; }
+.study .tag { font-family: var(--mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); margin: 0 0 6px; }
+.study p { margin: 0; color: var(--muted); }
 
-        <div class="main-content">
-            <div class="profile-picture">
-                <img src="images/profile-pic.png" alt='Author'>
-            </div>
+.lines { display: grid; gap: 0; margin-top: 44px; }
+.lines h3.group { font-family: var(--mono); font-weight: 500; font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 0 4px; }
+.line-item { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 24px; padding: 18px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+.line-item p { margin: 4px 0 0; color: var(--muted); max-width: 40em; }
+.status { font-family: var(--mono); font-size: 11.5px; letter-spacing: .05em; text-transform: uppercase; padding: 3px 10px; border-radius: 999px; white-space: nowrap; }
+.status.prog { background: var(--ochre-soft); color: var(--ochre); }
+.status.pub { background: var(--accent-soft); color: var(--accent); }
 
-            <div class="profile-text">
-                About:
-                <br> 
-                I’m a Multimedia/Data Journalist, currently studies at  
-                <a href="https://www.columbia.edu/" target="blank" >Columbia University</a>, 
-                 M.S Data Journalism @ ‘22. I’m an Alumni of <a href=" https://www.cardiff.ac.uk/" target="blank" >Cardiff University</a> in the U.K .
-                 <br>
-                 Former Media Specialist for the U.S President’s Emergency Plan for Aids Relief (PEFAR), <a href=" https://gh.usembassy.gov/" target="blank" >US Embassy Ghana</a>, Former News Editor <a href="https://www.multimediaghana.com/" target="blank" >JoyFM/JoyNews </a>, 
-                 <a href="https://mediageneralgh.com/" target="blank">TV3 Ghana</a>. Former Presenter, 
-                 <a href="https://mediageneralgh.com/" target="blank" > TV3 Ghana</a>.
-                 <br>
-                I have skills in audio/visual editing using Adobe audition, Python, regression analysis, computer assisted reporting, data visualization, web scraping and using APIs, IRE/NICAR student member.
-            </div>
-        </div>
+/* Methods */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.chips li { font-size: 14.5px; padding: 6px 14px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); }
+.methods { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+.methods h3 { font-family: var(--mono); font-weight: 500; font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
 
-<!-- Social media box: contains icons and rules for the image and a-tag/hrefs in it. -->
-    <div class="social-media">
-        <div class="socials">
-            <a href="https://twitter.com/stephenanti" >
-               <img src="images/twitter-icon.png" alt="twitter icon">
-            </a>
-            <a href="https://www.instagram.com/stephenanti/" >
-                <img src="images/instagram-icon.png" alt="instagram icon">
-            </a>
-            <a href="https://www.linkedin.com/in/stephenanti/" >
-                <img src="images/linkedin-icon.png" alt="linkedIn icon">
-            </a>
-            <a href="mailto:anti.stephen@gmail.com?Subject=Hi%20Stephen">
-                <img src="images/email-icon.png" alt="email icon ">
-            </a>    
-        </div>
+/* Publications */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+.filters button { font-family: var(--mono); font-size: 12px; letter-spacing: .05em; text-transform: uppercase; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--line); background: transparent; color: var(--muted); cursor: pointer; }
+.filters button[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.pubs { list-style: none; padding: 0; margin: 0; }
+.pubs li { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.pubs .yr { font-family: var(--mono); font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 2px; }
+.pubs .cite { margin: 0; }
+.pubs .cite em { font-style: italic; }
+.pubs .kind { display: inline-block; margin-top: 6px; font-family: var(--mono); font-size: 11.5px; letter-spacing: .05em; text-transform: uppercase; color: var(--accent); }
+.todo { background: var(--ochre-soft); color: var(--ochre); padding: 0 4px; border-radius: 2px; }
+
+/* Teaching */
+.teach { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; margin-bottom: 36px; }
+.course { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 22px; }
+.course .code { font-family: var(--mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 0 0 6px; }
+.course p { margin: 0; color: var(--muted); }
+.principles { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; max-width: 40em; }
+.principles li { padding-left: 22px; position: relative; }
+.principles li::before { content: ""; position: absolute; left: 0; top: .62em; width: 10px; height: 2px; background: var(--accent); }
+.principles strong { font-weight: 600; }
+
+/* Practice timeline */
+.timeline { list-style: none; padding: 0; margin: 0; border-left: 1px solid var(--line); }
+.timeline li { position: relative; padding: 0 0 26px 28px; }
+.timeline li::before { content: ""; position: absolute; left: -5px; top: 9px; width: 9px; height: 9px; border-radius: 50%; background: var(--paper); border: 2px solid var(--accent); }
+.timeline .org { font-family: var(--mono); font-size: 12.5px; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); }
+.timeline h3 { margin: 2px 0 4px; }
+.timeline p { margin: 0; color: var(--muted); max-width: 40em; }
+.practice-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; }
+
+.edu { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 44px; }
+.edu div { border-top: 2px solid var(--ink); padding-top: 12px; }
+.edu .deg { font-family: var(--display); font-size: 22px; line-height: 1.2; margin: 0 0 4px; }
+.edu p { margin: 0; color: var(--muted); font-size: 15px; }
+
+/* Contact */
+.contact-card { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 40px; align-items: start; }
+.email-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 8px 0 20px; }
+.email { font-family: var(--display); font-size: clamp(24px, 3.4vw, 34px); color: var(--ink); text-decoration: none; overflow-wrap: anywhere; user-select: all; }
+.copy { font-family: var(--mono); font-size: 12px; letter-spacing: .05em; text-transform: uppercase; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; }
+.social { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; }
+.social li a { display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid var(--line); color: var(--ink); text-decoration: none; }
+.social li a span:last-child { font-family: var(--mono); font-size: 13px; color: var(--muted); }
+.social li a:hover span:first-child { color: var(--accent); }
+
+footer { border-top: 1px solid var(--line); }
+footer .wrap { padding-block: 28px 40px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: .03em; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero .wrap { grid-template-columns: minmax(0, 1fr); gap: 40px; padding-block: 48px; }
+  .portrait { grid-template-columns: minmax(0, 200px) minmax(0, 1fr); align-items: end; gap: 24px; }
+  section.block > .wrap { grid-template-columns: minmax(0, 1fr); gap: 16px; padding-block: 56px; }
+  .label { position: static; }
+  .methods, .edu { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .contact-card { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 620px) {
+  body { font-size: 16px; }
+  .portrait { grid-template-columns: minmax(0, 1fr); }
+  .photo { max-width: 260px; }
+  .studies, .teach { grid-template-columns: minmax(0, 1fr); }
+  .framed { padding: 18px 18px; }
+  .line-item { grid-template-columns: minmax(0, 1fr); }
+  .line-item .status { justify-self: start; }
+  .pubs li { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .figure { padding: 18px; }
+}
+
+.market { margin: 22px 0 0; font-family: var(--mono); font-size: 12.5px; letter-spacing: .05em; color: var(--accent); }
+.kicker { font-family: var(--mono); font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin: 0 0 10px; }
+.committee { font-size: 15px; color: var(--muted); margin: -16px 0 28px; }
+.photo img { object-position: 50% 20%; position: relative; }
+.status { background: var(--paper); color: var(--muted); border: 1px solid var(--line); }
+.status.prog, .status.pub, .status.rev { border-color: transparent; }
+.status.rev { background: var(--accent-soft); color: var(--accent); }
+.status.pub { background: var(--ink); color: var(--paper); }
+.lines.tight { margin-top: 8px; }
+.lines.tight .line-item { padding: 14px 0; }
+.lines .group.sp { margin-top: 28px; }
+h3 .code { font-family: var(--mono); font-weight: 400; font-size: 12.5px; color: var(--muted); letter-spacing: .04em; margin-left: 6px; white-space: nowrap; }
+.prepared { margin-top: 40px; }
+.prepared .group { font-family: var(--mono); font-weight: 500; font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
+#research .methods { margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--line); }
+.pubs li { grid-template-columns: 76px minmax(0, 1fr); }
+.pubs .yr { font-size: 12px; letter-spacing: .05em; text-transform: uppercase; }
+.pubs b { font-weight: 600; }
+:root { --chart-up: #00806A; --chart-flat: #BFC8C3; --chart-down: #B06A00; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --chart-up: #2FA88E; --chart-flat: #46524D; --chart-down: #C2801C; } }
+:root[data-theme="dark"] { --chart-up: #2FA88E; --chart-flat: #46524D; --chart-down: #C2801C; }
+/* Selected work */
+.feature { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 32px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 24px; color: var(--ink); text-decoration: none; margin: 8px 0 40px; transition: border-color .15s; }
+.feature:hover { border-color: var(--accent); text-decoration: none; }
+.feature h3 { font-family: var(--display); font-weight: 400; font-size: 26px; line-height: 1.15; margin: 0 0 10px; }
+.feature p { margin: 0 0 14px; color: var(--muted); }
+.feature .go { font-weight: 600; color: var(--accent); font-size: 15px; }
+.feature .fv-num { font-family: var(--display); font-size: clamp(56px, 7vw, 76px); line-height: 1; margin: 0 0 8px; color: var(--chart-up); }
+.feature .fv-cap { font-size: 15px; line-height: 1.45; color: var(--muted); margin: 0 0 16px; }
+.fv-bar { display: flex; gap: 2px; height: 14px; }
+.fv-bar span { border-radius: 3px; }
+.fv-bar .up, .fv-key .up { background: var(--chart-up); } .fv-bar .flat, .fv-key .flat { background: var(--chart-flat); } .fv-bar .down, .fv-key .down { background: var(--chart-down); }
+.fv-key { display: flex; flex-wrap: wrap; gap: 4px 16px; margin-top: 10px; font-family: var(--mono); font-size: 11.5px; color: var(--muted); }
+.fv-key span { display: inline-flex; align-items: center; gap: 6px; }
+.fv-key i { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+.tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--line); margin-bottom: 24px; }
+.tabs button { font-family: var(--mono); font-size: 12.5px; letter-spacing: .06em; text-transform: uppercase; padding: 10px 14px; margin-bottom: -1px; border: 0; border-bottom: 2px solid transparent; background: none; color: var(--muted); cursor: pointer; }
+.tabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+.cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 24px; }
+.card { display: flex; flex-direction: column; color: var(--ink); text-decoration: none; min-width: 0; }
+.card:hover { text-decoration: none; }
+.thumb { position: relative; aspect-ratio: 16 / 9; max-width: 100%; border-radius: 4px; overflow: hidden; background: var(--ink); margin-bottom: 12px; }
+.thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .35s ease; }
+.card:hover .thumb img { transform: scale(1.03); }
+.slate { position: absolute; inset: 0; display: grid; place-items: center; padding: 16px; text-align: center; background: linear-gradient(135deg, var(--ink), color-mix(in srgb, var(--ink) 70%, var(--accent))); }
+.slate span { font-family: var(--display); font-size: 22px; line-height: 1.15; color: var(--paper); }
+.play { position: absolute; left: 12px; bottom: 12px; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; background: color-mix(in srgb, var(--paper) 92%, transparent); color: var(--ink); }
+.play svg { width: 18px; height: 18px; margin-left: 2px; }
+.card .meta { display: flex; justify-content: space-between; gap: 12px; margin: 0 0 6px; font-family: var(--mono); font-size: 11.5px; letter-spacing: .05em; text-transform: uppercase; color: var(--accent); }
+.card .meta span + span { color: var(--muted); }
+.card h3 { font-size: 17px; line-height: 1.35; margin: 0 0 4px; text-wrap: pretty; }
+.card:hover h3 { color: var(--accent); }
+.card .show { margin: 0; font-size: 14px; color: var(--muted); }
+@media (max-width: 900px) { .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } .feature { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 560px) { .cards { grid-template-columns: minmax(0, 1fr); } .feature { padding: 18px; } }
+</style>
+
+</head>
+<body>
+<nav class="nav" aria-label="Primary">
+  <div class="wrap">
+    <a class="brand" href="#top">Stephen Mante Anti</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navList">Menu</button>
+    <ul id="navList">
+      <li><a href="#research">Research</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+      <li><a href="#practice">Practice</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="theme-btn" id="themeBtn" aria-label="Switch color theme">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Ph.D. Candidate · Communication and Media Studies · University of Oregon</p>
+      <h1>Stephen Mante Anti</h1>
+      <div class="framed">
+        <i class="c3"></i><i class="c4"></i>
+        <p class="thesis">I study how news frames mental illness, and how those frames move audiences toward or away from seeking help.</p>
+      </div>
+      <p class="sub">My research connects health and risk communication with media effects, with a focus on Ghana. Before graduate school I spent more than a decade as a news editor and national television anchor in Accra, and as the U.S. Embassy's media specialist for PEPFAR.</p>
+      <div class="actions">
+        <a class="btn primary" href="resume/CVAntiSA.pdf" target="_blank" rel="noopener">Curriculum Vitae</a>
+        <a class="btn ghost" href="#research">Current research</a>
+      </div>
+      <p class="market">On the 2026–27 academic job market · Ph.D. expected May 2027</p>
     </div>
+    <aside class="portrait" aria-label="Profile">
+      <div class="photo">
+        <span class="monogram" aria-hidden="true">SA</span>
+        <img id="photo" src="images/portrait.jpg" alt="Portrait of Stephen Mante Anti">
+      </div>
+      <div class="ledger">
+        <div class="ledger-cap">Dissertation corpus</div>
+        <dl>
+          <div><dt>332</dt><dd>news stories</dd></div>
+          <div><dt>10</dt><dd>Ghanaian outlets</dd></div>
+          <div><dt>11</dt><dd>years, 2015–25</dd></div>
+        </dl>
+      </div>
+    </aside>
+  </div>
+</header>
 
-    <!-- last box contains copyright and footnotes  -->
-    <div class="copyright">
-        <footer>
-            copyright &copy 2022
-        </footer>
+<main>
+  <section class="block" id="research">
+    <div class="wrap">
+      <div class="label"><span>01</span>Research</div>
+      <div class="content">
+        <p class="kicker">Dissertation</p>
+        <h2>Framing Psychosis: News Media, Stigma, and the Mechanisms of Public Response in Ghana</h2>
+        <p class="lede">The dissertation asks how news coverage of psychosis shapes what readers believe about the illness, how they feel toward people living with it, and whether they would recommend professional help. It pairs a content analysis of a decade of Ghanaian coverage with a framing experiment.</p>
+        <p class="committee">Committee: Nikki McClaran (Chair), Leslie Steeves, S. S. Ofori-Parku, Deepu Murty</p>
+
+        <figure class="figure" aria-labelledby="figcap">
+          <div class="figure-head">
+            <p id="figcap">Conceptual model · Study 2</p>
+            <p>Cognitive and affective routes</p>
+          </div>
+          <div class="diagram-scroll">
+            <svg viewBox="0 0 780 250" role="img" aria-label="Conceptual model: a news frame works through a cognitive route (controllability appraisal) and an affective route (fear and empathic concern), which shape stigma toward people with psychosis, which in turn shapes help-recommendation.">
+              <defs>
+                <marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="var(--accent)"/></marker>
+                <marker id="arrO" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="var(--ochre)"/></marker>
+                <marker id="arrI" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="var(--ink)"/></marker>
+              </defs>
+              <g font-family="Public Sans, sans-serif" text-anchor="middle">
+                <rect x="4" y="90" width="152" height="70" rx="4" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.5"/>
+                <text x="80" y="121" fill="var(--ink)" font-size="15" font-weight="600">News frame</text>
+                <text x="80" y="141" fill="var(--muted)" font-size="10" font-family="Public Sans, sans-serif">fear · empathy · neutral</text>
+                <rect x="196" y="18" width="190" height="62" rx="4" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.2"/>
+                <text x="291" y="45" fill="var(--ink)" font-size="14" font-weight="600">Controllability appraisal</text>
+                <text x="291" y="65" fill="var(--muted)" font-size="11" font-family="Public Sans, sans-serif">cognitive route</text>
+                <rect x="196" y="170" width="190" height="62" rx="4" fill="var(--ochre-soft)" stroke="var(--ochre)" stroke-width="1.2"/>
+                <text x="291" y="197" fill="var(--ink)" font-size="14" font-weight="600">Fear and empathic concern</text>
+                <text x="291" y="217" fill="var(--muted)" font-size="11" font-family="Public Sans, sans-serif">affective route</text>
+                <rect x="452" y="90" width="140" height="70" rx="4" fill="var(--paper)" stroke="var(--ink)" stroke-width="1.5"/>
+                <text x="522" y="121" fill="var(--ink)" font-size="15" font-weight="600">Stigma</text>
+                <text x="522" y="141" fill="var(--muted)" font-size="11" font-family="Public Sans, sans-serif">toward psychosis</text>
+                <rect x="636" y="90" width="136" height="70" rx="4" fill="var(--ink)"/>
+                <text x="704" y="121" fill="var(--paper)" font-size="15" font-weight="600">Help-</text>
+                <text x="704" y="140" fill="var(--paper)" font-size="15" font-weight="600">recommendation</text>
+              </g>
+              <g fill="none" stroke-width="1.6">
+                <path d="M156 112 C 178 100, 178 55, 194 50" stroke="var(--accent)" marker-end="url(#arrA)"/>
+                <path d="M156 138 C 178 150, 178 195, 194 200" stroke="var(--ochre)" marker-end="url(#arrO)"/>
+                <path d="M386 50 C 420 55, 425 100, 450 110" stroke="var(--accent)" marker-end="url(#arrA)"/>
+                <path d="M386 200 C 420 195, 425 150, 450 140" stroke="var(--ochre)" marker-end="url(#arrO)"/>
+                <path d="M592 125 L 634 125" stroke="var(--ink)" marker-end="url(#arrI)"/>
+              </g>
+            </svg>
+          </div>
+        </figure>
+
+        <div class="studies">
+          <div class="study">
+            <p class="tag">Study 1 · Content analysis</p>
+            <h3>How Ghanaian news covers psychosis</h3>
+            <p>A quantitative content analysis of 332 stories from 10 outlets, 2015–2025, coded for frames, attributions of cause and responsibility, and stigmatizing language. The corpus was built from Factiva, Nexis Uni, and web scraping, and screened for relevance with an LLM-assisted pipeline.</p>
+          </div>
+          <div class="study">
+            <p class="tag">Study 2 · Framing experiment</p>
+            <h3>What those frames do to readers</h3>
+            <p>A three-condition experiment (fear, empathy, neutral frames) comparing two routes from a news story to stigma: how controllable readers judge the illness to be, and how they feel toward the person living with it. Stigma, in turn, shapes whether readers would recommend help.</p>
+          </div>
+        </div>
+
+        <div class="lines">
+          <h3 class="group">Other lines of work</h3>
+          <div class="line-item">
+            <div>
+              <h3>Maternal mental health in Accra</h3>
+              <p>How emotional framing shapes risk perception and help-seeking intentions among pregnant and new mothers. Presented at AEJMC Midwinter 2026.</p>
+            </div>
+            <span class="status prog">In preparation</span>
+          </div>
+          <div class="line-item">
+            <div>
+              <h3>Contraceptive accessibility across Africa</h3>
+              <p>Country contexts and intersectional inequalities in attitudes toward contraceptive access, using multilevel analysis of individual heterogeneity and discriminatory accuracy (MAIHDA).</p>
+            </div>
+            <span class="status rev">Under review</span>
+          </div>
+          <div class="line-item">
+            <div>
+              <h3>Global mental health literacy</h3>
+              <p>A book chapter explaining why mental health literacy diverges across the world, for a Routledge volume on communication and mental health.</p>
+            </div>
+            <span class="status pub">In press</span>
+          </div>
+          <div class="line-item">
+            <div>
+              <h3>Depression on video-based social media</h3>
+              <p>How symptoms and treatments are depicted on short-video platforms, and what that means for health promotion practice.</p>
+            </div>
+            <span class="status rev">Under review</span>
+          </div>
+        </div>
+
+        <div class="methods">
+          <div>
+            <h3>Quantitative</h3>
+            <ul class="chips">
+              <li>Content analysis</li><li>Survey design</li><li>Experimental design</li><li>Multilevel modeling</li><li>MAIHDA</li><li>Mediation analysis</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Qualitative</h3>
+            <ul class="chips">
+              <li>In-depth interviews</li><li>Focus groups</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Software</h3>
+            <ul class="chips">
+              <li>Stata</li><li>SPSS</li><li>R</li><li>jamovi</li><li>Python</li><li>Mapbox</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
-    </body>
+  </section>
+
+  <section class="block" id="publications">
+    <div class="wrap">
+      <div class="label"><span>02</span>Publications</div>
+      <div class="content">
+        <h2>Publications and presentations</h2>
+        <div class="filters" role="group" aria-label="Filter publications">
+          <button type="button" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" data-filter="chapter" aria-pressed="false">Book chapter</button>
+          <button type="button" data-filter="review" aria-pressed="false">Under review</button>
+          <button type="button" data-filter="prep" aria-pressed="false">In preparation</button>
+          <button type="button" data-filter="talk" aria-pressed="false">Presentations</button>
+        </div>
+        <ul class="pubs" id="pubs"></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="teaching">
+    <div class="wrap">
+      <div class="label"><span>03</span>Teaching</div>
+      <div class="content">
+        <h2>Teaching from the newsroom</h2>
+        <p class="lede">I teach writing, reporting, and production the way they are practiced: through mock interviews, story selection, and revision under real constraints. In Spring 2025, 84% of my Writing as Practice students reported that the course's approaches and inclusiveness benefited their learning.</p>
+
+        <div class="lines tight">
+          <h3 class="group">University of Oregon</h3>
+          <div class="line-item"><div><h3>Writing as Practice <span class="code">JCOM 203</span></h3><p>Designed and taught over three terms.</p></div><span class="status pub">Instructor of record · 2024–25</span></div>
+          <div class="line-item"><div><h3>Introduction to Documentary Production <span class="code">JCOM 220</span></h3></div><span class="status">Teaching assistant · W26</span></div>
+          <div class="line-item"><div><h3>Media Professionals <span class="code">JCOM 101</span></h3></div><span class="status">Teaching assistant · F25</span></div>
+          <div class="line-item"><div><h3>Writing for Communicators <span class="code">J212</span></h3></div><span class="status">Lab instructor · S24</span></div>
+          <div class="line-item"><div><h3>Gateway to Media Studies <span class="code">J211</span></h3></div><span class="status">Lab instructor · 2023–24</span></div>
+          <h3 class="group sp">Jayee University College, Accra</h3>
+          <div class="line-item"><div><h3>Broadcast News Reporting · Radio and Television Presentation</h3></div><span class="status pub">Lecturer · 2009–10</span></div>
+        </div>
+
+        <div class="prepared">
+          <h3 class="group">Prepared to teach</h3>
+          <ul class="chips">
+            <li>Quantitative Research Methods</li><li>Survey and Experimental Design</li><li>Media Effects</li><li>Health and Risk Communication</li><li>Science Communication</li><li>News Writing and Reporting</li><li>Broadcast News Production</li><li>Data Journalism</li><li>Multimedia Journalism</li><li>Documentary Production</li><li>Strategic Communication</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="practice">
+    <div class="wrap">
+      <div class="label"><span>04</span>Practice</div>
+      <div class="content">
+        <h2>Fifteen years in newsrooms and public health</h2>
+        <ul class="timeline">
+          <li>
+            <span class="org">Media General Ghana · TV3 and 3FM · 2016–2021</span>
+            <h3>Presenter and Anchor</h3>
+            <p>Anchored the flagship bulletins Midday News and News@10, hosted the interview programs Hot Issues and Agenda, and led the team covering Ghana's presidential and parliamentary elections. Named TV Male Newscaster of the Year at the 2020 RTP Awards.</p>
+          </li>
+          <li>
+            <span class="org">Joy News TV · 2012–2015</span>
+            <h3>News Editor</h3>
+            <p>Ran the news department, supervised the prime-time evening bulletin, and anchored the nightly current affairs program PM Express.</p>
+          </li>
+          <li>
+            <span class="org">U.S. Embassy Accra · 2010–2012</span>
+            <h3>PEPFAR Media Specialist</h3>
+            <p>Coordinated public information for the President's Emergency Plan for AIDS Relief across five U.S. agencies. Received the Embassy's Meritorious Honor Award in 2011.</p>
+          </li>
+          <li>
+            <span class="org">Joy FM · 2007–2010</span>
+            <h3>Senior Broadcast Journalist and News Editor</h3>
+            <p>Reported on health, mental health, education, and governance. Founding producer of Hotline, an award-winning solutions-journalism documentary series.</p>
+          </li>
+        </ul>
+
+        <div class="edu">
+          <div>
+            <p class="deg">Ph.D.</p>
+            <p>Communication and Media Studies<br>University of Oregon · expected 2027</p>
+          </div>
+          <div>
+            <p class="deg">M.S.</p>
+            <p>Data Journalism<br>Columbia University · 2022</p>
+          </div>
+          <div>
+            <p class="deg">M.A.</p>
+            <p>Journalism Studies<br>Cardiff University · 2005</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="work">
+    <div class="wrap">
+      <div class="label"><span>05</span>Selected work</div>
+      <div class="content">
+        <h2>Selected broadcast and data journalism</h2>
+
+        <a class="feature" href="https://stephenanti.github.io/nj-schools/" target="_blank" rel="noopener">
+          <div class="feature-viz" aria-hidden="true">
+            <p class="fv-num">62%</p>
+            <p class="fv-cap">of 668 New Jersey districts improved on most of six performance measures during the pandemic</p>
+            <div class="fv-bar"><span class="up" style="flex: 412"></span><span class="flat" style="flex: 196"></span><span class="down" style="flex: 60"></span></div>
+            <div class="fv-key"><span><i class="up"></i>Improved 412</span><span><i class="flat"></i>Steady 196</span><span><i class="down"></i>Declined 60</span></div>
+          </div>
+          <div class="feature-text">
+            <p class="kicker">Featured data story · Columbia master's project · 2022</p>
+            <h3>New Jersey public schools show pandemic recovery</h3>
+            <p>An analysis of 668 school districts on six performance measures found that 62% improved on most of them, while college enrollment fell almost everywhere and gains tilted toward wealthier districts.</p>
+            <span class="go">Read the interactive story →</span>
+          </div>
+        </a>
+
+        <div class="tabs" role="tablist" aria-label="Type of work">
+          <button type="button" role="tab" id="tab-tv" aria-selected="true" aria-controls="panel-tv">Broadcast</button>
+          <button type="button" role="tab" id="tab-data" aria-selected="false" aria-controls="panel-data">Data journalism</button>
+        </div>
+
+        <div class="cards" id="panel-tv" role="tabpanel" aria-labelledby="tab-tv"></div>
+        <div class="cards" id="panel-data" role="tabpanel" aria-labelledby="tab-data" hidden></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="contact">
+    <div class="wrap">
+      <div class="label"><span>06</span>Contact</div>
+      <div class="content contact-card">
+        <div>
+          <h2>Get in touch</h2>
+          <p class="lede" style="margin-bottom:8px">For research collaboration, speaking, or faculty search inquiries.</p>
+          <div class="email-row">
+            <a class="email" id="email" href="mailto:smanti@uoregon.edu">smanti@uoregon.edu</a>
+            <button class="copy" id="copyBtn" type="button">Copy</button>
+          </div>
+        </div>
+        <ul class="social">
+          <li><a href="https://orcid.org/0009-0009-2115-2912" target="_blank" rel="noopener"><span>ORCID</span><span>0009-0009-2115-2912</span></a></li>
+          <li><a href="https://www.linkedin.com/in/stephenanti/" target="_blank" rel="noopener"><span>LinkedIn</span><span>/in/stephenanti</span></a></li>
+          <li><a href="resume/CVAntiSA.pdf" target="_blank" rel="noopener"><span>Curriculum Vitae</span><span>PDF</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr">2026</span> Stephen Mante Anti</span>
+    <span>School of Journalism and Communication · University of Oregon</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // ---- Publications: edit this list to add or update entries ----
+  // kind: "chapter" | "review" | "prep" | "talk"
+  var PUBS = [
+    { year: "In press", kind: "chapter", label: "Book chapter",
+      cite: "Romann, L. R., Shoieb, Z., Boateng, S. N., <b>Anti, S. M.</b>, &amp; Hintz, E. A. Explicating the divergence in worldwide mental health literacy. In V. Agarwal (Ed.), <em>Communication and mental health in global contexts: Opportunities for transformation, representation, and social justice</em>. Routledge." },
+    { year: "Review", kind: "review", label: "Under review · Studies in Family Planning",
+      cite: "Oboro-Offerie, R. A., &amp; <b>Anti, S. M.</b> Country contexts and intersectional inequalities in attitudes toward contraceptive accessibility in Africa: A multilevel analysis of individual heterogeneity and discriminatory accuracy (MAIHDA)." },
+    { year: "Review", kind: "review", label: "Under review · Health Promotion Practice",
+      cite: "McClaran, N., &amp; <b>Anti, S. M.</b> Depression symptoms, treatments, and depiction on video-based social media: Implications for practice." },
+    { year: "Prep", kind: "prep", label: "In preparation",
+      cite: "<b>Anti, S. M.</b> Framing maternal mental health: Emotional pathways to help-seeking in Accra, Ghana." },
+    { year: "Prep", kind: "prep", label: "In preparation",
+      cite: "<b>Anti, S. M.</b>, &amp; Oboro-Offerie, R. A. Media usage and attitudes toward contraceptive accessibility: Regional disparities and sociodemographic determinants among Ghanaians." },
+    { year: "Prep", kind: "prep", label: "In preparation",
+      cite: "Boateng, S. N., <b>Anti, S. M.</b>, &amp; Lachlan, K. Maternal health crisis in Ghana: Image restoration, the quack midwife, and the human cost of poor crisis strategies." },
+    { year: "Prep", kind: "prep", label: "In preparation",
+      cite: "Koomson, P., Ofori-Parku, S. S., Akakpo, A., &amp; <b>Anti, S. M.</b> E-waste framing in Ghanaian media." },
+    { year: "2026", kind: "talk", label: "Paper · AEJMC Midwinter Conference, Norman, OK",
+      cite: "<b>Anti, S. M.</b> Framing maternal mental health: The role of emotions in risk perceptions and help-seeking intentions among pregnant and new mothers in Accra, Ghana." },
+    { year: "2026", kind: "talk", label: "Paper accepted · IAMCR, Galway",
+      cite: "Okyere, F., Kuwornu, A. Y., &amp; <b>Anti, S. M.</b> Digital diplomacy, soft power and narratives from the Global South: The case of IShowSpeed's Ghana tour." },
+    { year: "2025", kind: "talk", label: "Paper · ATINER Conference on Communication and Media Studies, Athens",
+      cite: "<b>Anti, S. M.</b> (Re)constructing mental illness: Ghanaian news media framing and how it influences public policies and perceptions." }
+  ];
+  var list = document.getElementById("pubs");
+  function render(f) {
+    list.innerHTML = PUBS.filter(function (p) { return f === "all" || p.kind === f; }).map(function (p) {
+      return '<li><span class="yr">' + p.year + '</span><div><p class="cite">' + p.cite + '</p><span class="kind">' + p.label + '</span></div></li>';
+    }).join("");
+  }
+  render("all");
+  document.querySelectorAll(".filters button").forEach(function (b) {
+    b.addEventListener("click", function () {
+      document.querySelectorAll(".filters button").forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+      render(b.dataset.filter);
+    });
+  });
+
+  // ---- Photo fallback to monogram ----
+  var img = document.getElementById("photo");
+  function hideImg() { img.hidden = true; }
+  img.addEventListener("error", hideImg);
+  if (img.complete && img.naturalWidth === 0) hideImg();
+
+  // ---- Theme toggle ----
+  var root = document.documentElement;
+  try { var saved = localStorage.getItem("sa-theme"); if (saved) root.setAttribute("data-theme", saved); } catch (e) {}
+  document.getElementById("themeBtn").addEventListener("click", function () {
+    var current = root.getAttribute("data-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    var next = current === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("sa-theme", next); } catch (e) {}
+  });
+
+  // ---- Mobile menu ----
+  var menuBtn = document.getElementById("menuBtn"), navList = document.getElementById("navList");
+  menuBtn.addEventListener("click", function () {
+    var open = navList.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+  navList.addEventListener("click", function (e) { if (e.target.tagName === "A") { navList.classList.remove("open"); menuBtn.setAttribute("aria-expanded", "false"); } });
+
+  // ---- Active section in nav ----
+  var links = {};
+  navList.querySelectorAll("a").forEach(function (a) { links[a.getAttribute("href").slice(1)] = a; });
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) Object.keys(links).forEach(function (k) { links[k].classList.toggle("active", k === en.target.id); });
+      });
+    }, { rootMargin: "-40% 0px -55% 0px" });
+    Object.keys(links).forEach(function (id) { var s = document.getElementById(id); if (s) io.observe(s); });
+  }
+
+  // ---- Copy email ----
+  var copyBtn = document.getElementById("copyBtn");
+  copyBtn.addEventListener("click", function () {
+    var text = document.getElementById("email").textContent;
+    function done() { copyBtn.textContent = "Copied"; setTimeout(function () { copyBtn.textContent = "Copy"; }, 1800); }
+    function fallback() { var r = document.createRange(); r.selectNodeContents(document.getElementById("email")); var s = getSelection(); s.removeAllRanges(); s.addRange(r); copyBtn.textContent = "Selected"; }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, fallback); else fallback();
+  });
+
+
+  // ---- Selected work: edit these lists to add or reorder pieces ----
+  // img: a file in images/work/, or yt: a YouTube video ID (thumbnail loads from YouTube)
+  var TV = [
+    { img: "images/work/greenstreet.jpg", tag: "Election interview", show: "Election 2020 · TV3", date: "Sep 2020",
+      title: "One-on-one with CPP presidential candidate Ivor Greenstreet", url: "https://www.youtube.com/watch?v=6Xco9gX4au4" },
+    { img: "images/work/hot-issues-asante.jpg", tag: "Interview", show: "Hot Issues · TV3", date: "Jan 2020",
+      title: "Dr. S. K. B. Asante on Ghana's Constitution Day", url: "https://www.youtube.com/watch?v=BAElGM_9dek" },
+    { img: "images/work/hot-issues-simons.jpg", tag: "Interview", show: "Hot Issues · TV3", date: "Dec 2019",
+      title: "Bright Simons of IMANI on the Communications Service Tax", url: "https://www.youtube.com/watch?v=Jp5-46KQuIE" },
+    { yt: "wW7IQw_h0NY", tag: "Data on air", show: "3News", date: "Jun 2019",
+      title: "Research on MPs' performance ahead of the 2020 elections", url: "https://www.youtube.com/watch?v=wW7IQw_h0NY" },
+    { yt: "kPly8qkjxx4", tag: "Anchoring", show: "Midday Live · TV3", date: "Apr 2020",
+      title: "Midday Live, full bulletin", url: "https://www.youtube.com/watch?v=kPly8qkjxx4" },
+    { yt: "uBb1sJ8VIr8", tag: "Anchoring", show: "News@10 · TV3", date: "Aug 2019",
+      title: "News@10, full bulletin", url: "https://www.youtube.com/watch?v=uBb1sJ8VIr8" },
+    { yt: "-GZyH3slFhA", tag: "Accountability", show: "PM Express · JoyNews", date: "Sep 2012",
+      title: "School Feeding in Retrospect: corruption allegations with the former program manager", url: "https://www.youtube.com/watch?v=-GZyH3slFhA" },
+    { yt: "lzRQmwFsPpc", tag: "Profile", show: "PM Express · JoyNews", date: "Apr 2013",
+      title: "Personality Profile Friday with Rosa Whitaker, former U.S. Assistant Trade Representative for Africa", url: "https://www.youtube.com/watch?v=lzRQmwFsPpc" },
+    { yt: "c7RHp8OXxVE", tag: "Documentary", show: "JoyNews Exclusive", date: "49 min",
+      title: "Street Naming and House Numbering in Ghana: a World Bank project, examined", url: "https://www.youtube.com/watch?v=c7RHp8OXxVE" }
+  ];
+  var DATA = [
+    { img: "images/work/foia.jpg", tag: "Interactive graphic", show: "ai2html", title: "FOIA requests left waiting for years", url: "https://stephenanti.github.io/fancy/" },
+    { img: "images/work/brooklyn.jpg", tag: "Data story", show: "NYC crash data, 2016–21", title: "You are more likely to crash in Brooklyn", url: "https://stephenanti.github.io/brooklyn/" },
+    { img: "images/work/yams.jpg", tag: "Data story", show: "WFP price data", title: "Yam prices in Ghana at a five-year low", url: "https://stephenanti.github.io/yam/" },
+    { img: "images/work/citibike.jpg", tag: "Interactive map", show: "Mapbox", title: "Mapping Citi Bike rides, September 2020 and 2021", url: "https://stephenanti.github.io/citibike/" },
+    { img: "images/work/detroit.jpg", tag: "Interactive map · team project", show: "Mapbox", title: "Food accessibility in Detroit during the pandemic", url: "https://stephenanti.github.io/justice_project/" },
+    { img: "images/work/china-forest.jpg", tag: "Scrollytelling", show: "FAO forest data", title: "China and the world's forest change, 1990–2015", url: "https://stephenanti.github.io/scrolly/" }
+  ];
+  function esc(t) { return String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
+  function card(d) {
+    var src = d.img || ("https://i.ytimg.com/vi/" + d.yt + "/hqdefault.jpg");
+    var play = d.yt || /youtube/.test(d.url) ? '<span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>' : "";
+    return '<a class="card" href="' + d.url + '" target="_blank" rel="noopener">' +
+      '<div class="thumb"><div class="slate"><span>' + esc(d.show) + '</span></div>' +
+      '<img loading="lazy" src="' + src + '" alt="">' + play + '</div>' +
+      '<p class="meta"><span>' + esc(d.tag) + '</span>' + (d.date ? '<span>' + esc(d.date) + '</span>' : '') + '</p>' +
+      '<h3>' + esc(d.title) + '</h3>' +
+      '<p class="show">' + esc(d.show) + '</p></a>';
+  }
+  document.getElementById("panel-tv").innerHTML = TV.map(card).join("");
+  document.getElementById("panel-data").innerHTML = DATA.map(card).join("");
+  document.querySelectorAll(".card img").forEach(function (im) {
+    function bad() { im.hidden = true; }
+    im.addEventListener("error", bad);
+    if (im.complete && im.naturalWidth === 0) bad();
+  });
+  var tabs = document.querySelectorAll(".tabs [role=tab]");
+  tabs.forEach(function (t) {
+    t.addEventListener("click", function () {
+      tabs.forEach(function (x) {
+        var on = x === t; x.setAttribute("aria-selected", on ? "true" : "false");
+        document.getElementById(x.getAttribute("aria-controls")).hidden = !on;
+      });
+    });
+  });
+
+
+
+  document.getElementById("yr").textContent = new Date().getFullYear();
+})();
+</script>
+
+</body>
 </html>
