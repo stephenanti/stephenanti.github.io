@@ -24,9 +24,9 @@ SITE = "https://stephenanti.com"
 # projects kept in their own GitHub repositories; they are only on the GitHub address
 PROJECTS = "https://stephenanti.github.io"
 OTHER_REPOS = ("/citibike/", "/justice_project/", "/county_disaster/", "/election_webmap/")
-NAME = "Stephen M. Anti"
+NAME = "Stephen Mante Anti"
 CV = "/resume/CVAntiSA.pdf"
-DESC = ("Stephen M. Anti (Stephen Mante Anti) is a Ph.D. candidate in Communication and Media "
+DESC = ("Stephen Mante Anti (Stephen M. Anti) is a Ph.D. candidate in Communication and Media "
         "Studies at the University of Oregon studying news framing, stigma, and help-seeking in Ghana.")
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -293,7 +293,7 @@ def build():
 </section>
 """
     jsonld = f"""<script type="application/ld+json">
-{{"@context":"https://schema.org","@type":"Person","name":"{NAME}","alternateName":["Stephen Mante Anti","Stephen Anti"],"url":"{SITE}/","image":"{SITE}/images/portrait.jpg","jobTitle":"Ph.D. Candidate, Communication and Media Studies","affiliation":{{"@type":"CollegeOrUniversity","name":"University of Oregon","department":{{"@type":"Organization","name":"School of Journalism and Communication"}}}},"alumniOf":[{{"@type":"CollegeOrUniversity","name":"Columbia University"}},{{"@type":"CollegeOrUniversity","name":"Cardiff University"}}],"knowsAbout":["health communication","media effects","news framing","mental illness stigma","help-seeking","Ghana","data journalism","broadcast journalism"],"sameAs":["{LINKS['linkedin']}","{LINKS['orcid']}","https://scholar.google.com/citations?user=oBHctCIAAAAJ","{LINKS['sojc']}","{LINKS['x']}"]}}
+{{"@context":"https://schema.org","@type":"Person","name":"{NAME}","alternateName":["Stephen M. Anti","Stephen Anti"],"url":"{SITE}/","image":"{SITE}/images/portrait.jpg","jobTitle":"Ph.D. Candidate, Communication and Media Studies","affiliation":{{"@type":"CollegeOrUniversity","name":"University of Oregon","department":{{"@type":"Organization","name":"School of Journalism and Communication"}}}},"alumniOf":[{{"@type":"CollegeOrUniversity","name":"Columbia University"}},{{"@type":"CollegeOrUniversity","name":"Cardiff University"}}],"knowsAbout":["health communication","media effects","news framing","mental illness stigma","help-seeking","Ghana","data journalism","broadcast journalism"],"sameAs":["{LINKS['linkedin']}","{LINKS['orcid']}","https://scholar.google.com/citations?user=oBHctCIAAAAJ","{LINKS['sojc']}","{LINKS['x']}"]}}
 </script>
 """
     home = head(f"{NAME} | University of Oregon", DESC, "/", d, kind="profile", extra=jsonld) + nav("/", d, has_posts) + f"""
@@ -345,7 +345,7 @@ def build():
 
     # Research
     d = 1
-    page = head(f"Research | {NAME}", "Research by Stephen M. Anti on news framing, stigma, and help-seeking for mental illness in Ghana, with publications and conference presentations.", "/research/", d) + nav("/research/", d, has_posts) + pagehead(
+    page = head(f"Research | {NAME}", "Research by Stephen Mante Anti on news framing, stigma, and help-seeking for mental illness in Ghana, with publications and conference presentations.", "/research/", d) + nav("/research/", d, has_posts) + pagehead(
         "Research", "How news media frame mental illness, and how those frames move audiences toward or away from seeking help.") + f"""
 <main class="page">
 {fix_links(read('pages/research.html'), d).rstrip()}
@@ -359,7 +359,7 @@ def build():
     write("/research/", page)
 
     # Teaching
-    page = head(f"Teaching | {NAME}", "Courses taught by Stephen M. Anti at the University of Oregon and Jayee University College, Accra.", "/teaching/", d) + nav("/teaching/", d, has_posts) + pagehead(
+    page = head(f"Teaching | {NAME}", "Courses taught by Stephen Mante Anti at the University of Oregon and Jayee University College, Accra.", "/teaching/", d) + nav("/teaching/", d, has_posts) + pagehead(
         "Teaching") + f"""
 <main class="page">
 {fix_links(read('pages/teaching.html'), d).rstrip()}
@@ -382,7 +382,7 @@ def build():
     {(chr(10) + '    ').join(card(it, d) for it in s['items'])}
   </div>{more}
 </section>""")
-    page = head(f"Work | {NAME}", "Selected work by Stephen M. Anti: interactive maps, data stories, and broadcast journalism from Ghana and the United States.", "/work/", d) + nav("/work/", d, has_posts) + pagehead(
+    page = head(f"Work | {NAME}", "Selected work by Stephen Mante Anti: interactive maps, data stories, and broadcast journalism from Ghana and the United States.", "/work/", d) + nav("/work/", d, has_posts) + pagehead(
         "Work", "Data stories, interactive maps, and more than a decade of broadcast journalism.") + f"""
 <main class="page">
   {featured(work['featured'], d)}
@@ -396,7 +396,7 @@ def build():
 
     # Blog
     if has_posts:
-        page = head(f"Blog | {NAME}", "Essays and notes by Stephen M. Anti on health communication, journalism, data, and Ghana.", "/blog/", d) + nav("/blog/", d, has_posts) + pagehead(
+        page = head(f"Blog | {NAME}", "Essays and notes by Stephen Mante Anti on health communication, journalism, data, and Ghana.", "/blog/", d) + nav("/blog/", d, has_posts) + pagehead(
             "Blog", "Essays, notes, and commentary.") + f"""
 <main class="page">
   {post_list(posts, d)}
