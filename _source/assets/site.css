@@ -202,3 +202,11 @@ article.post .body code { font-size: 17px; background: #f3f3f3; padding: 1px 5px
 .btns a:hover { text-decoration: none; filter: brightness(.94); }
 .item p.open { padding-top: 0; margin-top: -8px; }
 .item p.open a { font: bold 16px Georgia, "Times New Roman", serif; color: #A3322A; }
+nav.top .bar { align-items: center; padding-block: 10px; }
+nav.top .home-slot { display: flex; align-items: center; justify-content: center; gap: 16px; }
+nav.top .logo { display: block; line-height: 0; border: 0 !important; }
+nav.top .logo img { height: 48px; width: auto; display: block; }
+@media (max-width: 480px) {
+  nav.top .home-slot { display: flex; width: 100%; justify-content: flex-start; gap: 14px; }
+  nav.top .logo img { height: 40px; }
+}
