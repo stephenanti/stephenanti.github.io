@@ -5,24 +5,21 @@ tags: [Ghana, Education, Gender, Accountability]
 draft: true
 ---
 
-Sometime after ten o'clock one night, a housemistress at Obuasi Senior High Technical School was asked to call a girl out of her dormitory. By her own account, in a recording that investigative journalist Manasseh Azure Awuni later obtained, she refused to release the student until she was told why. The person who came for the girl was not a parent. It was the Municipal Chief Executive, William Kofi Adjaho, who has confirmed that he went to the school at night with one of the girl's relatives and took her away.
+Sometime after ten o'clock one night, a housemistress at Obuasi Senior High Technical School was asked to call a girl out of her dormitory. By her own account, in a recording that investigative journalist Manasseh Azure Awuni later obtained, she refused to release the student until she was told why. The person who came for the girl was not a parent. It was the Obuasi East Municipal Chief Executive, who has confirmed that he went to the school at night with one of the girl's relatives and took her away.
 
 He reportedly acknowledged that the matter was criminal. He also said it was never reported to the police, because the people involved did not think they had enough evidence.
 
-Read that twice. By his own account, a senior public official thought a crime may have been committed against a schoolgirl, drove to her school at night, collected her, and the police did not hear about it. That is how silence works in Ghana. Nobody has to shout anyone down; a few respectable adults just decide that the matter is better handled among themselves.
+By his own account, a senior public official thought a crime may have been committed against a schoolgirl, went to her school at night, collected her, and the police did not hear about it. That is how silence works in Ghana. Nobody has to shout anyone down; a few respectable adults just decide that the matter is better handled among themselves.
 
 ## What we know, and what we do not
 
 The headmaster at the centre of this, Zakaria Abdulai, has not been convicted of anything. He denies the allegations and says he will use every lawful avenue to clear his name. He deserves due process, and so do the students. Those two things are not in competition, as the former Gender Minister Dakoa Newman put it this week.
 
-Here is the record so far. Mr Abdulai was appointed in April 2025, and the allegations began to surface within a month. In August 2026 a nine-member GES committee looked into disturbances at the school and found the harassment allegations "not substantiated by the evidence presented to it." That sentence carries more weight than it seems to. The school's Safe Space Focal Person had named 16 girls. All 16 were invited to appear. Four came. One denied everything; three described hugging and a kiss on the cheek that they considered harassment. The report does not say why the other twelve stayed away.
+Mr Abdulai was appointed in April 2025, and the allegations began to surface within a month. In August 2026 a nine-member GES committee looked into disturbances at the school and found the harassment allegations "not substantiated by the evidence presented to it." The school's Safe Space Focal Person had named 16 girls. All 16 were invited to appear. Four came. One denied everything; three described hugging and a kiss on the cheek that they considered harassment. The report does not say why the other twelve stayed away. Since then, Manasseh has reported on JoyNews' The Probe that 19 students have come forward.
 
 Ask yourself what it takes for a teenager to sit in front of nine adults and accuse her headmaster, the most powerful adult in her school. Then ask what happens to her if the committee does not believe her.
 
-On 13 October the Education Minister, Haruna Iddrisu, directed that the headmaster be suspended and asked the police to investigate. On 20 October the Interior Minister, Muntaka Mubarak, told Parliament that Mr Abdulai had been arrested, that the case had been moved to Police Headquarters, and that investigators were seeking a court order for a DNA sample to compare with semen reportedly found on one student's dress. The same week, Parliament's Committee on Human Rights asked for an impartial investigation into officials who received earlier complaints and did nothing.
-
-That last demand is the one I want us to sit with.
-
+On 13 October the Education Minister, Haruna Iddrisu, directed that the headmaster be suspended and asked the police to investigate. On 20 October the Interior Minister, Muntaka Mohammed-Mubarak, told Parliament that Mr Abdulai had been arrested, that the case had been moved to Police Headquarters, and that investigators were seeking a court order for a DNA sample to compare with semen reportedly found on one student's dress. The same week, Parliament's Committee on Human Rights asked for an impartial investigation into officials who received earlier complaints and did nothing.
 ## This is not one school
 
 Obuasi SHTS has been here before. In 2019 GES dismissed a housemaster from the same school. In 2018 nine teachers at Ejisuman SHS were interdicted and four were sacked. In 2022 a teacher at Kulpi R/C JHS in the Savannah Region went to prison for seven years for abusing 18 boys.
@@ -33,7 +30,7 @@ Those 44 are only the cases that reached a newspaper. Bono, Bono East, Ahafo and
 
 ## The same pattern, wearing different clothes
 
-If we tell ourselves this is a problem of a few bad teachers, we miss the shape of it. Look at who the accused are and where the children were.
+If we tell ourselves this is a problem of a few bad teachers, we miss the shape of it.
 
 In a case reported in January 2024, the Adentan Circuit Court sentenced Rev. Benjamin Achaab to 23 years for defiling an 11-year-old girl. She had come to church for keyboard lessons. The instructor did not show up; the pastor was in the auditorium. It took three years of trial to get to a verdict.
 
@@ -45,7 +42,7 @@ A classroom, an auditorium, a mosque store room. In each place a man held author
 
 The same arithmetic follows girls out of school and into the job market. A young woman with a degree and no connections sends out applications for a year. Then a man who can decide whether she gets the job makes it clear what the job will cost.
 
-We have numbers on this, and they are old, which is itself a finding. The 2016 Ghana Family Life and Health Survey, as cited in a 2022 Graphic feature on workplace harassment, found that about 42 percent of women had experienced sexual violence at work at least once. A University of Ghana study of organisations found harassment common, mostly unreported, and young women affected most. In fishing communities, union leaders said in August that some women are asked for sex before they are allowed to buy fish.
+The 2016 Ghana Family Life and Health Survey, as cited in a 2022 Graphic feature on workplace harassment, found that about 42 percent of women had experienced sexual violence at work at least once. I could find no newer national figure, and that gap says something too. A University of Ghana study of organisations found harassment common, mostly unreported, and young women affected most. In fishing communities, union leaders said in August that some women are asked for sex before they are allowed to buy fish.
 
 In May, President Mahama called for a law that would make it a crime to demand sex in exchange for a job. ActionAid Ghana welcomed the move. As far as I can find, no such bill has passed. Ghana has also not ratified ILO Convention 190 on violence and harassment at work; a labour leader said in August that the process had gone "back to ground zero" after the change of government.
 
@@ -53,13 +50,13 @@ In May, President Mahama called for a law that would make it a crime to demand s
 
 We are not short of laws against defilement. We are short of the will to let them work. When a case surfaces, the first questions in many staff rooms, church councils and family meetings are about reputation: of the school, of the church, of the party, of the family. The child's account comes later, if it comes at all.
 
-The Obuasi file has all of it. A girl removed at night by a politician and a relative, and no police report. Students' recordings passed around outside official channels, which the August committee itself criticised. Twelve of sixteen girls who did not come forward. And a headmaster who, until this month, was also the NDC secretary for Juaben Constituency. That is not proof of anything against him. It does show how many loyalties can crowd into a room before anyone asks what the girl needs.
+In Obuasi, a politician and a relative removed a girl from school at night, and no one called the police. Students' recordings passed around outside official channels, which the August committee itself criticised. Twelve of sixteen girls stayed away from the inquiry. The headmaster was, until this month, also the NDC secretary for Juaben Constituency. That is not proof of anything against him. It does show how many loyalties can crowd into a room before anyone asks what the girl needs.
 
 ## What would change this
 
-Some of the fixes are already on the table. Parliament's human rights committee wants confidential reporting channels in every school and counselling for affected students. A Graphic contributor has argued for a law that criminalises sexual relationships between teachers and students in their care, with a national register of educators found guilty of misconduct. The President has asked for a sex-for-jobs offence.
+Parliament's human rights committee wants confidential reporting channels in every school and counselling for affected students. A Graphic contributor has argued for a law that criminalises sexual relationships between teachers and students in their care, with a national register of educators found guilty of misconduct. The President has asked for a sex-for-jobs offence.
 
-I would add three things. Every adult who receives a complaint about a child, in a school, a church or a mosque, should be required to report it to the police or DOVVSU, and failing to report should carry a penalty. Investigations into a head of school should not be run by people who work under him or depend on him. And GES should publish, every year, how many complaints it received, how many teachers it interdicted, and what happened to each case. If 23 of 44 cases can vanish without an outcome, the system is telling us what it values.
+Every adult who receives a complaint about a child, in a school, a church or a mosque, should also be required by law to report it to the police or DOVVSU, and failing to report should carry a penalty. Investigations into a head of school should not be run by people who work under him or depend on him. And GES should publish, every year, how many complaints it received, how many teachers it interdicted, and what happened to each case. If 23 of 44 cases can vanish without an outcome, the system is telling us what it values.
 
 The Vice President said this week that we should let the law take its course. I agree. But the law can only take a course that someone opens for it. For years, the people with the keys have chosen to walk the girl out at night and tell no one.
 
@@ -68,6 +65,7 @@ The Vice President said this week that we should let the law take its course. I 
 - Graphic Online, [Education Minister directs suspension of Obuasi SHTS headmaster](https://www.graphic.com.gh/news/general-news/education-minister-directs-suspension-obuasi-senior-high-technical-school-headmaster-over-lleged-sexual-misconduct.html), 13 October 2026
 - MyJoyOnline, [Sexual abuse allegations not substantiated in August inquiry: GES report](https://www.myjoyonline.com/sexual-abuse-allegations-against-obuasi-shts-headmaster-not-substantiated-in-august-inquiry-ges-report/), 20 October 2026
 - 3News, [Obuasi SHTS headmaster arrested over alleged sexual misconduct](https://3news.com/news/obuasi-shts-headmaster-arrested-over-alleged-sexual-misconduct-muntaka), 20 October 2026
+- MyJoyOnline, [Obuasi SHTS abuse allegations: reported cases rise to 19](https://www.myjoyonline.com/obuasi-shts-abuse-allegations-reported-cases-rise-to-19/), 18 October 2026
 - GhanaWeb, [Details of Manasseh's Obuasi headmaster exposé](https://www.ghanaweb.com/GhanaHomePage/NewsArchive/Housemistress-Accounts-NDC-MCE-s-Cover-Up-and-More-Details-of-Manasseh-s-Obuasi-headmaster-expos-2057570), 20 October 2026
 - 3News, [Obuasi SHTS case: Parliament demands speedy probe](https://3news.com/news/obuasi-shts-case-parliament-demands-speedy-probe), 22 October 2026
 - GhanaWeb, [How female leaders reacted to the Obuasi SHTS saga](https://ghanaweb.com/GhanaHomePage/NewsArchive/How-prominent-female-leaders-activists-reacted-to-Obuasi-SHTS-saga-2057891), 22 October 2026
