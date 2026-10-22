@@ -7,7 +7,7 @@
 Content lives in:
     _source/pages/*.html   page sections (research, teaching, experience ...)
     _source/work.yml       selected work
-    _source/posts/*.md     writing; one file per post, named YYYY-MM-DD-short-title.md
+    _source/posts/*.md     blog posts; one file per post, named YYYY-MM-DD-short-title.md
 """
 import datetime as dt
 import html
@@ -37,7 +37,7 @@ OUT = sys.argv[sys.argv.index("--preview") + 1] if PREVIEW else ROOT
 SHOW_DRAFTS = PREVIEW
 
 # pages built by this script; any other path on the site is left alone
-SITE_PAGES = ("/", "/research/", "/teaching/", "/work/", "/writing/")
+SITE_PAGES = ("/", "/research/", "/teaching/", "/work/", "/blog/")
 
 LINKS = {
     "orcid": "https://orcid.org/0009-0009-2115-2912",
@@ -60,7 +60,7 @@ def esc(t):
 
 # ---------- links ----------
 def is_site_page(path):
-    return path in SITE_PAGES or path.startswith("/writing/")
+    return path in SITE_PAGES or path.startswith("/blog/")
 
 
 def u(path, depth):
@@ -121,7 +121,7 @@ def load_posts():
             "image": meta.get("image"),
             "date": date,
             "slug": slug,
-            "path": "/writing/%s/" % slug,
+            "path": "/blog/%s/" % slug,
             "html": md.convert(body),
             "minutes": max(1, round(words / 230)),
             "draft": bool(meta.get("draft")),
@@ -154,7 +154,7 @@ def head(title, desc, path, depth, image="images/portrait.jpg", kind="website", 
 <meta property="og:image" content="{img}">
 <meta name="twitter:card" content="summary">
 <link rel="stylesheet" href="{u('/assets/site.css', depth)}">
-<link rel="alternate" type="application/rss+xml" title="{NAME}: Writing" href="{SITE}/writing/feed.xml">
+<link rel="alternate" type="application/rss+xml" title="{NAME}: Blog" href="{SITE}/blog/feed.xml">
 {extra}</head>
 <body>
 """
@@ -163,7 +163,7 @@ def head(title, desc, path, depth, image="images/portrait.jpg", kind="website", 
 def nav(active, depth, has_posts):
     items = [("Research", "/research/"), ("Teaching", "/teaching/"), ("Work", "/work/")]
     if has_posts:
-        items.append(("Writing", "/writing/"))
+        items.append(("Blog", "/blog/"))
     links = []
     for label, path in items:
         on = ' class="on" aria-current="page"' if active == path else ""
@@ -284,10 +284,10 @@ def build():
     writing = ""
     if has_posts:
         writing = f"""
-<section id="writing">
-  <h2>Writing</h2>
+<section id="blog">
+  <h2>Blog</h2>
   {post_list(posts, d, 3)}
-  <p class="all"><a class="arrow" href="{u('/writing/', d)}">All writing →</a></p>
+  <p class="all"><a class="arrow" href="{u('/blog/', d)}">All posts →</a></p>
 </section>
 """
     jsonld = f"""<script type="application/ld+json">
@@ -392,16 +392,16 @@ def build():
 """ + footer(d)
     write("/work/", page)
 
-    # Writing
+    # Blog
     if has_posts:
-        page = head(f"Writing | {NAME}", "Essays and notes by Stephen M. Anti on health communication, journalism, data, and Ghana.", "/writing/", d) + nav("/writing/", d, has_posts) + pagehead(
-            "Writing", "Essays, notes, and commentary.") + f"""
+        page = head(f"Blog | {NAME}", "Essays and notes by Stephen M. Anti on health communication, journalism, data, and Ghana.", "/blog/", d) + nav("/blog/", d, has_posts) + pagehead(
+            "Blog", "Essays, notes, and commentary.") + f"""
 <main class="page">
   {post_list(posts, d)}
-  <p class="feed"><a href="{SITE}/writing/feed.xml">Subscribe by RSS</a></p>
+  <p class="feed"><a href="{SITE}/blog/feed.xml">Subscribe by RSS</a></p>
 </main>
 """ + footer(d)
-        write("/writing/", page)
+        write("/blog/", page)
         for i, p in enumerate(posts):
             d = 2
             newer = posts[i - 1] if i > 0 else None
@@ -421,10 +421,10 @@ def build():
                   f'"headline":{yaml_json(p["title"])},"datePublished":"{p["date"].isoformat()}",'
                   f'"author":{{"@type":"Person","name":"{NAME}","url":"{SITE}/"}},"url":"{share_url}"}}</script>\n')
             body_html = fix_links(p["html"], d)
-            page = head(f"{p['title']} | {NAME}", p["summary"] or DESC, p["path"], d, image=p["image"] or "images/portrait.jpg", kind="article", extra=ld) + nav("/writing/", d, has_posts) + f"""
+            page = head(f"{p['title']} | {NAME}", p["summary"] or DESC, p["path"], d, image=p["image"] or "images/portrait.jpg", kind="article", extra=ld) + nav("/blog/", d, has_posts) + f"""
 <main class="page">
 <article class="post">
-  <p class="meta"><a href="{u('/writing/', d)}">Writing</a> · {nice_date(p['date'])} · {p['minutes']} min read</p>
+  <p class="meta"><a href="{u('/blog/', d)}">Blog</a> · {nice_date(p['date'])} · {p['minutes']} min read</p>
   <h1>{esc(p['title'])}</h1>
   {f'<p class="standfirst">{esc(p["summary"])}</p>' if p['summary'] else ''}
   <div class="byline"><img src="{u('/images/portrait.jpg', d)}" alt=""><span>{NAME}</span></div>
@@ -440,9 +440,9 @@ def build():
 </main>
 """ + footer(d)
             write(p["path"], page)
-        write("/writing/feed.xml", feed(posts))
+        write("/blog/feed.xml", feed(posts))
     elif not PREVIEW:
-        shutil.rmtree(os.path.join(OUT, "writing"), ignore_errors=True)
+        shutil.rmtree(os.path.join(OUT, "blog"), ignore_errors=True)
 
     if not PREVIEW:
         write("/sitemap.xml", sitemap(posts))
@@ -474,8 +474,8 @@ def feed(posts):
     return f"""<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
 <channel>
-  <title>{NAME}: Writing</title>
-  <link>{SITE}/writing/</link>
+  <title>{NAME}: Blog</title>
+  <link>{SITE}/blog/</link>
   <description>Essays and notes by {NAME}.</description>
 {chr(10).join(items)}
 </channel>
@@ -487,7 +487,7 @@ def sitemap(posts):
     today = dt.date.today().isoformat()
     urls = [("/", "1.0"), ("/research/", "0.9"), ("/work/", "0.9"), ("/teaching/", "0.8")]
     if posts:
-        urls.append(("/writing/", "0.8"))
+        urls.append(("/blog/", "0.8"))
         urls += [(p["path"], "0.7") for p in posts]
     urls += [("/nj-schools/", "0.8"), (CV, "0.7")]
     urls += [(p, "0.4") for p in ("/fancy/", "/brooklyn/", "/yam/", "/scrolly/")]
@@ -501,4 +501,4 @@ def sitemap(posts):
 
 if __name__ == "__main__":
     posts = build()
-    print("Built %d page(s) of writing into %s" % (len(posts), OUT))
+    print("Built %d blog post(s) into %s" % (len(posts), OUT))
