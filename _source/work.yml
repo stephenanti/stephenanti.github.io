@@ -1,0 +1,139 @@
+# Selected work. Each section becomes a filter button on the Work page.
+# To add a piece, copy an entry in the right section and change the fields.
+# img: a file in images/work/, or yt:VIDEOID to use the YouTube thumbnail.
+# url: a full address, or a path on this site such as /nj-schools/
+# home: true puts the piece in the "Selected work" row on the home page (pick three).
+
+featured:
+  title: New Jersey public schools show pandemic recovery
+  url: /nj-schools/
+  img: images/work/nj-schools.jpg
+  kicker: Data story · Columbia University · 2022
+  text: >-
+    My Columbia master's project. An analysis of 668 school districts on six performance
+    measures found that 62% improved on most of them, while college enrollment fell almost
+    everywhere and gains tilted toward wealthier districts.
+  link_text: Read the story
+
+sections:
+  - id: agora
+    title: Agora Journalism Center
+    note: >-
+      Interactive maps I built for the Center's statewide assessment of Oregon's local news
+      and information ecosystem.
+    columns: 2
+    items:
+      - title: Local News Ecosystem in Oregon
+        url: https://agorajournalism.center/wp-content/uploads/agora-scrolly/
+        img: images/work/agora-scrolly.jpg
+        text: >-
+          A scrolling map story that walks through the assessment's findings: 241 outlets producing
+          original local news in 97 Oregon cities, how they are owned, and the counties left with
+          one or two sources.
+        home: true
+      - title: "Oregon's Local News Media Ecosystem: Unequal Distribution"
+        url: https://agorajournalism.center/wp-content/uploads/oregon-local-news-map/
+        img: images/work/agora-map.jpg
+        text: >-
+          A clickable map of every outlet in the database, sized by circulation or audience and
+          set against county population density.
+
+  - id: broadcast
+    title: Broadcast
+    note: >-
+      Interviews, investigations and bulletins from TV3, 3News and JoyNews in Accra.
+    items:
+      - title: One-on-one with CPP presidential candidate Ivor Greenstreet
+        url: https://www.youtube.com/watch?v=6Xco9gX4au4
+        img: images/work/greenstreet.jpg
+        text: Election 2020 coverage, TV3, September 2020
+        home: true
+      - title: APC leader Hassan Ayariga on his party's 2020 manifesto
+        url: https://www.youtube.com/watch?v=7_Zu2RIXApw
+        img: yt:7_Zu2RIXApw
+        text: Election 2020 coverage, TV3, 2020
+      - title: Hot Issues with Dr. S. K. B. Asante
+        url: https://www.youtube.com/watch?v=BAElGM_9dek
+        img: images/work/hot-issues-asante.jpg
+        text: On Ghana's Constitution Day. TV3, January 2020
+      - title: Hot Issues with Bright Simons of IMANI
+        url: https://www.youtube.com/watch?v=Jp5-46KQuIE
+        img: images/work/hot-issues-simons.jpg
+        text: On the review of the Communications Service Tax. TV3, December 2019
+      - title: Research on MPs' performance ahead of the 2020 elections
+        url: https://www.youtube.com/watch?v=wW7IQw_h0NY
+        img: yt:wW7IQw_h0NY
+        text: 3News, June 2019
+      - title: "COVID-19 update: Obuasi case count jumps"
+        url: https://www.youtube.com/watch?v=KNO_ueni7p0
+        img: yt:KNO_ueni7p0
+        text: Pandemic health reporting. 3News
+      - title: Midday Live
+        url: https://www.youtube.com/watch?v=kPly8qkjxx4
+        img: yt:kPly8qkjxx4
+        text: Full bulletin. TV3, April 2020
+      - title: News@10
+        url: https://www.youtube.com/watch?v=uBb1sJ8VIr8
+        img: yt:uBb1sJ8VIr8
+        text: Full bulletin. TV3, August 2019
+      - title: School Feeding in Retrospect
+        url: https://www.youtube.com/watch?v=-GZyH3slFhA
+        img: yt:-GZyH3slFhA
+        text: Corruption allegations, with the former program manager. PM Express, JoyNews, September 2012
+      - title: GH₵80,000 Kickback
+        url: https://www.youtube.com/watch?v=Hcr3dOH1Xi0
+        img: yt:Hcr3dOH1Xi0
+        text: Corruption allegations in sports administration and public viewing center contracts. Today's Big Story, JoyNews, December 2014
+      - title: Personality Profile Friday with Rosa Whitaker
+        url: https://www.youtube.com/watch?v=lzRQmwFsPpc
+        img: yt:lzRQmwFsPpc
+        text: Former U.S. Assistant Trade Representative for Africa. PM Express, JoyNews, April 2013
+      - title: Street Naming and House Numbering in Ghana
+        url: https://www.youtube.com/watch?v=c7RHp8OXxVE
+        img: yt:c7RHp8OXxVE
+        text: Documentary on a World Bank project. JoyNews
+    more: >-
+      Also: <em>Election Watch</em>, a four-part data-driven forecast series for Ghana's 2020
+      elections, produced with University of Ghana statisticians and political scientists (TV3, 2020).
+      Episodes <a href="https://www.youtube.com/watch?v=_5BZUcHAT_g" target="_blank" rel="noopener">1</a>,
+      <a href="https://www.youtube.com/watch?v=plwQDqIxWqE" target="_blank" rel="noopener">2</a>,
+      <a href="https://www.youtube.com/watch?v=K7_nN-Kkvdw" target="_blank" rel="noopener">3</a>, and
+      <a href="https://www.youtube.com/watch?v=FF6ZmCj_gek" target="_blank" rel="noopener">4</a>.
+
+  - id: data
+    title: Data journalism
+    note: >-
+      Stories, maps and graphics from my data journalism training at Columbia University.
+    items:
+      - title: FOIA requests left waiting for years
+        url: /fancy/
+        img: images/work/foia.jpg
+        text: Interactive graphic built with ai2html
+      - title: You are more likely to crash in Brooklyn
+        url: /brooklyn/
+        img: images/work/brooklyn.jpg
+        text: NYC crash data, 2016 to 2021
+      - title: Yam prices in Ghana at a five-year low
+        url: /yam/
+        img: images/work/yams.jpg
+        text: World Food Programme price data
+      - title: Mapping Citi Bike rides
+        url: /citibike/
+        img: images/work/citibike.jpg
+        text: Interactive Mapbox map, September 2020 and 2021
+      - title: Food accessibility in Detroit
+        url: /justice_project/
+        img: images/work/detroit.jpg
+        text: Team project, interactive Mapbox story
+      - title: The 2020 U.S. presidential election by county
+        url: /election_webmap/
+        img: images/work/election-map.jpg
+        text: Interactive Mapbox map, 2022
+      - title: What U.S. counties do for a living
+        url: /county_disaster/
+        img: images/work/county.jpg
+        text: Interactive Mapbox maps of county economic types and of disasters worldwide
+      - title: China and the world's forest change, 1990 to 2015
+        url: /scrolly/
+        img: images/work/china-forest.jpg
+        text: Scrollytelling with FAO data
