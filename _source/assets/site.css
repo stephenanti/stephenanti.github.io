@@ -228,3 +228,24 @@ nav.top .logo img { height: 66px; }
 @media (max-width: 480px) { nav.top .logo img { height: 50px; } }
 nav.top .logo:hover img { opacity: .85; }
 nav.top .logo:focus-visible { outline: 2px solid #111; outline-offset: 4px; }
+/* latest blog post notice on the home page; shows for 45 days after a post */
+a.latest { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; margin-top: 14px; padding: 12px 20px; border: 1px solid #dedede; background: #f4f4f4; border-radius: 4px; color: #111; }
+a.latest:hover { text-decoration: none; background: #ececec; }
+a.latest .new { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #7E1F1F; }
+a.latest .lt { font-family: Georgia, "Times New Roman", serif; font-weight: bold; font-size: 20px; }
+a.latest .go { font-family: Georgia, "Times New Roman", serif; font-weight: bold; color: #7E1F1F; margin-left: auto; }
+a.latest:hover .lt { text-decoration: underline; }
+header.intro .page { padding-top: 28px; }
+@media (max-width: 480px) { a.latest .go { margin-left: 0; } a.latest .lt { font-size: 18px; } }
+@media (max-width: 480px) {
+  nav.top .links a { font-size: 15px; }
+  nav.top .links { gap: 4px 11px; }
+}
+@media (max-width: 370px) {
+  nav.top .links a { font-size: 14px; }
+  nav.top .links { gap: 4px 9px; }
+}
+@media (max-width: 480px) {
+  nav.top .bar { column-gap: 10px; }
+  nav.top .links a { font-size: 14.5px; }
+}

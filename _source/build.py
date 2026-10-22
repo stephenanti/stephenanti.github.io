@@ -301,7 +301,12 @@ def build():
 {{"@context":"https://schema.org","@type":"Person","name":"{NAME}","alternateName":["Stephen M. Anti","Stephen Anti"],"url":"{SITE}/","image":"{SITE}/images/portrait.jpg","jobTitle":"Ph.D. Candidate, Communication and Media Studies","affiliation":{{"@type":"CollegeOrUniversity","name":"University of Oregon","department":{{"@type":"Organization","name":"School of Journalism and Communication"}}}},"alumniOf":[{{"@type":"CollegeOrUniversity","name":"Columbia University"}},{{"@type":"CollegeOrUniversity","name":"Cardiff University"}}],"knowsAbout":["health communication","media effects","news framing","mental illness stigma","help-seeking","Ghana","data journalism","broadcast journalism"],"sameAs":["{LINKS['linkedin']}","{LINKS['orcid']}","https://scholar.google.com/citations?user=oBHctCIAAAAJ","{LINKS['sojc']}","{LINKS['x']}"]}}
 </script>
 """
-    home = head(f"{NAME} | University of Oregon", DESC, "/", d, kind="profile", extra=jsonld) + nav("/", d, has_posts) + f"""
+    latest = ""
+    if posts and (dt.date.today() - posts[0]["date"]).days <= 45:
+        lp = posts[0]
+        latest = f"""<div class="page"><a class="latest" href="{u(lp['path'], d)}"><span class="new">New on the blog</span><span class="lt">{esc(lp['title'])}</span><span class="go">Read →</span></a></div>
+"""
+    home = head(f"{NAME} | University of Oregon", DESC, "/", d, kind="profile", extra=jsonld) + nav("/", d, has_posts) + latest + f"""
 <header class="intro" id="top">
   <div class="page">
     <img class="photo" id="photo" src="{u('/images/portrait.jpg', d)}" alt="{NAME}">
