@@ -219,3 +219,6 @@ nav.top .logo img { height: 62px; width: auto; display: block; }
   nav.top .links a, nav.top .home { font-size: 15px; }
   nav.top .links { gap: 4px 10px; }
 }
+@media (max-width: 480px) {
+  nav.top .home-slot .home { display: none; }
+}
