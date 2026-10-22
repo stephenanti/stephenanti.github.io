@@ -50,7 +50,7 @@ In May, President Mahama called for a law that would make it a crime to demand s
 
 We are not short of laws against defilement. We are short of the will to let them work. When a case surfaces, the first questions in many staff rooms, church councils and family meetings are about reputation: of the school, of the church, of the party, of the family. The child's account comes later, if it comes at all.
 
-In Obuasi, a politician and a relative removed a girl from school at night, and no one called the police. Students' recordings passed around outside official channels, which the August committee itself criticised. Twelve of sixteen girls stayed away from the inquiry. The headmaster was, until this month, also the NDC secretary for Juaben Constituency. That is not proof of anything against him. It does show how many loyalties can crowd into a room before anyone asks what the girl needs.
+In Obuasi, by the MCE's own account, he and a relative took a girl from school at night, and no one called the police. Students' recordings passed around outside official channels, which the August committee itself criticised. Twelve of sixteen girls stayed away from the inquiry. The headmaster was, until this month, also the NDC secretary for Juaben Constituency. That is not proof of anything against him. It does show how many loyalties can crowd into a room before anyone asks what the girl needs.
 
 ## What would change this
 
