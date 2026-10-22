@@ -49,6 +49,11 @@ LINKS = {
 EXT = 'target="_blank" rel="noopener"'
 
 
+def asset_version(fn):
+    import hashlib
+    return hashlib.md5(open(os.path.join(SRC, "assets", fn), "rb").read()).hexdigest()[:8]
+
+
 def read(path):
     with open(os.path.join(SRC, path), encoding="utf-8") as f:
         return f.read()
@@ -155,7 +160,7 @@ def head(title, desc, path, depth, image="images/portrait.jpg", kind="website", 
 <meta name="twitter:card" content="summary">
 <link rel="icon" type="image/png" href="{u('/images/favicon.png', depth)}">
 <link rel="apple-touch-icon" href="{u('/images/apple-touch-icon.png', depth)}">
-<link rel="stylesheet" href="{u('/assets/site.css', depth)}">
+<link rel="stylesheet" href="{u('/assets/site.css', depth)}?v={asset_version('site.css')}">
 <link rel="alternate" type="application/rss+xml" title="{NAME}: Blog" href="{SITE}/blog/feed.xml">
 {extra}</head>
 <body>
@@ -196,7 +201,7 @@ def social(depth):
 def footer(depth):
     return f"""
 <footer><div class="page"><p class="to-top-row"><a class="js-top to-top" href="#">Back to top ↑</a></p><div class="bar"><span class="copy">© <span id="yr">{dt.date.today().year}</span> {NAME}</span></div></div></footer>
-<script src="{u('/assets/site.js', depth)}"></script>
+<script src="{u('/assets/site.js', depth)}?v={asset_version('site.js')}"></script>
 </body>
 </html>
 """
