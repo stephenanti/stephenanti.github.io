@@ -2,7 +2,7 @@
 title: "Who walks the girl out at night?"
 summary: "The Obuasi SHTS case is about one headmaster. The silence around it belongs to all of us: schools, churches, mosques and offices."
 tags: [Ghana, Education, Gender, Accountability]
-draft: true
+draft: false
 ---
 
 Sometime after ten o'clock one night, a housemistress at Obuasi Senior High Technical School was asked to call a girl out of her dormitory. By her own account, in a recording that investigative journalist Manasseh Azure Awuni later obtained, she refused to release the student until she was told why. The person who came for the girl was not a parent. It was the Obuasi East Municipal Chief Executive, who has confirmed that he went to the school at night with one of the girl's relatives and took her away.
