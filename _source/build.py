@@ -176,7 +176,7 @@ def nav(active, depth, has_posts):
     home_on = ' class="home on js-top" aria-current="page"' if active == "/" else ' class="home"'
     return f"""<nav class="top">
   <div class="page"><div class="bar">
-    <div class="home-slot"><a class="logo" href="{u('/', depth)}" aria-label="Home"><img src="{u('/images/logo.png', depth)}" alt="SMA, Stephen Mante Anti" width="128" height="66"></a><a{home_on} href="{u('/', depth)}">Home</a></div>
+    <div class="home-slot"><a class="logo" href="{u('/', depth)}" aria-label="Home"><img src="{u('/images/logo.png', depth)}" alt="SMA logo, Stephen Mante Anti" width="174" height="62"></a><a{home_on} href="{u('/', depth)}">Home</a></div>
     <div class="links">
       {chr(10).join('      ' + l for l in links).strip()}
     </div>

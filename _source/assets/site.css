@@ -205,8 +205,17 @@ article.post .body code { font-size: 17px; background: #f3f3f3; padding: 1px 5px
 nav.top .bar { align-items: center; padding-block: 10px; }
 nav.top .home-slot { display: flex; align-items: center; justify-content: center; gap: 16px; }
 nav.top .logo { display: block; line-height: 0; border: 0 !important; }
-nav.top .logo img { height: 66px; width: auto; display: block; }
+nav.top .logo img { height: 62px; width: auto; display: block; }
 @media (max-width: 480px) {
   nav.top .home-slot { display: flex; width: 100%; justify-content: flex-start; gap: 14px; }
-  nav.top .logo img { height: 52px; }
+  nav.top .logo img { height: 50px; }
+}
+@media (max-width: 480px) {
+  nav.top .bar { gap: 8px 14px; padding: 10px 14px; }
+  nav.top .links a, nav.top .home { font-size: 16px; }
+  nav.top .links { gap: 4px 14px; }
+}
+@media (max-width: 360px) {
+  nav.top .links a, nav.top .home { font-size: 15px; }
+  nav.top .links { gap: 4px 10px; }
 }
