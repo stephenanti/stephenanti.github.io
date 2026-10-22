@@ -167,7 +167,7 @@ article.post h1 { font-size: 44px; line-height: 1.15; margin: 10px 0 14px; }
 .byline img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; object-position: 50% 20%; }
 article.post .body { font-family: Georgia, "Times New Roman", serif; font-size: 20px; line-height: 1.7; }
 article.post .body p, article.post .body ul, article.post .body ol { margin: 0 0 20px; max-width: none; }
-article.post .body h2 { font-size: 28px; border: 0; padding: 0; margin: 36px 0 12px; }
+article.post .body h2 { font-size: 28px; border: 0; padding: 0; margin: 8px 0 8px; line-height: 1.25; }
 article.post .body h3 { font-size: 22px; font-weight: bold; margin: 28px 0 10px; }
 article.post .body blockquote { margin: 26px 0; padding: 4px 0 4px 22px; border-left: 4px solid #D9A42B; font-size: 22px; }
 article.post .body img { max-width: 100%; height: auto; display: block; border-radius: 3px; }
