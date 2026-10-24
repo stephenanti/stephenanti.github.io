@@ -140,6 +140,21 @@ def nice_date(d):
 
 
 # ---------- shared pieces ----------
+KNOT_GOLD = "M37.5 182 V106.65 A45.5 35 0 0 1 37.5 39.35 M62.5 39.35 A45.5 35 0 0 1 62.5 106.65 V182"
+KNOT_TEAL = "M37.5 2 V74.46 A45.5 38 0 1 0 62.5 74.46 V2"
+KNOT_FLAT = f'<svg class="knot" viewBox="-6 -6 112 196" aria-hidden="true"><g fill="none" stroke-width="10" stroke-linecap="round"><path d="{KNOT_GOLD}" stroke="#C9A23A"/><path d="{KNOT_TEAL}" stroke="#0F4C5C"/></g></svg>'
+KNOT_3D = (f'<svg class="knot3d" viewBox="-8 -8 120 204" aria-hidden="true"><defs>'
+    '<linearGradient id="k3w" x1="0" x2="1"><stop offset="0" stop-color="#AFC0C5"/><stop offset=".45" stop-color="#F7F7F2"/><stop offset="1" stop-color="#AFC0C5"/></linearGradient>'
+    '<linearGradient id="k3g" x1="0" x2="1"><stop offset="0" stop-color="#9E7A22"/><stop offset=".45" stop-color="#E6C25A"/><stop offset="1" stop-color="#9E7A22"/></linearGradient>'
+    '<filter id="k3s" x="-20%" y="-10%" width="140%" height="130%"><feDropShadow dx="3" dy="5" stdDeviation="3" flood-color="#000" flood-opacity=".35"/></filter></defs>'
+    f'<g fill="none" stroke-linecap="round" filter="url(#k3s)"><path d="{KNOT_GOLD}" stroke="url(#k3g)" stroke-width="12"/>'
+    f'<path d="{KNOT_GOLD}" stroke="#fff" stroke-opacity=".45" stroke-width="2.4" transform="translate(-2.2 -1.2)"/>'
+    f'<path d="{KNOT_TEAL}" stroke="url(#k3w)" stroke-width="12"/>'
+    f'<path d="{KNOT_TEAL}" stroke="#fff" stroke-opacity=".35" stroke-width="2.4" transform="translate(-2.2 -1.2)"/></g></svg>')
+KNOT_FOOT = f'<svg class="knot-foot" viewBox="-6 -6 112 196" aria-hidden="true"><g fill="none" stroke-width="12" stroke-linecap="round"><path d="{KNOT_GOLD}" stroke="#C9A23A"/><path d="{KNOT_TEAL}" stroke="#ffffff"/></g></svg>'
+FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Jost:wght@500;600;700&display=swap">'
+
+
 def head(title, desc, path, depth, image="images/portrait.jpg", kind="website", extra=""):
     url = SITE + path
     img = SITE + "/" + image.lstrip("/")
@@ -160,6 +175,7 @@ def head(title, desc, path, depth, image="images/portrait.jpg", kind="website", 
 <meta name="twitter:card" content="summary">
 <link rel="icon" type="image/png" href="{u('/images/favicon.png', depth)}">
 <link rel="apple-touch-icon" href="{u('/images/apple-touch-icon.png', depth)}">
+{FONTS}
 <link rel="stylesheet" href="{u('/assets/site.css', depth)}?v={asset_version('site.css')}">
 <link rel="alternate" type="application/rss+xml" title="{NAME}: Blog" href="{SITE}/blog/feed.xml">
 {extra}</head>
@@ -181,7 +197,7 @@ def nav(active, depth, has_posts):
     home_on = ' class="home on js-top" aria-current="page"' if active == "/" else ' class="home"'
     return f"""<nav class="top">
   <div class="page"><div class="bar">
-    <div class="home-slot"><a class="logo" href="{u('/', depth)}" aria-label="Home"><img src="{u('/images/logo.png', depth)}" alt="SMA logo, Stephen Mante Anti" width="174" height="62"></a><a{home_on} href="{u('/', depth)}">Home</a></div>
+    <div class="home-slot"><a class="logo" href="{u('/', depth)}" aria-label="{NAME}, home">{KNOT_FLAT}<span class="wm"><span>Stephen</span><span>Mante Anti</span></span></a><a{home_on} href="{u('/', depth)}">Home</a></div>
     <div class="links">
       {chr(10).join('      ' + l for l in links).strip()}
     </div>
@@ -200,7 +216,7 @@ def social(depth):
 
 def footer(depth):
     return f"""
-<footer><div class="page"><p class="to-top-row"><a class="js-top to-top" href="#">Back to top ↑</a></p><div class="bar"><span class="copy">© <span id="yr">{dt.date.today().year}</span> {NAME}</span></div></div></footer>
+<footer><div class="page"><p class="to-top-row"><a class="js-top to-top" href="#">Back to top ↑</a></p><div class="bar"><p class="copy">{KNOT_FOOT}<span>© <span id="yr">{dt.date.today().year}</span> {NAME}</span></p><p class="credit">Logo drawn from the Adinkra symbol Nyansapo, the wisdom knot.</p></div></div></footer>
 <script src="{u('/assets/site.js', depth)}?v={asset_version('site.js')}"></script>
 </body>
 </html>
@@ -222,11 +238,11 @@ def card(it, depth):
     t = target(url)
     text = f'<p>{it["text"]}</p>' if it.get("text") else ""
     if url.startswith("http") and "youtube.com" not in url:
-        text += f'<p class="open"><a href="{url}" {t}>Open project ↗</a></p>'
+        text += f'<p class="open"><a href="{url}" {t}>Open project&nbsp;↗</a></p>'
     elif "youtube.com" in url:
-        text += f'<p class="open"><a href="{url}" {t}>Watch on YouTube ↗</a></p>'
+        text += f'<p class="open"><a href="{url}" {t}>Watch on YouTube&nbsp;↗</a></p>'
     else:
-        text += f'<p class="open"><a href="{url}">Open project →</a></p>'
+        text += f'<p class="open"><a href="{url}">Open project&nbsp;→</a></p>'
     return (f'<div class="item"><a class="thumb" href="{url}" {t}><span class="alt">{esc(it["title"])}</span>'
             f'<img loading="lazy" src="{img_src(it["img"], depth)}" alt=""></a>'
             f'<h4><a href="{url}" {t}>{esc(it["title"])}</a></h4>{text}</div>')
@@ -240,7 +256,7 @@ def featured(f, depth):
       <p class="kicker">{esc(f['kicker'])}</p>
       <h4><a href="{url}">{esc(f['title'])}</a></h4>
       <p>{f['text']}</p>
-      <a class="arrow" href="{url}">{esc(f.get('link_text', 'Read more'))} →</a>
+      <a class="arrow" href="{url}">{esc(f.get('link_text', 'Read more'))}&nbsp;→</a>
     </div>
   </div>"""
 
@@ -294,7 +310,7 @@ def build():
 <section id="blog">
   <h2>Blog</h2>
   {post_list(posts, d, 3)}
-  <p class="all"><a class="arrow" href="{u('/blog/', d)}">All posts →</a></p>
+  <p class="all"><a class="arrow" href="{u('/blog/', d)}">All posts&nbsp;→</a></p>
 </section>
 """
     jsonld = f"""<script type="application/ld+json">
@@ -304,20 +320,24 @@ def build():
     latest = ""
     if posts and (dt.date.today() - posts[0]["date"]).days <= 45:
         lp = posts[0]
-        latest = f"""<div class="page"><a class="latest" href="{u(lp['path'], d)}"><span class="new">New on the blog</span><span class="lt">{esc(lp['title'])}</span><span class="go">Read →</span></a></div>
+        latest = f"""<div class="page"><a class="latest" href="{u(lp['path'], d)}"><span class="new">New on the blog</span><span class="lt">{esc(lp['title'])}</span><span class="go">Read&nbsp;→</span></a></div>
 """
     home = head(f"{NAME} | University of Oregon", DESC, "/", d, kind="profile", extra=jsonld) + nav("/", d, has_posts) + latest + f"""
 <header class="intro" id="top">
-  <div class="page">
+  <div class="band"><div class="page">
     <img class="photo" id="photo" src="{u('/images/portrait.jpg', d)}" alt="{NAME}">
-    <div>
+    <div class="who">
+      <p class="eyebrow">Ph.D. Candidate · University of Oregon</p>
       <h1>{NAME}</h1>
-      <p class="position">Ph.D. Candidate, Communication and Media Studies<br>School of Journalism and Communication, University of Oregon</p>
+      <p class="position">Communication and Media Studies, School of Journalism and Communication</p>
 {read('pages/intro.html').rstrip()}
       <p class="btns"><a href="{u('/research/', d)}">Explore my research</a> <a href="{u('/research/#publications', d)}">See publications</a></p>
-      <p class="contact-line"><a href="{u(CV, d)}" {EXT}>CV (PDF)</a> <span>|</span> <a href="mailto:smanti@uoregon.edu">smanti@uoregon.edu</a> <span>|</span> <a href="mailto:sma2263@columbia.edu">sma2263@columbia.edu</a><br><a href="{LINKS['orcid']}" {EXT}>ORCID</a> <span>|</span> <a href="{LINKS['scholar']}" {EXT}>Google Scholar</a> <span>|</span> <a href="{LINKS['sojc']}" {EXT}>SOJC profile</a></p>
-      {social(d)}
     </div>
+    {KNOT_3D}
+  </div></div>
+  <div class="page reach">
+    <p class="contact-line"><a href="{u(CV, d)}" {EXT}>CV (PDF)</a> <span>|</span> <a href="mailto:smanti@uoregon.edu">smanti@uoregon.edu</a> <span>|</span> <a href="mailto:sma2263@columbia.edu">sma2263@columbia.edu</a> <span>|</span> <a href="{LINKS['orcid']}" {EXT}>ORCID</a> <span>|</span> <a href="{LINKS['scholar']}" {EXT}>Google Scholar</a> <span>|</span> <a href="{LINKS['sojc']}" {EXT}>SOJC profile</a></p>
+    {social(d)}
   </div>
 </header>
 
@@ -326,7 +346,7 @@ def build():
 <section id="research">
   <h2>Research</h2>
 {fix_links(read('pages/home-research.html'), d).rstrip()}
-  <p class="all"><a class="arrow" href="{u('/research/', d)}">Dissertation, publications and presentations →</a></p>
+  <p class="all"><a class="arrow" href="{u('/research/', d)}">Dissertation, publications and presentations&nbsp;→</a></p>
 </section>
 
 <section id="work">
@@ -334,7 +354,7 @@ def build():
   <div class="grid">
     {(chr(10) + '    ').join(home_cards)}
   </div>
-  <p class="all"><a class="arrow" href="{u('/work/', d)}">All work: maps, data stories and broadcast →</a></p>
+  <p class="all"><a class="arrow" href="{u('/work/', d)}">All work: maps, data stories and broadcast&nbsp;→</a></p>
 </section>
 {writing}
 <section id="practice">
