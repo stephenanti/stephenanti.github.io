@@ -407,3 +407,9 @@ footer .credit { margin-top: 3px !important; font-size: 13px; }
   footer .copy { font-size: 15.5px; gap: 8px; }
   footer .credit { font-size: 13.5px; line-height: 1.4; margin-top: 4px !important; }
 }
+@media (min-width: 761px) {
+  footer .bar { padding: 14px 22px 13px; }
+  footer .knot-foot { height: 42px; }
+  footer .copy { font-size: 18px; gap: 12px; }
+  footer .credit { font-size: 15px; margin-top: 4px !important; }
+}
