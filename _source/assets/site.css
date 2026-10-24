@@ -362,3 +362,10 @@ body > footer { margin-top: auto; padding-top: 44px; }
   h2 { font-size: 27px; }
 }
 body > * { width: 100%; }
+/* centre a short last row in three-column card grids */
+@media (min-width: 761px) {
+  .grid:not(.two) { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .grid:not(.two) > * { grid-column: span 2; }
+  .grid:not(.two) > :nth-last-child(2):nth-child(3n+1) { grid-column: 2 / span 2; }
+  .grid:not(.two) > :last-child:nth-child(3n+1) { grid-column: 3 / span 2; }
+}
