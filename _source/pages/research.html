@@ -3,35 +3,47 @@
   <h3><em>Framing Psychosis: News Media, Stigma, and the Mechanisms of Public Response in Ghana</em></h3>
   <p>My dissertation asks how news coverage of psychosis shapes what readers believe about the illness, how they feel toward people living with it, and whether they would recommend professional help. Committee: Nikki McClaran (Chair), Leslie Steeves, S. S. Ofori-Parku, and Deepu Murty.</p>
   <p><strong>Study 1</strong> is a quantitative content analysis of 332 stories from 10 Ghanaian outlets published between 2015 and 2025, coded for frames, attributions of cause and responsibility, and stigmatizing language. I built the corpus from Factiva, Nexis Uni, and web scraping, and screened it for relevance with an LLM-assisted pipeline.</p>
-  <p><strong>Study 2</strong> is a three-condition experiment (fear, empathy, and neutral frames) comparing two routes from a news story to stigma: how controllable readers judge the illness to be, and how they feel toward the person living with it. Stigma, in turn, shapes whether readers would recommend help.</p>
+  <p><strong>Study 2</strong> is a three-condition experiment (fear, empathy, and neutral frames) comparing two routes from a news story to stigma: how controllable readers judge the illness to be, and how they feel toward the person living with it. Stigma, in turn, shapes help-seeking recommendation: whether readers would advise someone with psychosis to seek help. Because many Ghanaians attribute psychosis to spiritual causes, I also measure readers&#8217; spiritual attribution beliefs.</p>
 
   <figure>
     <div class="scroll">
-      <svg viewBox="0 0 780 250" role="img" aria-label="Conceptual model: a news frame works through controllability appraisal and through fear and empathic concern, which shape stigma, which shapes help-recommendation.">
-        <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#333"/></marker></defs>
-        <g font-family="Georgia, serif" text-anchor="middle" fill="#222">
-          <rect x="4" y="90" width="152" height="70" fill="#fff" stroke="#333"/>
-          <text x="80" y="121" font-size="15">News frame</text>
-          <text x="80" y="141" font-size="11.5" fill="#222">fear, empathy, neutral</text>
-          <rect x="196" y="18" width="190" height="62" fill="#fff" stroke="#333"/>
-          <text x="291" y="45" font-size="14.5">Controllability appraisal</text>
-          <text x="291" y="65" font-size="11.5" fill="#222">cognitive route</text>
-          <rect x="196" y="170" width="190" height="62" fill="#fff" stroke="#333"/>
-          <text x="291" y="197" font-size="14.5">Fear and empathic concern</text>
-          <text x="291" y="217" font-size="11.5" fill="#222">affective route</text>
-          <rect x="452" y="90" width="140" height="70" fill="#fff" stroke="#333"/>
-          <text x="522" y="121" font-size="15">Stigma</text>
-          <text x="522" y="141" font-size="11.5" fill="#222">toward psychosis</text>
-          <rect x="636" y="90" width="138" height="70" fill="#fff" stroke="#333"/>
-          <text x="705" y="121" font-size="15">Help-</text>
-          <text x="705" y="140" font-size="15">recommendation</text>
+      <svg viewBox="0 0 850 330" role="img" aria-label="Conceptual model: a news frame works through controllability appraisal, fear, and empathic concern, which shape stigma toward psychosis, which shapes help-seeking recommendation.">
+        <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1 L10 5 L0 9z" fill="#0A3540"/></marker></defs>
+        <g fill="none" stroke="#0A3540" stroke-width="1.5">
+          <path d="M164 150 C 190 150, 188 54, 212 54" marker-end="url(#ar)"/>
+          <path d="M164 165 L 212 165" marker-end="url(#ar)"/>
+          <path d="M164 180 C 190 180, 188 276, 212 276" marker-end="url(#ar)"/>
+          <path d="M450 54 C 474 54, 474 148, 492 148" marker-end="url(#ar)"/>
+          <path d="M450 165 L 492 165" marker-end="url(#ar)"/>
+          <path d="M450 276 C 474 276, 474 182, 492 182" marker-end="url(#ar)"/>
+          <path d="M636 165 L 682 165" marker-end="url(#ar)"/>
         </g>
-        <g fill="none" stroke="#333" stroke-width="1.3">
-          <path d="M156 112 C 178 100, 178 55, 194 50" marker-end="url(#ar)"/>
-          <path d="M156 138 C 178 150, 178 195, 194 200" marker-end="url(#ar)"/>
-          <path d="M386 50 C 420 55, 425 100, 450 110" marker-end="url(#ar)"/>
-          <path d="M386 200 C 420 195, 425 150, 450 140" marker-end="url(#ar)"/>
-          <path d="M592 125 L 634 125" marker-end="url(#ar)"/>
+        <g text-anchor="middle">
+          <rect x="4" y="123" width="160" height="84" rx="3" fill="#fff" stroke="#0F4C5C" stroke-width="1.5"/>
+          <rect x="4" y="123" width="160" height="5" fill="#0F4C5C"/>
+          <text x="84" y="160" font-family="Fraunces, Georgia, serif" font-size="18" font-weight="600" fill="#14191C">News frame</text>
+          <text x="84" y="183" font-family="Jost, Arial, sans-serif" font-size="12" font-weight="500" letter-spacing=".4" fill="#14191C">fear · empathy · neutral</text>
+          <rect x="214" y="16" width="236" height="76" rx="3" fill="#fff" stroke="#0F4C5C" stroke-width="1.5"/>
+          <rect x="214" y="16" width="5" height="76" fill="#C9A23A"/>
+          <text x="334" y="42" font-family="Jost, Arial, sans-serif" font-size="10.5" font-weight="700" letter-spacing="1.8" fill="#14191C">COGNITIVE ROUTE</text>
+          <text x="334" y="68" font-family="Fraunces, Georgia, serif" font-size="16" font-weight="600" fill="#14191C">Controllability appraisal</text>
+          <rect x="214" y="127" width="236" height="76" rx="3" fill="#fff" stroke="#0F4C5C" stroke-width="1.5"/>
+          <rect x="214" y="127" width="5" height="76" fill="#C9A23A"/>
+          <text x="334" y="153" font-family="Jost, Arial, sans-serif" font-size="10.5" font-weight="700" letter-spacing="1.8" fill="#14191C">AFFECTIVE ROUTE</text>
+          <text x="334" y="179" font-family="Fraunces, Georgia, serif" font-size="16" font-weight="600" fill="#14191C">Fear</text>
+          <rect x="214" y="238" width="236" height="76" rx="3" fill="#fff" stroke="#0F4C5C" stroke-width="1.5"/>
+          <rect x="214" y="238" width="5" height="76" fill="#C9A23A"/>
+          <text x="334" y="264" font-family="Jost, Arial, sans-serif" font-size="10.5" font-weight="700" letter-spacing="1.8" fill="#14191C">AFFECTIVE ROUTE</text>
+          <text x="334" y="290" font-family="Fraunces, Georgia, serif" font-size="16" font-weight="600" fill="#14191C">Empathic concern</text>
+
+          <rect x="494" y="123" width="142" height="84" rx="3" fill="#fff" stroke="#0F4C5C" stroke-width="1.5"/>
+          <text x="565" y="160" font-family="Fraunces, Georgia, serif" font-size="18" font-weight="600" fill="#14191C">Stigma</text>
+          <text x="565" y="183" font-family="Jost, Arial, sans-serif" font-size="12" font-weight="500" letter-spacing=".4" fill="#14191C">toward psychosis</text>
+
+          <rect x="684" y="119" width="162" height="92" rx="3" fill="#EAF1F2" stroke="#0F4C5C" stroke-width="2"/>
+          <rect x="684" y="207" width="162" height="4" fill="#C9A23A"/>
+          <text x="765" y="158" font-family="Fraunces, Georgia, serif" font-size="17" font-weight="600" fill="#14191C">Help-seeking</text>
+          <text x="765" y="180" font-family="Fraunces, Georgia, serif" font-size="17" font-weight="600" fill="#14191C">recommendation</text>
         </g>
       </svg>
     </div>
