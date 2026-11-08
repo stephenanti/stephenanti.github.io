@@ -13,11 +13,11 @@ I've read those comments. Honestly, they say more about us than about Thomas Fri
 
 ## About Adisadel
 
-Look, I get it. Adisadel is a Category A school. [Only about 8 percent](https://theconversation.com/ghanas-high-school-system-sets-many-students-up-for-failure-it-needs-a-rethink-182465) of our senior high schools make that tier, and a place there is what most Ghanaian parents pray for. Looking back now, leaving it looks reckless.
+Look, I get it. Adisadel is a Category A school. [Only about 8 percent](https://theconversation.com/ghanas-high-school-system-sets-many-students-up-for-failure-it-needs-a-rethink-182465) of our senior high schools make that tier, and a place there is what most Ghanaian parents pray for. Looking back now, pulling a boy out of it looks reckless.
 
 But we're only saying that because of how it ended. When a parent takes a child abroad and the child becomes a nurse in Maryland or an engineer in Toronto, nobody calls the parent reckless. We celebrate him at family gatherings. We ask him how he did it. Same decision. It's wisdom when it works and foolishness when it ends in a Bronx hospital. That's hypocrisy, and this time we've aimed it at a man burying his son.
 
-And think about what the Adisadel argument actually admits. Take a father whose son had already won a place at one of the best schools in the country. He looked at the road ahead (secondary school, university, then the job market) and decided the odds were better abroad. If that's how an Adisadel parent sees things, what do we expect the parent of a child posted to a struggling Category C school to think?
+And think about what the Adisadel argument actually admits. Take a father whose son had already won a place at one of the best schools in the country. He looked at the road ahead (secondary school, university, then the job market) and decided the odds were better abroad. If that's how the parent of an Adisadel student sees things, what do we expect the parent of a child posted to a struggling Category C school to think?
 
 The gun that killed Javits is America's problem, and America has to answer for it. Our government has been right to demand a full investigation, and President Mahama has [called on Washington to deal with its gun violence](https://sikamantimes.com/javits-frimpong-mahama-urges-us-to-confront-gun-violence-mental-health-challenges/). But why was this family split between Ghana and the Bronx in the first place? That one's on us.
 
