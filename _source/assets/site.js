@@ -67,8 +67,10 @@
       cards[cur].removeAttribute("aria-hidden");
       cards[cur].removeAttribute("tabindex");
       cards[cur].classList.remove("fade-in");
+      roll.classList.remove("running");
       void cards[cur].offsetWidth;
       if (smooth) cards[cur].classList.add("fade-in");
+      if (cards.length > 1) roll.classList.add("running");
       if (dots[cur]) dots[cur].setAttribute("aria-current", "true");
     }
     function start() {
@@ -79,10 +81,11 @@
     dots.forEach(function (b, i) {
       b.addEventListener("click", function () { go(i); start(); });
     });
-    roll.addEventListener("mouseenter", function () { paused = true; });
-    roll.addEventListener("mouseleave", function () { paused = false; });
+    roll.addEventListener("mouseenter", function () { paused = true; roll.classList.add("paused"); });
+    roll.addEventListener("mouseleave", function () { paused = false; roll.classList.remove("paused"); });
     roll.addEventListener("focusin", function () { paused = true; });
     roll.addEventListener("focusout", function () { paused = false; });
+    if (cards.length > 1) roll.classList.add("running");
     start();
   }
 

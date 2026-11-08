@@ -428,3 +428,18 @@ footer .credit { margin-top: 3px !important; font-size: 13px; }
 @media (prefers-reduced-motion: reduce) { .latest-roll a.latest.fade-in { animation: none; } }
 .latest-roll a.latest { align-content: flex-start; }
 @media (max-width: 480px) { .latest-roll a.latest .lt { flex-basis: 100%; } }
+
+/* rotating card: brand colours, slide-in, and a gold timer bar */
+.latest-roll { position: relative; }
+.latest-roll a.latest { position: relative; overflow: hidden; background: var(--teal); border: 0; border-left: 6px solid var(--gold); color: #fff; padding: 16px 22px 20px; box-shadow: 0 6px 18px rgba(15, 76, 92, .25); }
+.latest-roll a.latest:hover { background: var(--teal-dk); }
+.latest-roll a.latest .new { color: var(--gold-lt); }
+.latest-roll a.latest .lt { color: #fff; }
+.latest-roll a.latest .go { color: var(--gold-lt); }
+.latest-roll a.latest::after { content: ""; position: absolute; left: 0; bottom: 0; height: 4px; width: 0; background: var(--gold); }
+.latest-roll.running a.latest:not(.off)::after { animation: rollTimer 4s linear forwards; }
+.latest-roll.paused a.latest::after { animation-play-state: paused; }
+.latest-roll a.latest.fade-in { animation: latestSlide .5s cubic-bezier(.2, .8, .2, 1); }
+@keyframes latestSlide { from { opacity: 0; transform: translateX(28px); } to { opacity: 1; transform: none; } }
+@keyframes rollTimer { from { width: 0; } to { width: 100%; } }
+.roll-dots button { width: 10px; height: 10px; }
