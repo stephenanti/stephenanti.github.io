@@ -457,7 +457,9 @@ def build():
                     f'<a class="newer" href="{u(newer["path"], d)}"><span>Newer</span>{esc(newer["title"])}</a>' if newer else "") + "</nav>"
             share_url = SITE + p["path"]
             from urllib.parse import quote
-            share = (f'<a href="https://www.linkedin.com/sharing/share-offsite/?url={quote(share_url, safe="")}" {EXT}>LinkedIn</a> · '
+            share = (f'<a href="https://wa.me/?text={quote(p["title"] + " " + share_url, safe="")}" {EXT}>WhatsApp</a> · '
+                     f'<a href="https://www.facebook.com/sharer/sharer.php?u={quote(share_url, safe="")}" {EXT}>Facebook</a> · '
+                     f'<a href="https://www.linkedin.com/sharing/share-offsite/?url={quote(share_url, safe="")}" {EXT}>LinkedIn</a> · '
                      f'<a href="https://x.com/intent/post?url={quote(share_url, safe="")}&amp;text={quote(p["title"])}" {EXT}>X</a> · '
                      f'<a href="mailto:?subject={quote(p["title"])}&amp;body={quote(share_url, safe="")}">Email</a>')
             tags = "".join(f'<span class="tag">{esc(t)}</span>' for t in p["tags"])
