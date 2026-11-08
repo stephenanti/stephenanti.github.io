@@ -1,4 +1,5 @@
 ---
+short: "Our heads in the sand, again"
 title: "Once again, like the ostrich, we put our head in the sand"
 summary: "A Ghanaian father brought his son to the Bronx for a better life, and the boy was shot on his way to school. Mocking the father is easier than asking why so many families leave."
 tags: [Ghana, Education, Migration, Accountability]

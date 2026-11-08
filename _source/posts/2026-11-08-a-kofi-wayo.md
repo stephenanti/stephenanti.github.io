@@ -1,4 +1,5 @@
 ---
+short: "The Nima boy in a Rolls-Royce"
 title: "The Nima boy who came home in a Rolls-Royce"
 summary: "The obituaries remembered Kofi Wayo as a politician. His real story is Ghanaian migration in one life: Nima, Albany, Detroit, and a flashy homecoming."
 slug: the-nima-boy

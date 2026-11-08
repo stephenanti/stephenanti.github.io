@@ -121,6 +121,7 @@ def load_posts():
         words = len(re.findall(r"\w+", body))
         posts.append({
             "title": meta["title"],
+            "short": meta.get("short") or meta["title"],
             "summary": meta.get("summary", ""),
             "tags": meta.get("tags", []) or [],
             "image": meta.get("image"),
@@ -324,7 +325,7 @@ def build():
         cards = []
         for i, lp in enumerate(recent):
             hide = "" if i == 0 else ' off" aria-hidden="true" tabindex="-1'
-            cards.append(f"""<a class="latest{hide}" href="{u(lp['path'], d)}"><span class="new">New on the blog</span><span class="lt">{esc(lp['title'])}</span><span class="go">Read&nbsp;→</span></a>""")
+            cards.append(f"""<a class="latest{hide}" href="{u(lp['path'], d)}"><span class="new">New on the blog</span><span class="lt">{esc(lp['short'])}</span><span class="go">Read&nbsp;→</span></a>""")
         dots = ""
         if len(recent) > 1:
             cur = ' aria-current="true"'
