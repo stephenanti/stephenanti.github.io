@@ -317,10 +317,21 @@ def build():
 {{"@context":"https://schema.org","@type":"Person","name":"{NAME}","alternateName":["Stephen M. Anti","Stephen Anti"],"url":"{SITE}/","image":"{SITE}/images/portrait.jpg","jobTitle":"Ph.D. Candidate, Communication and Media Studies","affiliation":{{"@type":"CollegeOrUniversity","name":"University of Oregon","department":{{"@type":"Organization","name":"School of Journalism and Communication"}}}},"alumniOf":[{{"@type":"CollegeOrUniversity","name":"Columbia University"}},{{"@type":"CollegeOrUniversity","name":"Cardiff University"}}],"knowsAbout":["health communication","media effects","news framing","mental illness stigma","help-seeking","Ghana","data journalism","broadcast journalism"],"sameAs":["{LINKS['linkedin']}","{LINKS['orcid']}","https://scholar.google.com/citations?user=oBHctCIAAAAJ","{LINKS['sojc']}","{LINKS['x']}"]}}
 </script>
 """
+    # recent posts (last 45 days, up to 4) take turns in the notice on the home page
+    recent = [p for p in posts if (dt.date.today() - p["date"]).days <= 45][:4]
     latest = ""
-    if posts and (dt.date.today() - posts[0]["date"]).days <= 45:
-        lp = posts[0]
-        latest = f"""<div class="page"><a class="latest" href="{u(lp['path'], d)}"><span class="new">New on the blog</span><span class="lt">{esc(lp['title'])}</span><span class="go">Read&nbsp;→</span></a></div>
+    if recent:
+        cards = []
+        for i, lp in enumerate(recent):
+            hide = "" if i == 0 else ' off" aria-hidden="true" tabindex="-1'
+            cards.append(f"""<a class="latest{hide}" href="{u(lp['path'], d)}"><span class="new">New on the blog</span><span class="lt">{esc(lp['title'])}</span><span class="go">Read&nbsp;→</span></a>""")
+        dots = ""
+        if len(recent) > 1:
+            cur = ' aria-current="true"'
+            dots = '<div class="roll-dots" role="group" aria-label="Recent posts">' + "".join(
+                '<button type="button" aria-label="Show post %d of %d"%s></button>' % (i + 1, len(recent), cur if i == 0 else "")
+                for i in range(len(recent))) + "</div>"
+        latest = f"""<div class="page"><div class="latest-roll">{"".join(cards)}{dots}</div></div>
 """
     home = head(f"{NAME} | University of Oregon", DESC, "/", d, kind="profile", extra=jsonld) + nav("/", d, has_posts) + latest + f"""
 <header class="intro" id="top">

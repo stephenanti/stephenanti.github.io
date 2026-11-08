@@ -50,6 +50,42 @@
     if (document.querySelector('.filters button[data-show="' + id + '"]')) show(id);
   }
 
+
+  // Home page: recent blog posts take turns in the notice; pauses on hover or focus
+  var roll = document.querySelector(".latest-roll");
+  if (roll) {
+    var cards = roll.querySelectorAll("a.latest");
+    var dots = roll.querySelectorAll(".roll-dots button");
+    var cur = 0, timer = null, paused = false;
+    function go(n) {
+      cards[cur].classList.add("off");
+      cards[cur].setAttribute("aria-hidden", "true");
+      cards[cur].setAttribute("tabindex", "-1");
+      if (dots[cur]) dots[cur].removeAttribute("aria-current");
+      cur = (n + cards.length) % cards.length;
+      cards[cur].classList.remove("off");
+      cards[cur].removeAttribute("aria-hidden");
+      cards[cur].removeAttribute("tabindex");
+      cards[cur].classList.remove("fade-in");
+      void cards[cur].offsetWidth;
+      cards[cur].classList.add("fade-in");
+      if (dots[cur]) dots[cur].setAttribute("aria-current", "true");
+    }
+    function start() {
+      if (!smooth || cards.length < 2) return;
+      clearInterval(timer);
+      timer = setInterval(function () { if (!paused && !document.hidden) go(cur + 1); }, 6000);
+    }
+    dots.forEach(function (b, i) {
+      b.addEventListener("click", function () { go(i); start(); });
+    });
+    roll.addEventListener("mouseenter", function () { paused = true; });
+    roll.addEventListener("mouseleave", function () { paused = false; });
+    roll.addEventListener("focusin", function () { paused = true; });
+    roll.addEventListener("focusout", function () { paused = false; });
+    start();
+  }
+
   var yr = document.getElementById("yr");
   if (yr) yr.textContent = new Date().getFullYear();
 })();
