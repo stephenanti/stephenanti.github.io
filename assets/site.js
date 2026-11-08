@@ -68,13 +68,13 @@
       cards[cur].removeAttribute("tabindex");
       cards[cur].classList.remove("fade-in");
       void cards[cur].offsetWidth;
-      cards[cur].classList.add("fade-in");
+      if (smooth) cards[cur].classList.add("fade-in");
       if (dots[cur]) dots[cur].setAttribute("aria-current", "true");
     }
     function start() {
-      if (!smooth || cards.length < 2) return;
+      if (cards.length < 2) return;
       clearInterval(timer);
-      timer = setInterval(function () { if (!paused && !document.hidden) go(cur + 1); }, 6000);
+      timer = setInterval(function () { if (!paused && !document.hidden) go(cur + 1); }, 4000);
     }
     dots.forEach(function (b, i) {
       b.addEventListener("click", function () { go(i); start(); });
