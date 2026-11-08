@@ -426,3 +426,5 @@ footer .credit { margin-top: 3px !important; font-size: 13px; }
 .roll-dots button[aria-current="true"] { background: var(--gold); border-color: var(--gold); }
 .roll-dots button:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
 @media (prefers-reduced-motion: reduce) { .latest-roll a.latest.fade-in { animation: none; } }
+.latest-roll a.latest { align-content: flex-start; }
+@media (max-width: 480px) { .latest-roll a.latest .lt { flex-basis: 100%; } }
