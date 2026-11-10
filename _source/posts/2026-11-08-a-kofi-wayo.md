@@ -29,6 +29,8 @@ I can't check every number in that story, and you should hold them loosely. Most
 
 And then he came home, and he made sure we noticed. By his own count he owned 19 cars, five of them Rolls-Royces, with one Rolls parked in Accra alongside a Cadillac, a Lincoln and a Jaguar. He talked the way he drove. In 2008 the journalist Emmanuel Dogbevi [wrote](https://www.myjoyonline.com/kofi-wayo-political-enigma-or-albatross/) that Wayo's fame rested on the return from America, the open display of money, and a near-permanent seat in front of a microphone. Dogbevi was no fan. He described an interview in which Wayo threw out accusations without evidence and answered hard questions with insults. Yet he also admitted that the money bought Wayo respect, and that some Ghanaians heard his bluntness as free speech at work.
 
+He had his own explanation for the noise. Sitting with David Ampofo on *Time With David*, Wayo said he was in politics to improve the lives of ordinary Ghanaians.
+
 <figure class="video">
 <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/ECh9DsJ0XvU" title="Time With David interview with Kofi Wayo" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
 <figcaption>Kofi Wayo on <em>Time With David</em>, hosted by David Ampofo. Video: <a href="https://www.youtube.com/watch?v=ECh9DsJ0XvU" target="_blank" rel="noopener">David Ampofo / YouTube</a></figcaption>
