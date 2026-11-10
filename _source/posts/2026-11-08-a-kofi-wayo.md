@@ -32,7 +32,7 @@ And then he came home, and he made sure we noticed. By his own count he owned 19
 He had his own explanation for the noise. Sitting with David Ampofo on *Time With David*, Wayo said he was in politics to improve the lives of ordinary Ghanaians.
 
 <figure class="video">
-<div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/ECh9DsJ0XvU?start=0&amp;end=300" title="Time With David interview with Kofi Wayo" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+<div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/ECh9DsJ0XvU?start=24&amp;end=300" title="Time With David interview with Kofi Wayo" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
 <figcaption>Kofi Wayo on <em>Time With David</em>, hosted by David Ampofo (first five minutes; the full 23-minute interview is on YouTube). Video: <a href="https://www.youtube.com/watch?v=ECh9DsJ0XvU" target="_blank" rel="noopener">David Ampofo / YouTube</a></figcaption>
 </figure>
 
